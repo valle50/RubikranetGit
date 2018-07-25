@@ -1,4 +1,5 @@
 --Después de aprobar todos los catálogos, creamos los insert aquí mismo
+
 /*
 Catálogo estatus_empleados
 id_estatus	nombre_estatus
