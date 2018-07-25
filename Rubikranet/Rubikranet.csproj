@@ -153,6 +153,12 @@
     <Compile Include="Clientes\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\ClientesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Clientes\ClientesControl.Designer.cs">
+      <DependentUpon>ClientesControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Prueba.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\ClientesControl.resx">
+      <DependentUpon>ClientesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\Prueba.resx">
       <DependentUpon>Prueba.cs</DependentUpon>

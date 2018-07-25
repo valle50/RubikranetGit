@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace Rubikranet.Clientes
 {
-    public partial class Clientes : UserControl
+    public partial class ClientesControl : UserControl
     {
-        public Clientes()
+        public ClientesControl()
         {
             InitializeComponent();
         }
 
-        private void Clientes_Load(object sender, EventArgs e)
+        private void metroSetButton1_Click(object sender, EventArgs e)
         {
-            //lelelelelelele
+
+        }
+
+        private void ClientesControl_Load(object sender, EventArgs e)
+        {
+            //elelelele
         }
     }
 }

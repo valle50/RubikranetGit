@@ -66,6 +66,7 @@
             this.Controls.Add(this.metroSetLabel1);
             this.Name = "Clientes";
             this.Size = new System.Drawing.Size(465, 340);
+            this.Load += new System.EventHandler(this.Clientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
