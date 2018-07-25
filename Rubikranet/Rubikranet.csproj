@@ -147,24 +147,6 @@
     <Compile Include="Acceso.Designer.cs">
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="Clientes\Clientes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Clientes\Clientes.Designer.cs">
-      <DependentUpon>Clientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\ClientesControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Clientes\ClientesControl.Designer.cs">
-      <DependentUpon>ClientesControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Clientes\Prueba.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Clientes\Prueba.Designer.cs">
-      <DependentUpon>Prueba.cs</DependentUpon>
-    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Funciones\Funcion.cs" />
     <Compile Include="Funciones\Mensajes.cs" />
@@ -218,15 +200,6 @@
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clientes\Clientes.resx">
-      <DependentUpon>Clientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clientes\ClientesControl.resx">
-      <DependentUpon>ClientesControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Clientes\Prueba.resx">
-      <DependentUpon>Prueba.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +239,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Clientes\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>
