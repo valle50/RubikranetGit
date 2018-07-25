@@ -74,6 +74,7 @@ namespace Rubikranet
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             Acceso access = new Acceso();
+            //serialPort.Close();
             this.Hide();
             access.ShowDialog();
         }
@@ -100,6 +101,7 @@ namespace Rubikranet
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Acceso access = new Acceso();
+            //serialPort.Close();
             this.Hide();
             access.ShowDialog();
         }

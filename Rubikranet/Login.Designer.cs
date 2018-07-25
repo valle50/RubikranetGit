@@ -50,6 +50,7 @@
             // 
             this.txt_RFID.BackColor = System.Drawing.Color.White;
             this.txt_RFID.Depth = 0;
+            this.txt_RFID.Enabled = false;
             this.txt_RFID.Hint = "";
             this.txt_RFID.Location = new System.Drawing.Point(73, 172);
             this.txt_RFID.MouseState = MaterialSkin.MouseState.HOVER;
@@ -153,7 +154,7 @@
             this.txt_NIP.Location = new System.Drawing.Point(73, 212);
             this.txt_NIP.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_NIP.Name = "txt_NIP";
-            this.txt_NIP.PasswordChar = '\0';
+            this.txt_NIP.PasswordChar = '*';
             this.txt_NIP.SelectedText = "";
             this.txt_NIP.SelectionLength = 0;
             this.txt_NIP.SelectionStart = 0;

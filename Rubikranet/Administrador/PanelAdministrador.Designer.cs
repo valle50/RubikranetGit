@@ -64,7 +64,6 @@
             this.lblSeccion});
             this.BarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.BarraSuperior.Name = "BarraSuperior";
-            this.BarraSuperior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.BarraSuperior.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BarraSuperior.Size = new System.Drawing.Size(960, 50);
             this.BarraSuperior.TabIndex = 0;
@@ -246,6 +245,8 @@
             // panelAdmin
             // 
             this.panelAdmin.BackColor = System.Drawing.Color.White;
+            this.panelAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelAdmin.BackgroundImage")));
+            this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdmin.Location = new System.Drawing.Point(50, 50);
             this.panelAdmin.Name = "panelAdmin";
@@ -257,6 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.BarraLateral);
             this.Controls.Add(this.BarraSuperior);
