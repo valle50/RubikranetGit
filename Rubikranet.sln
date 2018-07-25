@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rubikranet", "Rubikranet\Rubikranet.csproj", "{E3B5F4EA-2F98-4E78-907C-533CA778AF41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3B5F4EA-2F98-4E78-907C-533CA778AF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B5F4EA-2F98-4E78-907C-533CA778AF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B5F4EA-2F98-4E78-907C-533CA778AF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B5F4EA-2F98-4E78-907C-533CA778AF41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
