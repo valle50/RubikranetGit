@@ -18,6 +18,7 @@ namespace Rubikranet.Administrador
             this.Dock = DockStyle.Fill;
             //commit prueba jajaja hola hermosa <3
             //paco chalo XD
+            // se mamo la tablusus XD ajajaja
         }
 
         public static Areas Instancia = new Areas();
