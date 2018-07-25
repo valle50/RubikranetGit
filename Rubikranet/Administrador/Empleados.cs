@@ -26,11 +26,6 @@ namespace Rubikranet.Administrador
         }
 
         public static Empleados Instancia = new Empleados();
-
-        private void Empleados_Load(object sender, EventArgs e)
-        {
-
-        }
         private void Limpia()
         {
             foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
@@ -52,6 +47,7 @@ namespace Rubikranet.Administrador
             btnGuardar.BackgroundImage = Properties.Resources.diskette;
         }
 
+        //LLena el combo de municipios de acuerdo al estado seleccionado
         private void comboEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboEstado.SelectedIndex != 0)
@@ -82,6 +78,7 @@ namespace Rubikranet.Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            btnGuardar.Focus();//Se pone el foco en el botón, porque despues al verificar las validaciones, se comporta algo extraño cuando el foco lo tiene un campo de texto.
             char sexo = ' ';
             if (radioSexo.Checked)
             {
@@ -90,12 +87,11 @@ namespace Rubikranet.Administrador
             else if (radioSexo2.Checked)
             {
                 sexo = Convert.ToChar(radioSexo2.Tag);
-            }
-            btnGuardar.Focus();
+            }            
 
             if (!Validar.Requeridos(txts) || !Validar.ComboRequerido(combos) || sexo == ' ' || !Validar.email || !Validar.phone)
             {
-                Mensajes.Caja("Warning", "Campos requeridos", "Ningún dato debe quedar vacío.");
+                Mensajes.Caja("Warning", "Campos requeridos", "Ningún dato debe quedar vacío y/o con información incorrecta (campos de color).");
             }
             else if(MessageBox.Show("¿Continuar con la acción?", "Nuevo/Actualizar registro.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -139,6 +135,8 @@ namespace Rubikranet.Administrador
 
                 if (boton.Name == "btnEditar" && MessageBox.Show("¿Editar registro?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    //Aquí el check toma el id del empleado de la columna que se ocultó y que se encuentra en la posición 3... (Se ocultaron en la carga) 
+                    //El 0 es el botón editar, 1 = btnEliminar, 2 = columna "num" y 3 = columna "id_empleado", los últimos dos se ocultaron, pero siguen ahí
                     check = dgv.CurrentRow.Cells[3].Value.ToString(); 
 
                     Conexion.Consulta(
@@ -251,8 +249,21 @@ namespace Rubikranet.Administrador
                     break;
 
                 case 2:
+                    Conexion.Paginar(
+                        string.Format("select * from listarEmpleados order by num desc"),
+                        "DataMember1", 20);
+
+                    Funcion.CargaTablaDatos_Estilos_Botones(tablaEmpleados);
+                    Actualizar();                    
+
+                    tablaEmpleados.Columns[2].Visible = false;
+                    tablaEmpleados.Columns[3].Visible = false;
+                    
+                    break;
+
+                case 3:
                     Conexion.Consulta(String.Format("select * from estados"));
-                    CargaCombos("Estado...",comboEstado, "id_estado", "nombre_estado");
+                    CargaCombos("Estado...", comboEstado, "id_estado", "nombre_estado");
                     Conexion.con.Close();
 
                     Conexion.Consulta("select * from estatus_empleados");
@@ -276,20 +287,8 @@ namespace Rubikranet.Administrador
                     item0.Text = "Municipio...";
 
                     comboMunicipio.Items.Add(item0);
-                    break;
 
-                case 3:
-                    Conexion.Paginar(
-                        string.Format("select * from listarEmpleados order by num desc"),
-                        "DataMember1", 20);
-
-                    Funcion.CargaTablaDatos_Estilos_Botones(tablaEmpleados);
-                    Actualizar();
                     SendKeys.SendWait("{ENTER}");
-
-                    tablaEmpleados.Columns[2].Visible = false;
-                    tablaEmpleados.Columns[3].Visible = false;
-                    
                     break;
 
                 case 4:
