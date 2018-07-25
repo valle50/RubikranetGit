@@ -53,7 +53,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.materialSingleLineTextField1);
             this.Name = "Clientes";
-            this.Size = new System.Drawing.Size(748, 449);
+            this.Size = new System.Drawing.Size(910, 584);
             this.ResumeLayout(false);
 
         }
