@@ -76,11 +76,6 @@ namespace Rubikranet.Administrador
             ManipulaContenido(Inventarios.Instancia, sender, lblSeccion);
         }
 
-        private void btnUsuario_Click(object sender, EventArgs e)
-        {
-            ManipulaContenido(Usuarios.Instancia, sender, lblSeccion);
-        }
-
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
             ManipulaContenido(Empleados.Instancia, sender, lblSeccion);

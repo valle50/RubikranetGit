@@ -123,12 +123,6 @@
     <Compile Include="Administrador\Promociones.Designer.cs">
       <DependentUpon>Promociones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\Usuarios.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Administrador\Usuarios.Designer.cs">
-      <DependentUpon>Usuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\Ventas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,9 +187,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Promociones.resx">
       <DependentUpon>Promociones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administrador\Usuarios.resx">
-      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
@@ -282,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bdProyDatos.sql" />
+    <Content Include="Scripts\CatalogosTablas.sql" />
     <Content Include="Scripts\procedimientosChris.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

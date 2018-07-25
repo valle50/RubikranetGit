@@ -117,6 +117,7 @@ namespace Rubikranet.Administrador
             }
 
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea cancelar la operación?", "Cancelar acción.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -124,6 +125,7 @@ namespace Rubikranet.Administrador
                 Limpia();
             }                
         }
+
         private void tablaEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var dgv = sender as DataGridView;
@@ -203,6 +205,7 @@ namespace Rubikranet.Administrador
                 return Text;
             }
         }
+
         private void CargaCombos(string text0, object o, string value, string text)
         {
             var combo = o as MetroFramework.Controls.MetroComboBox;

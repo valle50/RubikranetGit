@@ -44,7 +44,6 @@
             this.btnPromociones = new System.Windows.Forms.ToolStripButton();
             this.btnArea = new System.Windows.Forms.ToolStripButton();
             this.btnInventario = new System.Windows.Forms.ToolStripButton();
-            this.btnUsuario = new System.Windows.Forms.ToolStripButton();
             this.btnEmpleado = new System.Windows.Forms.ToolStripButton();
             this.btnEntradas_salidas = new System.Windows.Forms.ToolStripButton();
             this.panelAdmin = new System.Windows.Forms.Panel();
@@ -146,7 +145,6 @@
             this.btnPromociones,
             this.btnArea,
             this.btnInventario,
-            this.btnUsuario,
             this.btnEmpleado,
             this.btnEntradas_salidas});
             this.BarraLateral.Location = new System.Drawing.Point(0, 50);
@@ -223,17 +221,6 @@
             this.btnInventario.Text = "Inventarios";
             this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
-            // btnUsuario
-            // 
-            this.btnUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
-            this.btnUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(0, 1, 0, 20);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(48, 34);
-            this.btnUsuario.Text = "Usuario";
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
             // btnEmpleado
             // 
             this.btnEmpleado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -293,7 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem miInformaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnPromociones;
-        private System.Windows.Forms.ToolStripButton btnUsuario;
         private System.Windows.Forms.ToolStripButton btnEmpleado;
         private System.Windows.Forms.ToolStripButton btnArea;
         private System.Windows.Forms.ToolStripButton btnInventario;

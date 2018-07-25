@@ -699,6 +699,7 @@
             this.tablaEmpleados.Location = new System.Drawing.Point(0, 308);
             this.tablaEmpleados.Name = "tablaEmpleados";
             this.tablaEmpleados.ReadOnly = true;
+            this.tablaEmpleados.RowHeadersVisible = false;
             this.tablaEmpleados.Size = new System.Drawing.Size(910, 276);
             this.tablaEmpleados.TabIndex = 0;
             this.tablaEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tablaEmpleados_CellContentClick);
