@@ -245,7 +245,7 @@
             // panelAdmin
             // 
             this.panelAdmin.BackColor = System.Drawing.Color.White;
-            this.panelAdmin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelAdmin.BackgroundImage")));
+            this.panelAdmin.BackgroundImage = global::Rubikranet.Properties.Resources.fondo3;
             this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdmin.Location = new System.Drawing.Point(50, 50);

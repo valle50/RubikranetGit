@@ -282,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\fondo3.jpg" />
     <Content Include="Scripts\bdProyDatos.sql" />
     <Content Include="Scripts\CatalogosTablas.sql" />
     <Content Include="Scripts\procedimientosChris.sql" />

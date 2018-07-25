@@ -87,7 +87,7 @@
             this.btnRecargar.Image = ((System.Drawing.Image)(resources.GetObject("btnRecargar.Image")));
             this.btnRecargar.Location = new System.Drawing.Point(177, 98);
             this.btnRecargar.Name = "btnRecargar";
-            this.btnRecargar.Size = new System.Drawing.Size(50, 46);
+            this.btnRecargar.Size = new System.Drawing.Size(45, 45);
             this.btnRecargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRecargar.TabIndex = 2;
             this.btnRecargar.TabStop = false;
@@ -100,7 +100,7 @@
             this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
             this.btnContinuar.Location = new System.Drawing.Point(255, 98);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(50, 46);
+            this.btnContinuar.Size = new System.Drawing.Size(45, 45);
             this.btnContinuar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnContinuar.TabIndex = 3;
             this.btnContinuar.TabStop = false;
@@ -109,7 +109,7 @@
             // metroSetLabel2
             // 
             this.metroSetLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.metroSetLabel2.Location = new System.Drawing.Point(167, 147);
+            this.metroSetLabel2.Location = new System.Drawing.Point(167, 139);
             this.metroSetLabel2.Name = "metroSetLabel2";
             this.metroSetLabel2.Size = new System.Drawing.Size(69, 23);
             this.metroSetLabel2.Style = MetroSet_UI.Design.Style.Light;
@@ -122,7 +122,7 @@
             // metroSetLabel3
             // 
             this.metroSetLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.metroSetLabel3.Location = new System.Drawing.Point(242, 147);
+            this.metroSetLabel3.Location = new System.Drawing.Point(242, 139);
             this.metroSetLabel3.Name = "metroSetLabel3";
             this.metroSetLabel3.Size = new System.Drawing.Size(72, 23);
             this.metroSetLabel3.Style = MetroSet_UI.Design.Style.Light;

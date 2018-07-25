@@ -25,6 +25,7 @@ namespace Rubikranet.Administrador
             var controlUsuario = a as UserControl;
             var boton = b as ToolStripButton;
             var seccion = c as ToolStripLabel;
+            panelAdmin.BackgroundImage = null;
 
             if (!panelAdmin.Controls.Contains(controlUsuario))
             {
@@ -45,6 +46,7 @@ namespace Rubikranet.Administrador
             else
             {
                 panelAdmin.Controls.Remove(controlUsuario);
+                panelAdmin.BackgroundImage = Properties.Resources.fondo3;
                 boton.BackColor = BarraLateral.BackColor;
                 seccion.Text = "Inicio";
             }
