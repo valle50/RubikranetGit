@@ -16,7 +16,7 @@ namespace Rubikranet.Administrador
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            //commit nuevo
+            //commit prueba
         }
 
         public static Areas Instancia = new Areas();
