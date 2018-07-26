@@ -283,6 +283,7 @@
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\fondo3.jpg" />
+    <None Include="Resources\cancel.png" />
     <Content Include="Scripts\bdProyDatos.sql" />
     <Content Include="Scripts\Cambios a BD.sql" />
     <Content Include="Scripts\CatalogosTablas.sql" />
