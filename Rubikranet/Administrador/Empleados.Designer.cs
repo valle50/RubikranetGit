@@ -44,55 +44,56 @@
             this.btnSiguiente = new System.Windows.Forms.PictureBox();
             this.btnAnterior = new System.Windows.Forms.PictureBox();
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
-            this.tabEmpleados = new System.Windows.Forms.TabControl();
-            this.tab1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnCancelar = new System.Windows.Forms.PictureBox();
-            this.btnGuardar = new System.Windows.Forms.PictureBox();
-            this.comboArea = new MetroFramework.Controls.MetroComboBox();
-            this.comboPrivilegio = new MetroFramework.Controls.MetroComboBox();
-            this.comboCargo = new MetroFramework.Controls.MetroComboBox();
-            this.comboEstatus = new MetroFramework.Controls.MetroComboBox();
-            this.txtNIP = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtRFID = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtTelefono = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.comboMunicipio = new MetroFramework.Controls.MetroComboBox();
-            this.comboEstado = new MetroFramework.Controls.MetroComboBox();
-            this.txtCP = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtDirección = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.dtNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.radioSexo2 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.radioSexo = new MaterialSkin.Controls.MaterialRadioButton();
-            this.txtAM = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtAP = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.txtId = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.tab2 = new System.Windows.Forms.TabPage();
             this.ListaImagenes = new System.Windows.Forms.ImageList(this.components);
             this.tablaEmpleados = new System.Windows.Forms.DataGridView();
             this.timerCarga = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtId = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtAP = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtAM = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.radioSexo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioSexo2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.dtNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtDirección = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtCP = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.comboEstado = new MetroFramework.Controls.MetroComboBox();
+            this.comboMunicipio = new MetroFramework.Controls.MetroComboBox();
+            this.txtTelefono = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtCorreo = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtRFID = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtNIP = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.comboEstatus = new MetroFramework.Controls.MetroComboBox();
+            this.comboCargo = new MetroFramework.Controls.MetroComboBox();
+            this.comboPrivilegio = new MetroFramework.Controls.MetroComboBox();
+            this.comboArea = new MetroFramework.Controls.MetroComboBox();
+            this.btnGuardar = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new System.Windows.Forms.PictureBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.comboTurnos = new MetroFramework.Controls.MetroComboBox();
+            this.dtDiaInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtDiaFin = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).BeginInit();
-            this.tabEmpleados.SuspendLayout();
-            this.tab1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleados)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel
             // 
             this.panel.BackColor = System.Drawing.SystemColors.Control;
             this.panel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.btnRefrescar);
             this.panel.Controls.Add(this.txtBuscar);
             this.panel.Controls.Add(this.comboCantidadReg);
@@ -106,7 +107,6 @@
             this.panel.Controls.Add(this.btnSiguiente);
             this.panel.Controls.Add(this.btnAnterior);
             this.panel.Controls.Add(this.btnPrimerPagina);
-            this.panel.Controls.Add(this.tabEmpleados);
             this.panel.Controls.Add(this.tablaEmpleados);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
@@ -293,401 +293,6 @@
             this.btnPrimerPagina.TabStop = false;
             this.btnPrimerPagina.Click += new System.EventHandler(this.btnPrimerPagina_Click);
             // 
-            // tabEmpleados
-            // 
-            this.tabEmpleados.Controls.Add(this.tab1);
-            this.tabEmpleados.Controls.Add(this.tab2);
-            this.tabEmpleados.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabEmpleados.ImageList = this.ListaImagenes;
-            this.tabEmpleados.Location = new System.Drawing.Point(0, 0);
-            this.tabEmpleados.Name = "tabEmpleados";
-            this.tabEmpleados.SelectedIndex = 0;
-            this.tabEmpleados.Size = new System.Drawing.Size(910, 257);
-            this.tabEmpleados.TabIndex = 1;
-            // 
-            // tab1
-            // 
-            this.tab1.Controls.Add(this.panel1);
-            this.tab1.ImageIndex = 0;
-            this.tab1.Location = new System.Drawing.Point(4, 23);
-            this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(902, 230);
-            this.tab1.TabIndex = 0;
-            this.tab1.Text = "Nuevo/actualiza Empleado";
-            this.tab1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.materialLabel5);
-            this.panel1.Controls.Add(this.materialLabel3);
-            this.panel1.Controls.Add(this.btnCancelar);
-            this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.comboArea);
-            this.panel1.Controls.Add(this.comboPrivilegio);
-            this.panel1.Controls.Add(this.comboCargo);
-            this.panel1.Controls.Add(this.comboEstatus);
-            this.panel1.Controls.Add(this.txtNIP);
-            this.panel1.Controls.Add(this.txtRFID);
-            this.panel1.Controls.Add(this.txtCorreo);
-            this.panel1.Controls.Add(this.txtTelefono);
-            this.panel1.Controls.Add(this.comboMunicipio);
-            this.panel1.Controls.Add(this.comboEstado);
-            this.panel1.Controls.Add(this.txtCP);
-            this.panel1.Controls.Add(this.txtDirección);
-            this.panel1.Controls.Add(this.materialLabel1);
-            this.panel1.Controls.Add(this.dtNacimiento);
-            this.panel1.Controls.Add(this.radioSexo2);
-            this.panel1.Controls.Add(this.radioSexo);
-            this.panel1.Controls.Add(this.txtAM);
-            this.panel1.Controls.Add(this.txtAP);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.txtId);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 224);
-            this.panel1.TabIndex = 0;
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(508, 117);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(44, 19);
-            this.materialLabel5.TabIndex = 23;
-            this.materialLabel5.Text = "RFID:";
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(14, 19);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(96, 19);
-            this.materialLabel3.TabIndex = 22;
-            this.materialLabel3.Text = "Id Empleado:";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
-            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.Location = new System.Drawing.Point(812, 181);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(40, 40);
-            this.btnCancelar.TabIndex = 21;
-            this.btnCancelar.TabStop = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackgroundImage = global::Rubikranet.Properties.Resources.diskette;
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.Location = new System.Drawing.Point(756, 181);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(40, 40);
-            this.btnGuardar.TabIndex = 20;
-            this.btnGuardar.TabStop = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // comboArea
-            // 
-            this.comboArea.FormattingEnabled = true;
-            this.comboArea.ItemHeight = 23;
-            this.comboArea.Location = new System.Drawing.Point(726, 142);
-            this.comboArea.Name = "comboArea";
-            this.comboArea.Size = new System.Drawing.Size(154, 29);
-            this.comboArea.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboArea.TabIndex = 19;
-            // 
-            // comboPrivilegio
-            // 
-            this.comboPrivilegio.FormattingEnabled = true;
-            this.comboPrivilegio.ItemHeight = 23;
-            this.comboPrivilegio.Location = new System.Drawing.Point(726, 105);
-            this.comboPrivilegio.Name = "comboPrivilegio";
-            this.comboPrivilegio.Size = new System.Drawing.Size(154, 29);
-            this.comboPrivilegio.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboPrivilegio.TabIndex = 18;
-            // 
-            // comboCargo
-            // 
-            this.comboCargo.FormattingEnabled = true;
-            this.comboCargo.ItemHeight = 23;
-            this.comboCargo.Location = new System.Drawing.Point(726, 70);
-            this.comboCargo.Name = "comboCargo";
-            this.comboCargo.Size = new System.Drawing.Size(154, 29);
-            this.comboCargo.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboCargo.TabIndex = 17;
-            // 
-            // comboEstatus
-            // 
-            this.comboEstatus.FormattingEnabled = true;
-            this.comboEstatus.ItemHeight = 23;
-            this.comboEstatus.Location = new System.Drawing.Point(726, 35);
-            this.comboEstatus.Name = "comboEstatus";
-            this.comboEstatus.Size = new System.Drawing.Size(154, 29);
-            this.comboEstatus.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboEstatus.TabIndex = 16;
-            // 
-            // txtNIP
-            // 
-            this.txtNIP.Depth = 0;
-            this.txtNIP.Hint = "NIP...";
-            this.txtNIP.Location = new System.Drawing.Point(512, 171);
-            this.txtNIP.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNIP.Name = "txtNIP";
-            this.txtNIP.PasswordChar = '\0';
-            this.txtNIP.SelectedText = "";
-            this.txtNIP.SelectionLength = 0;
-            this.txtNIP.SelectionStart = 0;
-            this.txtNIP.Size = new System.Drawing.Size(84, 23);
-            this.txtNIP.TabIndex = 15;
-            this.txtNIP.Tag = "NIP...";
-            this.txtNIP.UseSystemPasswordChar = false;
-            // 
-            // txtRFID
-            // 
-            this.txtRFID.Depth = 0;
-            this.txtRFID.Hint = "RFID...";
-            this.txtRFID.Location = new System.Drawing.Point(512, 133);
-            this.txtRFID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtRFID.Name = "txtRFID";
-            this.txtRFID.PasswordChar = '\0';
-            this.txtRFID.SelectedText = "";
-            this.txtRFID.SelectionLength = 0;
-            this.txtRFID.SelectionStart = 0;
-            this.txtRFID.Size = new System.Drawing.Size(194, 23);
-            this.txtRFID.TabIndex = 14;
-            this.txtRFID.Tag = "RFID...";
-            this.txtRFID.UseSystemPasswordChar = false;
-            // 
-            // txtCorreo
-            // 
-            this.txtCorreo.Depth = 0;
-            this.txtCorreo.Hint = "Correo...";
-            this.txtCorreo.Location = new System.Drawing.Point(512, 75);
-            this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.PasswordChar = '\0';
-            this.txtCorreo.SelectedText = "";
-            this.txtCorreo.SelectionLength = 0;
-            this.txtCorreo.SelectionStart = 0;
-            this.txtCorreo.Size = new System.Drawing.Size(198, 23);
-            this.txtCorreo.TabIndex = 13;
-            this.txtCorreo.Tag = "Correo...";
-            this.txtCorreo.UseSystemPasswordChar = false;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Depth = 0;
-            this.txtTelefono.Hint = "Teléfono...";
-            this.txtTelefono.Location = new System.Drawing.Point(508, 41);
-            this.txtTelefono.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PasswordChar = '\0';
-            this.txtTelefono.SelectedText = "";
-            this.txtTelefono.SelectionLength = 0;
-            this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.Size = new System.Drawing.Size(198, 23);
-            this.txtTelefono.TabIndex = 12;
-            this.txtTelefono.Tag = "Teléfono...";
-            this.txtTelefono.UseSystemPasswordChar = false;
-            // 
-            // comboMunicipio
-            // 
-            this.comboMunicipio.FormattingEnabled = true;
-            this.comboMunicipio.ItemHeight = 23;
-            this.comboMunicipio.Location = new System.Drawing.Point(244, 181);
-            this.comboMunicipio.Name = "comboMunicipio";
-            this.comboMunicipio.Size = new System.Drawing.Size(198, 29);
-            this.comboMunicipio.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboMunicipio.TabIndex = 11;
-            // 
-            // comboEstado
-            // 
-            this.comboEstado.FormattingEnabled = true;
-            this.comboEstado.ItemHeight = 23;
-            this.comboEstado.Location = new System.Drawing.Point(244, 142);
-            this.comboEstado.Name = "comboEstado";
-            this.comboEstado.Size = new System.Drawing.Size(198, 29);
-            this.comboEstado.Style = MetroFramework.MetroColorStyle.Black;
-            this.comboEstado.TabIndex = 10;
-            this.comboEstado.SelectedIndexChanged += new System.EventHandler(this.comboEstado_SelectedIndexChanged);
-            // 
-            // txtCP
-            // 
-            this.txtCP.Depth = 0;
-            this.txtCP.Hint = "Código postal...";
-            this.txtCP.Location = new System.Drawing.Point(244, 113);
-            this.txtCP.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtCP.Name = "txtCP";
-            this.txtCP.PasswordChar = '\0';
-            this.txtCP.SelectedText = "";
-            this.txtCP.SelectionLength = 0;
-            this.txtCP.SelectionStart = 0;
-            this.txtCP.Size = new System.Drawing.Size(111, 23);
-            this.txtCP.TabIndex = 9;
-            this.txtCP.Tag = "Código postal...";
-            this.txtCP.UseSystemPasswordChar = false;
-            // 
-            // txtDirección
-            // 
-            this.txtDirección.Depth = 0;
-            this.txtDirección.Hint = "Dirección...";
-            this.txtDirección.Location = new System.Drawing.Point(244, 75);
-            this.txtDirección.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtDirección.Name = "txtDirección";
-            this.txtDirección.PasswordChar = '\0';
-            this.txtDirección.SelectedText = "";
-            this.txtDirección.SelectionLength = 0;
-            this.txtDirección.SelectionStart = 0;
-            this.txtDirección.Size = new System.Drawing.Size(247, 23);
-            this.txtDirección.TabIndex = 8;
-            this.txtDirección.Tag = "Dirección...";
-            this.txtDirección.UseSystemPasswordChar = false;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(243, 19);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(132, 19);
-            this.materialLabel1.TabIndex = 7;
-            this.materialLabel1.Text = "Fecha nacimiento:";
-            // 
-            // dtNacimiento
-            // 
-            this.dtNacimiento.Location = new System.Drawing.Point(244, 44);
-            this.dtNacimiento.Name = "dtNacimiento";
-            this.dtNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dtNacimiento.TabIndex = 6;
-            // 
-            // radioSexo2
-            // 
-            this.radioSexo2.AutoSize = true;
-            this.radioSexo2.Depth = 0;
-            this.radioSexo2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.radioSexo2.Location = new System.Drawing.Point(125, 181);
-            this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
-            this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioSexo2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioSexo2.Name = "radioSexo2";
-            this.radioSexo2.Ripple = true;
-            this.radioSexo2.Size = new System.Drawing.Size(90, 30);
-            this.radioSexo2.TabIndex = 5;
-            this.radioSexo2.TabStop = true;
-            this.radioSexo2.Tag = "f";
-            this.radioSexo2.Text = "Femenino";
-            this.radioSexo2.UseVisualStyleBackColor = true;
-            // 
-            // radioSexo
-            // 
-            this.radioSexo.AutoSize = true;
-            this.radioSexo.Depth = 0;
-            this.radioSexo.Font = new System.Drawing.Font("Roboto", 10F);
-            this.radioSexo.Location = new System.Drawing.Point(14, 181);
-            this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
-            this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioSexo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioSexo.Name = "radioSexo";
-            this.radioSexo.Ripple = true;
-            this.radioSexo.Size = new System.Drawing.Size(93, 30);
-            this.radioSexo.TabIndex = 4;
-            this.radioSexo.TabStop = true;
-            this.radioSexo.Tag = "m";
-            this.radioSexo.Text = "Masculino";
-            this.radioSexo.UseVisualStyleBackColor = true;
-            // 
-            // txtAM
-            // 
-            this.txtAM.Depth = 0;
-            this.txtAM.Hint = "Apellido materno...";
-            this.txtAM.Location = new System.Drawing.Point(18, 148);
-            this.txtAM.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtAM.Name = "txtAM";
-            this.txtAM.PasswordChar = '\0';
-            this.txtAM.SelectedText = "";
-            this.txtAM.SelectionLength = 0;
-            this.txtAM.SelectionStart = 0;
-            this.txtAM.Size = new System.Drawing.Size(200, 23);
-            this.txtAM.TabIndex = 3;
-            this.txtAM.Tag = "Apellido materno...";
-            this.txtAM.UseSystemPasswordChar = false;
-            // 
-            // txtAP
-            // 
-            this.txtAP.Depth = 0;
-            this.txtAP.Hint = "Apellido paterno...";
-            this.txtAP.Location = new System.Drawing.Point(18, 111);
-            this.txtAP.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtAP.Name = "txtAP";
-            this.txtAP.PasswordChar = '\0';
-            this.txtAP.SelectedText = "";
-            this.txtAP.SelectionLength = 0;
-            this.txtAP.SelectionStart = 0;
-            this.txtAP.Size = new System.Drawing.Size(200, 23);
-            this.txtAP.TabIndex = 2;
-            this.txtAP.Tag = "Apellido paterno...";
-            this.txtAP.UseSystemPasswordChar = false;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Depth = 0;
-            this.txtNombre.Hint = "Nombre...";
-            this.txtNombre.Location = new System.Drawing.Point(17, 75);
-            this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PasswordChar = '\0';
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.SelectionLength = 0;
-            this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(201, 23);
-            this.txtNombre.TabIndex = 1;
-            this.txtNombre.Tag = "Nombre...";
-            this.txtNombre.UseSystemPasswordChar = false;
-            // 
-            // txtId
-            // 
-            this.txtId.Depth = 0;
-            this.txtId.Hint = "Id empleado...";
-            this.txtId.Location = new System.Drawing.Point(18, 41);
-            this.txtId.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtId.Name = "txtId";
-            this.txtId.PasswordChar = '\0';
-            this.txtId.SelectedText = "";
-            this.txtId.SelectionLength = 0;
-            this.txtId.SelectionStart = 0;
-            this.txtId.Size = new System.Drawing.Size(200, 23);
-            this.txtId.TabIndex = 0;
-            this.txtId.Tag = "Id empleado...";
-            this.txtId.UseSystemPasswordChar = false;
-            // 
-            // tab2
-            // 
-            this.tab2.ImageIndex = 1;
-            this.tab2.Location = new System.Drawing.Point(4, 23);
-            this.tab2.Name = "tab2";
-            this.tab2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2.Size = new System.Drawing.Size(902, 230);
-            this.tab2.TabIndex = 1;
-            this.tab2.Text = "Otro...";
-            this.tab2.UseVisualStyleBackColor = true;
-            // 
             // ListaImagenes
             // 
             this.ListaImagenes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ListaImagenes.ImageStream")));
@@ -715,8 +320,424 @@
             // 
             // timerCarga
             // 
-            this.timerCarga.Interval = 1000;
+            this.timerCarga.Interval = 500;
             this.timerCarga.Tick += new System.EventHandler(this.timerEmpleados_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.materialLabel8);
+            this.panel1.Controls.Add(this.materialLabel7);
+            this.panel1.Controls.Add(this.dtDiaFin);
+            this.panel1.Controls.Add(this.dtDiaInicio);
+            this.panel1.Controls.Add(this.comboTurnos);
+            this.panel1.Controls.Add(this.materialLabel5);
+            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Controls.Add(this.btnCancelar);
+            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.comboArea);
+            this.panel1.Controls.Add(this.comboPrivilegio);
+            this.panel1.Controls.Add(this.comboCargo);
+            this.panel1.Controls.Add(this.comboEstatus);
+            this.panel1.Controls.Add(this.txtNIP);
+            this.panel1.Controls.Add(this.txtRFID);
+            this.panel1.Controls.Add(this.txtCorreo);
+            this.panel1.Controls.Add(this.txtTelefono);
+            this.panel1.Controls.Add(this.comboMunicipio);
+            this.panel1.Controls.Add(this.comboEstado);
+            this.panel1.Controls.Add(this.txtCP);
+            this.panel1.Controls.Add(this.txtDirección);
+            this.panel1.Controls.Add(this.materialLabel1);
+            this.panel1.Controls.Add(this.dtNacimiento);
+            this.panel1.Controls.Add(this.radioSexo2);
+            this.panel1.Controls.Add(this.radioSexo);
+            this.panel1.Controls.Add(this.txtAM);
+            this.panel1.Controls.Add(this.txtAP);
+            this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(910, 256);
+            this.panel1.TabIndex = 0;
+            // 
+            // txtId
+            // 
+            this.txtId.Depth = 0;
+            this.txtId.Hint = "Id empleado...";
+            this.txtId.Location = new System.Drawing.Point(19, 35);
+            this.txtId.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtId.Name = "txtId";
+            this.txtId.PasswordChar = '\0';
+            this.txtId.SelectedText = "";
+            this.txtId.SelectionLength = 0;
+            this.txtId.SelectionStart = 0;
+            this.txtId.Size = new System.Drawing.Size(200, 23);
+            this.txtId.TabIndex = 0;
+            this.txtId.Tag = "Id empleado...";
+            this.txtId.UseSystemPasswordChar = false;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Depth = 0;
+            this.txtNombre.Hint = "Nombre...";
+            this.txtNombre.Location = new System.Drawing.Point(18, 69);
+            this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PasswordChar = '\0';
+            this.txtNombre.SelectedText = "";
+            this.txtNombre.SelectionLength = 0;
+            this.txtNombre.SelectionStart = 0;
+            this.txtNombre.Size = new System.Drawing.Size(201, 23);
+            this.txtNombre.TabIndex = 1;
+            this.txtNombre.Tag = "Nombre...";
+            this.txtNombre.UseSystemPasswordChar = false;
+            // 
+            // txtAP
+            // 
+            this.txtAP.Depth = 0;
+            this.txtAP.Hint = "Apellido paterno...";
+            this.txtAP.Location = new System.Drawing.Point(19, 105);
+            this.txtAP.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAP.Name = "txtAP";
+            this.txtAP.PasswordChar = '\0';
+            this.txtAP.SelectedText = "";
+            this.txtAP.SelectionLength = 0;
+            this.txtAP.SelectionStart = 0;
+            this.txtAP.Size = new System.Drawing.Size(200, 23);
+            this.txtAP.TabIndex = 2;
+            this.txtAP.Tag = "Apellido paterno...";
+            this.txtAP.UseSystemPasswordChar = false;
+            // 
+            // txtAM
+            // 
+            this.txtAM.Depth = 0;
+            this.txtAM.Hint = "Apellido materno...";
+            this.txtAM.Location = new System.Drawing.Point(19, 142);
+            this.txtAM.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAM.Name = "txtAM";
+            this.txtAM.PasswordChar = '\0';
+            this.txtAM.SelectedText = "";
+            this.txtAM.SelectionLength = 0;
+            this.txtAM.SelectionStart = 0;
+            this.txtAM.Size = new System.Drawing.Size(200, 23);
+            this.txtAM.TabIndex = 3;
+            this.txtAM.Tag = "Apellido materno...";
+            this.txtAM.UseSystemPasswordChar = false;
+            // 
+            // radioSexo
+            // 
+            this.radioSexo.AutoSize = true;
+            this.radioSexo.Depth = 0;
+            this.radioSexo.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioSexo.Location = new System.Drawing.Point(15, 175);
+            this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
+            this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioSexo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioSexo.Name = "radioSexo";
+            this.radioSexo.Ripple = true;
+            this.radioSexo.Size = new System.Drawing.Size(93, 30);
+            this.radioSexo.TabIndex = 4;
+            this.radioSexo.TabStop = true;
+            this.radioSexo.Tag = "m";
+            this.radioSexo.Text = "Masculino";
+            this.radioSexo.UseVisualStyleBackColor = true;
+            // 
+            // radioSexo2
+            // 
+            this.radioSexo2.AutoSize = true;
+            this.radioSexo2.Depth = 0;
+            this.radioSexo2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioSexo2.Location = new System.Drawing.Point(126, 175);
+            this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
+            this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioSexo2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioSexo2.Name = "radioSexo2";
+            this.radioSexo2.Ripple = true;
+            this.radioSexo2.Size = new System.Drawing.Size(90, 30);
+            this.radioSexo2.TabIndex = 5;
+            this.radioSexo2.TabStop = true;
+            this.radioSexo2.Tag = "f";
+            this.radioSexo2.Text = "Femenino";
+            this.radioSexo2.UseVisualStyleBackColor = true;
+            // 
+            // dtNacimiento
+            // 
+            this.dtNacimiento.Location = new System.Drawing.Point(16, 230);
+            this.dtNacimiento.Name = "dtNacimiento";
+            this.dtNacimiento.Size = new System.Drawing.Size(200, 20);
+            this.dtNacimiento.TabIndex = 6;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(15, 205);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(132, 19);
+            this.materialLabel1.TabIndex = 7;
+            this.materialLabel1.Text = "Fecha nacimiento:";
+            // 
+            // txtDirección
+            // 
+            this.txtDirección.Depth = 0;
+            this.txtDirección.Hint = "Dirección...";
+            this.txtDirección.Location = new System.Drawing.Point(256, 35);
+            this.txtDirección.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtDirección.Name = "txtDirección";
+            this.txtDirección.PasswordChar = '\0';
+            this.txtDirección.SelectedText = "";
+            this.txtDirección.SelectionLength = 0;
+            this.txtDirección.SelectionStart = 0;
+            this.txtDirección.Size = new System.Drawing.Size(247, 23);
+            this.txtDirección.TabIndex = 8;
+            this.txtDirección.Tag = "Dirección...";
+            this.txtDirección.UseSystemPasswordChar = false;
+            // 
+            // txtCP
+            // 
+            this.txtCP.Depth = 0;
+            this.txtCP.Hint = "Código postal...";
+            this.txtCP.Location = new System.Drawing.Point(256, 69);
+            this.txtCP.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCP.Name = "txtCP";
+            this.txtCP.PasswordChar = '\0';
+            this.txtCP.SelectedText = "";
+            this.txtCP.SelectionLength = 0;
+            this.txtCP.SelectionStart = 0;
+            this.txtCP.Size = new System.Drawing.Size(111, 23);
+            this.txtCP.TabIndex = 9;
+            this.txtCP.Tag = "Código postal...";
+            this.txtCP.UseSystemPasswordChar = false;
+            // 
+            // comboEstado
+            // 
+            this.comboEstado.FormattingEnabled = true;
+            this.comboEstado.ItemHeight = 23;
+            this.comboEstado.Location = new System.Drawing.Point(256, 108);
+            this.comboEstado.Name = "comboEstado";
+            this.comboEstado.Size = new System.Drawing.Size(198, 29);
+            this.comboEstado.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboEstado.TabIndex = 10;
+            this.comboEstado.SelectedIndexChanged += new System.EventHandler(this.comboEstado_SelectedIndexChanged);
+            // 
+            // comboMunicipio
+            // 
+            this.comboMunicipio.FormattingEnabled = true;
+            this.comboMunicipio.ItemHeight = 23;
+            this.comboMunicipio.Location = new System.Drawing.Point(256, 147);
+            this.comboMunicipio.Name = "comboMunicipio";
+            this.comboMunicipio.Size = new System.Drawing.Size(198, 29);
+            this.comboMunicipio.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboMunicipio.TabIndex = 11;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Depth = 0;
+            this.txtTelefono.Hint = "Teléfono...";
+            this.txtTelefono.Location = new System.Drawing.Point(256, 182);
+            this.txtTelefono.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.PasswordChar = '\0';
+            this.txtTelefono.SelectedText = "";
+            this.txtTelefono.SelectionLength = 0;
+            this.txtTelefono.SelectionStart = 0;
+            this.txtTelefono.Size = new System.Drawing.Size(198, 23);
+            this.txtTelefono.TabIndex = 12;
+            this.txtTelefono.Tag = "Teléfono...";
+            this.txtTelefono.UseSystemPasswordChar = false;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Depth = 0;
+            this.txtCorreo.Hint = "Correo...";
+            this.txtCorreo.Location = new System.Drawing.Point(256, 222);
+            this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.PasswordChar = '\0';
+            this.txtCorreo.SelectedText = "";
+            this.txtCorreo.SelectionLength = 0;
+            this.txtCorreo.SelectionStart = 0;
+            this.txtCorreo.Size = new System.Drawing.Size(198, 23);
+            this.txtCorreo.TabIndex = 13;
+            this.txtCorreo.Tag = "Correo...";
+            this.txtCorreo.UseSystemPasswordChar = false;
+            // 
+            // txtRFID
+            // 
+            this.txtRFID.Depth = 0;
+            this.txtRFID.Hint = "RFID...";
+            this.txtRFID.Location = new System.Drawing.Point(529, 35);
+            this.txtRFID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtRFID.Name = "txtRFID";
+            this.txtRFID.PasswordChar = '\0';
+            this.txtRFID.SelectedText = "";
+            this.txtRFID.SelectionLength = 0;
+            this.txtRFID.SelectionStart = 0;
+            this.txtRFID.Size = new System.Drawing.Size(194, 23);
+            this.txtRFID.TabIndex = 14;
+            this.txtRFID.Tag = "RFID...";
+            this.txtRFID.UseSystemPasswordChar = false;
+            // 
+            // txtNIP
+            // 
+            this.txtNIP.Depth = 0;
+            this.txtNIP.Hint = "NIP...";
+            this.txtNIP.Location = new System.Drawing.Point(529, 69);
+            this.txtNIP.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNIP.Name = "txtNIP";
+            this.txtNIP.PasswordChar = '\0';
+            this.txtNIP.SelectedText = "";
+            this.txtNIP.SelectionLength = 0;
+            this.txtNIP.SelectionStart = 0;
+            this.txtNIP.Size = new System.Drawing.Size(84, 23);
+            this.txtNIP.TabIndex = 15;
+            this.txtNIP.Tag = "NIP...";
+            this.txtNIP.UseSystemPasswordChar = false;
+            // 
+            // comboEstatus
+            // 
+            this.comboEstatus.FormattingEnabled = true;
+            this.comboEstatus.ItemHeight = 23;
+            this.comboEstatus.Location = new System.Drawing.Point(738, 35);
+            this.comboEstatus.Name = "comboEstatus";
+            this.comboEstatus.Size = new System.Drawing.Size(154, 29);
+            this.comboEstatus.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboEstatus.TabIndex = 16;
+            // 
+            // comboCargo
+            // 
+            this.comboCargo.FormattingEnabled = true;
+            this.comboCargo.ItemHeight = 23;
+            this.comboCargo.Location = new System.Drawing.Point(738, 79);
+            this.comboCargo.Name = "comboCargo";
+            this.comboCargo.Size = new System.Drawing.Size(154, 29);
+            this.comboCargo.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboCargo.TabIndex = 17;
+            // 
+            // comboPrivilegio
+            // 
+            this.comboPrivilegio.FormattingEnabled = true;
+            this.comboPrivilegio.ItemHeight = 23;
+            this.comboPrivilegio.Location = new System.Drawing.Point(738, 125);
+            this.comboPrivilegio.Name = "comboPrivilegio";
+            this.comboPrivilegio.Size = new System.Drawing.Size(154, 29);
+            this.comboPrivilegio.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboPrivilegio.TabIndex = 18;
+            // 
+            // comboArea
+            // 
+            this.comboArea.FormattingEnabled = true;
+            this.comboArea.ItemHeight = 23;
+            this.comboArea.Location = new System.Drawing.Point(738, 170);
+            this.comboArea.Name = "comboArea";
+            this.comboArea.Size = new System.Drawing.Size(154, 29);
+            this.comboArea.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboArea.TabIndex = 19;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackgroundImage = global::Rubikranet.Properties.Resources.diskette;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.Location = new System.Drawing.Point(768, 205);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(40, 40);
+            this.btnGuardar.TabIndex = 20;
+            this.btnGuardar.TabStop = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
+            this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.Location = new System.Drawing.Point(824, 205);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(40, 40);
+            this.btnCancelar.TabIndex = 21;
+            this.btnCancelar.TabStop = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(15, 13);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(96, 19);
+            this.materialLabel3.TabIndex = 22;
+            this.materialLabel3.Text = "Id Empleado:";
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(525, 13);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(44, 19);
+            this.materialLabel5.TabIndex = 23;
+            this.materialLabel5.Text = "RFID:";
+            // 
+            // comboTurnos
+            // 
+            this.comboTurnos.FormattingEnabled = true;
+            this.comboTurnos.ItemHeight = 23;
+            this.comboTurnos.Location = new System.Drawing.Point(529, 108);
+            this.comboTurnos.Name = "comboTurnos";
+            this.comboTurnos.Size = new System.Drawing.Size(154, 29);
+            this.comboTurnos.Style = MetroFramework.MetroColorStyle.Black;
+            this.comboTurnos.TabIndex = 24;
+            // 
+            // dtDiaInicio
+            // 
+            this.dtDiaInicio.Location = new System.Drawing.Point(529, 167);
+            this.dtDiaInicio.Name = "dtDiaInicio";
+            this.dtDiaInicio.Size = new System.Drawing.Size(154, 20);
+            this.dtDiaInicio.TabIndex = 25;
+            // 
+            // dtDiaFin
+            // 
+            this.dtDiaFin.Location = new System.Drawing.Point(529, 214);
+            this.dtDiaFin.Name = "dtDiaFin";
+            this.dtDiaFin.Size = new System.Drawing.Size(154, 20);
+            this.dtDiaFin.TabIndex = 26;
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(525, 145);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(76, 19);
+            this.materialLabel7.TabIndex = 27;
+            this.materialLabel7.Text = "Día inicio:";
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(525, 192);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(52, 19);
+            this.materialLabel8.TabIndex = 28;
+            this.materialLabel8.Text = "Día fin";
             // 
             // Empleados
             // 
@@ -733,13 +754,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).EndInit();
-            this.tabEmpleados.ResumeLayout(false);
-            this.tab1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleados)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tablaEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -748,32 +767,6 @@
 
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.DataGridView tablaEmpleados;
-        private System.Windows.Forms.TabControl tabEmpleados;
-        private System.Windows.Forms.TabPage tab1;
-        private System.Windows.Forms.TabPage tab2;
-        private System.Windows.Forms.Panel panel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtAM;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtAP;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtNombre;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtId;
-        private System.Windows.Forms.DateTimePicker dtNacimiento;
-        private MaterialSkin.Controls.MaterialRadioButton radioSexo2;
-        private MaterialSkin.Controls.MaterialRadioButton radioSexo;
-        private MetroFramework.Controls.MetroComboBox comboMunicipio;
-        private MetroFramework.Controls.MetroComboBox comboEstado;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtCP;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtDirección;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtCorreo;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtTelefono;
-        private MetroFramework.Controls.MetroComboBox comboArea;
-        private MetroFramework.Controls.MetroComboBox comboPrivilegio;
-        private MetroFramework.Controls.MetroComboBox comboCargo;
-        private MetroFramework.Controls.MetroComboBox comboEstatus;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtNIP;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtRFID;
-        private System.Windows.Forms.PictureBox btnGuardar;
-        private System.Windows.Forms.PictureBox btnCancelar;
         private System.Windows.Forms.PictureBox btnUltimaPag;
         private System.Windows.Forms.PictureBox btnSiguiente;
         private System.Windows.Forms.PictureBox btnAnterior;
@@ -789,7 +782,35 @@
         private System.Windows.Forms.ImageList ListaImagenes;
         private System.Windows.Forms.Timer timerCarga;
         private System.Windows.Forms.PictureBox btnRefrescar;
+        private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.PictureBox btnCancelar;
+        private System.Windows.Forms.PictureBox btnGuardar;
+        private MetroFramework.Controls.MetroComboBox comboArea;
+        private MetroFramework.Controls.MetroComboBox comboPrivilegio;
+        private MetroFramework.Controls.MetroComboBox comboCargo;
+        private MetroFramework.Controls.MetroComboBox comboEstatus;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtNIP;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtRFID;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCorreo;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTelefono;
+        private MetroFramework.Controls.MetroComboBox comboMunicipio;
+        private MetroFramework.Controls.MetroComboBox comboEstado;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCP;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtDirección;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.DateTimePicker dtNacimiento;
+        private MaterialSkin.Controls.MaterialRadioButton radioSexo2;
+        private MaterialSkin.Controls.MaterialRadioButton radioSexo;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAM;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAP;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtNombre;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtId;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private MaterialSkin.Controls.MaterialLabel materialLabel7;
+        private System.Windows.Forms.DateTimePicker dtDiaFin;
+        private System.Windows.Forms.DateTimePicker dtDiaInicio;
+        private MetroFramework.Controls.MetroComboBox comboTurnos;
     }
 }

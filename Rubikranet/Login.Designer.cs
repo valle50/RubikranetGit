@@ -214,6 +214,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txt_RFID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 320);
             this.MinimizeBox = false;

@@ -263,7 +263,7 @@ namespace Rubikranet.Funciones
             }
             else
             {
-                caja.BackColor = System.Drawing.Color.LightSkyBlue;
+                caja.BackColor = System.Drawing.Color.LightSalmon;
                 phone = false;
             }
         }
@@ -319,7 +319,7 @@ namespace Rubikranet.Funciones
 
                 if (caja.Text.EndsWith(".") && caja.Text != "" || !caja.Text.EndsWith(".") && !caja.Text.Contains("."))
                 {
-                    caja.BackColor = System.Drawing.Color.LightSkyBlue;
+                    caja.BackColor = System.Drawing.Color.LightSalmon;
                     email = false;
                 }
                 else
@@ -331,7 +331,7 @@ namespace Rubikranet.Funciones
             }
             catch
             {
-                caja.BackColor = System.Drawing.Color.LightSkyBlue;
+                caja.BackColor = System.Drawing.Color.LightSalmon;
                 email = false;
             }
         }
@@ -362,7 +362,7 @@ namespace Rubikranet.Funciones
                 var caja = ctrl as MaterialSkin.Controls.MaterialSingleLineTextField;
                 if (caja.Text == "")
                 {
-                    caja.BackColor = System.Drawing.Color.LightSkyBlue;
+                    caja.BackColor = System.Drawing.Color.LightSalmon;
                     vacios = true;
                 }
                 else 

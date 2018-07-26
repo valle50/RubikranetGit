@@ -1,5 +1,5 @@
 create procedure empleados_aa
-@check int,
+@check varchar(30),
 @id_empleado varchar(30),
 @nombre varchar(50),
 @apellido_p varchar(50),
@@ -17,12 +17,19 @@ create procedure empleados_aa
 @id_estatus int,
 @id_cargo int,
 @id_privilegio int,
-@id_area int
+@id_area int,
+@id_turno int,
+@dia_inicio date,
+@dia_fin date
 as
 begin
-  if @check = 0	
-	insert into empleados(id_empleado, nombre, apellido_p, apellido_m, sexo, fecha_nacimiento, direccion, codigo_postal, id_estado, id_municipio, telefono, correo, rfid, nip, fecha_registro, id_estatus, id_cargo, id_privilegio, id_area)
-	values(@id_empleado, @nombre, @apellido_p, @apellido_m, @sexo, @fecha_nacimiento, @direccion, @codigo_postal, @id_estado, @id_municipio, @telefono, @correo, @rfid, @nip, getdate(), @id_estatus, @id_cargo, @id_privilegio, @id_area)
+  if @check = '0'	
+	begin
+		insert into empleados(id_empleado, nombre, apellido_p, apellido_m, sexo, fecha_nacimiento, direccion, codigo_postal, id_estado, id_municipio, telefono, correo, rfid, nip, fecha_registro, id_estatus, id_cargo, id_privilegio, id_area)
+		values(@id_empleado, @nombre, @apellido_p, @apellido_m, @sexo, @fecha_nacimiento, @direccion, @codigo_postal, @id_estado, @id_municipio, @telefono, @correo, @rfid, @nip, getdate(), @id_estatus, @id_cargo, @id_privilegio, @id_area)
+		insert into turnos_empleados(id_empleado, id_turno, dia_inicio, dia_fin)
+		values(@id_empleado, @id_turno, @dia_inicio, @dia_fin)
+	end
   else
     update empleados
 	set nombre = @nombre,
@@ -43,6 +50,12 @@ begin
 	id_privilegio = @id_privilegio,
 	id_area = @id_area
 	where id_empleado = @id_empleado
+	update turnos_empleados 
+	set id_empleado = @id_empleado,
+	id_turno = @id_turno,
+	dia_inicio = @dia_inicio, 
+	dia_fin = @dia_fin
+	where id_empleado = @id_empleado
 end
 go
 
@@ -62,9 +75,13 @@ select e.num,
    e.telefono Teléfono, 
    e.correo Correo, 
    e.rfid RFID, 
-   e.nip NIP, 
+   e.nip NIP,
+   (select top(1) t.nombre from turnos_empleados te, turnos t where te.id_empleado = e.id_empleado and t.id_turno = te.id_turno) Turno,
+   (select top(1) t.hora_entrada from turnos_empleados te, turnos t where te.id_empleado = e.id_empleado and t.id_turno = te.id_turno) 'Hora de entrada',
+   (select top(1) t.hora_salida from turnos_empleados te, turnos t where te.id_empleado = e.id_empleado and t.id_turno = te.id_turno) 'Hora de salida',  
+   (select top(1) te.dia_inicio from turnos_empleados te, turnos t where te.id_empleado = e.id_empleado and t.id_turno = te.id_turno) 'Día inicio',
+   (select top(1) te.dia_fin from turnos_empleados te, turnos t where te.id_empleado = e.id_empleado and t.id_turno = te.id_turno) 'Día fin',   
    e.fecha_registro 'Fecha de registro', 
-   e.fecha_retiro 'Fecha de retiro', 
    (select top(1) nombre_estatus from estatus_empleados ee where ee.id_estatus = e.id_estatus) Estatus,
    (select top(1) nombre from cargos c where c.id_cargo = e.id_cargo) Cargo,
    (select top(1) privilegio from privilegios p where p.id_privilegio = e.id_privilegio) Privilegio,
@@ -91,26 +108,25 @@ select e.num,
 	le.RFID like '%'+@parametro+'%' or
 	le.NIP like '%'+@parametro+'%' or
 	le.[Fecha de registro] like '%'+@parametro+'%' or
-	le.[Fecha de retiro] like '%'+@parametro+'%' or
 	le.Estatus like '%'+@parametro+'%' or
 	le.Cargo like '%'+@parametro+'%' or
 	le.Privilegio like '%'+@parametro+'%' or
-	le.Área like '%'+@parametro+'%' 
+	le.Área like '%'+@parametro+'%' or
+	le.Turno like '%'+@parametro+'%' or
+	le.[Hora de entrada] like '%'+@parametro+'%' or
+	le.[Hora de salida] like '%'+@parametro+'%' or
+	le.[Día inicio] like '%'+@parametro+'%' or
+	le.[Día fin] like '%'+@parametro+'%'
+	order by le.num desc
 	go
 
-   exec buscaEmpleados 'fra'
 
 
+--select * from (select id_objeto as laid, objeto from tobjetos) temporal where laid=100
 
-select * from (select id_objeto as laid, objeto from tobjetos) temporal where laid=100
 
-select * from listarEmpleados order by num desc
-IF 1 = 2 PRINT 'Boolean_expression is true.'
-ELSE PRINT 'Boolean_expression is false.' ;
-GO
-
-ALTER TABLE empleados ALTER COLUMN telefono varchar(15) NULL 
-ALTER TABLE tabla ADD columna char(1)
-ALTER TABLE tabla DROP columna;
-EXEC sp_RENAME 'table_name.old_name', 'new_name', 'COLUMN'
-exec empleados_aa '0','9999','nuevo nom','nuevo ap','nuevo am','m', '18-03-6','dirección','12345','3','4','(123)-456-7890','correo','2222','1234','3','4','6','7'
+--ALTER TABLE empleados ALTER COLUMN telefono varchar(15) NULL 
+--ALTER TABLE tabla ADD columna char(1)
+--ALTER TABLE tabla DROP columna;
+--EXEC sp_RENAME 'table_name.old_name', 'new_name', 'COLUMN'
+--exec empleados_aa '0','9999','nuevo nom','nuevo ap','nuevo am','m', '18-03-6','dirección','12345','3','4','(123)-456-7890','correo','2222','1234','3','4','6','7'

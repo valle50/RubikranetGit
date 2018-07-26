@@ -143,6 +143,7 @@
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.metroSetLabel1);
             this.Controls.Add(this.select_puertos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(326, 171);
             this.MinimizeBox = false;

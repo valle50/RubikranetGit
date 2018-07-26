@@ -15,7 +15,7 @@ namespace Rubikranet.Administrador
     public partial class Empleados : UserControl
     {
         int tiempo = 0;
-        string check = "";
+        string check = "0";
         object[] txts;
         object[] combos;
         public Empleados()
@@ -34,15 +34,20 @@ namespace Rubikranet.Administrador
                 combo.SelectedIndex = 0;
             }
 
+            foreach (var ctrl in panel1.Controls.OfType<DateTimePicker>())
+            {
+                var dtp = ctrl as DateTimePicker;
+                dtp.Value = DateTime.Now;
+            }
+
             comboCantidadReg.SelectedIndex = 0;
 
-            check = "";
+            check = "0";
             radioSexo.Checked = false;
             radioSexo2.Checked = false;
 
             Validar.Limpiar(txts);            
 
-            dtNacimiento.Value = DateTime.Now;
             btnGuardar.BackgroundImage = null;
             btnGuardar.BackgroundImage = Properties.Resources.diskette;
         }
@@ -57,6 +62,15 @@ namespace Rubikranet.Administrador
                     String.Format("select * from municipios where id_estado = {0}", (comboEstado.SelectedItem as AtributosCombo).Value.ToString()));
 
                 CargaCombos("Municipio...", comboMunicipio, "id_municipio", "nombre_municipio");
+                comboMunicipio.SelectedIndex = 0;
+            }else
+            {
+                comboMunicipio.Items.Clear();
+                AtributosCombo item0 = new AtributosCombo();
+                item0.Value = "0";
+                item0.Text = "Municipio...";
+
+                comboMunicipio.Items.Add(item0);
                 comboMunicipio.SelectedIndex = 0;
             }
         }
@@ -101,10 +115,11 @@ namespace Rubikranet.Administrador
                 string cargo = (comboCargo.SelectedItem as AtributosCombo).Value.ToString();
                 string privilegio = (comboPrivilegio.SelectedItem as AtributosCombo).Value.ToString();
                 string area = (comboArea.SelectedItem as AtributosCombo).Value.ToString();
+                string turno = (comboTurnos.SelectedItem as AtributosCombo).Value.ToString();
 
 
                 Conexion.Ejecutar(
-                    String.Format("exec empleados_aa  '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}'", check, txtId.Text, txtNombre.Text, txtAP.Text, txtAM.Text, sexo, dtNacimiento.Text, txtDirección.Text, txtCP.Text, estado, municipio, txtTelefono.Text, txtCorreo.Text, txtRFID.Text, txtNIP.Text, estatus, cargo, privilegio, area));
+                    String.Format("exec empleados_aa  '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}'", check, txtId.Text, txtNombre.Text, txtAP.Text, txtAM.Text, sexo, dtNacimiento.Text, txtDirección.Text, txtCP.Text, estado, municipio, txtTelefono.Text, txtCorreo.Text, txtRFID.Text, txtNIP.Text, estatus, cargo, privilegio, area,turno, dtDiaInicio.Text, dtDiaFin.Text));
 
                 Conexion.Paginar(
                             string.Format("select * from listarEmpleados order by num desc"),
@@ -165,8 +180,11 @@ namespace Rubikranet.Administrador
                         txtCorreo.Text = Conexion.result["Correo"].ToString();
                         txtRFID.Text = Conexion.result["RFID"].ToString();
                         txtNIP.Text = Conexion.result["NIP"].ToString();
+                        dtDiaInicio.Text = Conexion.result["Día inicio"].ToString();
+                        dtDiaFin.Text = Conexion.result["Día fin"].ToString();
 
                         auxMunicipio = Conexion.result["Municipio"].ToString();
+                        comboTurnos.SelectedIndex = comboTurnos.FindStringExact(Conexion.result["Turno"].ToString());
                         comboEstatus.SelectedIndex = comboEstatus.FindStringExact(Conexion.result["Estatus"].ToString());
                         comboCargo.SelectedIndex = comboCargo.FindStringExact(Conexion.result["Cargo"].ToString());
                         comboPrivilegio.SelectedIndex = comboPrivilegio.FindStringExact(Conexion.result["Privilegio"].ToString());
@@ -189,13 +207,13 @@ namespace Rubikranet.Administrador
                     dgv.Rows.Remove(dgv.CurrentRow);
 
                     Conexion.Ejecutar(
-                        String.Format("update empleados set id_estatus = 1 where id_empleado = '{0}'", check));
+                        String.Format("update empleados set id_estatus = 1, fecha_retiro = '{0}' where id_empleado = '{1}'", DateTime.Now.ToShortDateString(), check));
 
                     Mensajes.Caja("Information","Información","Registro eliminado correctamente.");
                 }
             }
         }
-
+        
         public class AtributosCombo
         {
             public string Text { get; set; }
@@ -235,11 +253,16 @@ namespace Rubikranet.Administrador
             {
                 case 1:
                     Mensajes.Caja("Information","Atención", "Cargando datos, espere por favor...");
-                    dtNacimiento.Format = DateTimePickerFormat.Custom;
-                    dtNacimiento.CustomFormat = "yyyy-MM-dd";
+
+                    foreach (var ctrl in panel1.Controls.OfType<DateTimePicker>())
+                    {
+                        var dtp = ctrl as DateTimePicker;
+                        dtp.Format = DateTimePickerFormat.Custom;
+                        dtp.CustomFormat = "yyyy-MM-dd";
+                    }                    
 
                     txts = new object[] { txtId, txtNombre, txtAP, txtAM, txtCorreo, txtDirección, txtNIP, txtRFID, txtTelefono, txtCP };
-                    combos = new object[] { comboArea, comboCargo, comboEstado, comboEstatus, comboMunicipio, comboPrivilegio };
+                    combos = new object[] { comboArea, comboCargo, comboEstado, comboEstatus, comboMunicipio, comboPrivilegio, comboTurnos };
 
                     Validar.EvitaCP(txts);
                     Validar.EvitaCP(new object[] { txtBuscar });
@@ -285,6 +308,10 @@ namespace Rubikranet.Administrador
                     CargaCombos("Area...", comboArea, "id_area", "nombre");
                     Conexion.con.Close();
 
+                    Conexion.Consulta("select id_turno, nombre from turnos");
+                    CargaCombos("Turnos...", comboTurnos, "id_turno", "nombre");
+                    Conexion.con.Close();
+
                     AtributosCombo item0 = new AtributosCombo();
                     item0.Value = "0";
                     item0.Text = "Municipio...";
@@ -315,7 +342,7 @@ namespace Rubikranet.Administrador
             lblTotalReg.Text = Conexion.countRow().ToString();
             lblPagActual.Text = Conexion.numPag().ToString();
             lblTotalPag.Text = Conexion.countPag().ToString();
-            Funcion.TablaReadOnly(tablaEmpleados);
+            Funcion.AjustaContenido(tablaEmpleados);
         }
 
         private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
