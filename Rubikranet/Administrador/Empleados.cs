@@ -258,7 +258,7 @@ namespace Rubikranet.Administrador
                     {
                         var dtp = ctrl as DateTimePicker;
                         dtp.Format = DateTimePickerFormat.Custom;
-                        dtp.CustomFormat = "yyyy-MM-dd";
+                        dtp.CustomFormat = "dd-MM-yyyy";
                     }                    
 
                     txts = new object[] { txtId, txtNombre, txtAP, txtAM, txtCorreo, txtDirección, txtNIP, txtRFID, txtTelefono, txtCP };
