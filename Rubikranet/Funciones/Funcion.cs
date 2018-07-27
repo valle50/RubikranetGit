@@ -51,6 +51,7 @@ namespace Rubikranet.Funciones
             Tabla.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             Tabla.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
             Tabla.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            Tabla.DefaultCellStyle.Font = new Font("Century Gothic", 9);
             //estilo
 
             /*Código para agregar botón*/
@@ -63,7 +64,7 @@ namespace Rubikranet.Funciones
             /*Código para agregar botón*/
         }
 
-        public static void TablaReadOnly(object a)
+        public static void AjustaContenido(object a)
         {
             var Tabla = a as DataGridView;
 
@@ -71,12 +72,11 @@ namespace Rubikranet.Funciones
             {
                 for (var j = 0; j < Tabla.ColumnCount; j++)
                 {
-                    Tabla.Rows[i].Cells[j].ReadOnly = true;
-
                     Tabla.Columns[j].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                     Tabla.Rows[i].Height = 30;
                 }
             }
         }
+
     }
 }

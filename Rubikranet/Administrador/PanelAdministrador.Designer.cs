@@ -44,7 +44,6 @@
             this.btnPromociones = new System.Windows.Forms.ToolStripButton();
             this.btnArea = new System.Windows.Forms.ToolStripButton();
             this.btnInventario = new System.Windows.Forms.ToolStripButton();
-            this.btnUsuario = new System.Windows.Forms.ToolStripButton();
             this.btnEmpleado = new System.Windows.Forms.ToolStripButton();
             this.btnEntradas_salidas = new System.Windows.Forms.ToolStripButton();
             this.panelAdmin = new System.Windows.Forms.Panel();
@@ -65,7 +64,6 @@
             this.lblSeccion});
             this.BarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.BarraSuperior.Name = "BarraSuperior";
-            this.BarraSuperior.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.BarraSuperior.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BarraSuperior.Size = new System.Drawing.Size(960, 50);
             this.BarraSuperior.TabIndex = 0;
@@ -146,7 +144,6 @@
             this.btnPromociones,
             this.btnArea,
             this.btnInventario,
-            this.btnUsuario,
             this.btnEmpleado,
             this.btnEntradas_salidas});
             this.BarraLateral.Location = new System.Drawing.Point(0, 50);
@@ -223,17 +220,6 @@
             this.btnInventario.Text = "Inventarios";
             this.btnInventario.Click += new System.EventHandler(this.btnInventario_Click);
             // 
-            // btnUsuario
-            // 
-            this.btnUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnUsuario.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuario.Image")));
-            this.btnUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnUsuario.Margin = new System.Windows.Forms.Padding(0, 1, 0, 20);
-            this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(48, 34);
-            this.btnUsuario.Text = "Usuario";
-            this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
-            // 
             // btnEmpleado
             // 
             this.btnEmpleado.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -259,6 +245,8 @@
             // panelAdmin
             // 
             this.panelAdmin.BackColor = System.Drawing.Color.White;
+            this.panelAdmin.BackgroundImage = global::Rubikranet.Properties.Resources.fondo3;
+            this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdmin.Location = new System.Drawing.Point(50, 50);
             this.panelAdmin.Name = "panelAdmin";
@@ -270,6 +258,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.panelAdmin);
             this.Controls.Add(this.BarraLateral);
             this.Controls.Add(this.BarraSuperior);
@@ -293,7 +282,6 @@
         private System.Windows.Forms.ToolStripMenuItem miInformaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnPromociones;
-        private System.Windows.Forms.ToolStripButton btnUsuario;
         private System.Windows.Forms.ToolStripButton btnEmpleado;
         private System.Windows.Forms.ToolStripButton btnArea;
         private System.Windows.Forms.ToolStripButton btnInventario;
