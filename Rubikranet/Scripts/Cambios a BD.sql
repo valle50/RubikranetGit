@@ -12,4 +12,3 @@ alter table areas add estatus bit null
 alter table accesibilidad_areas add estatus bit null
 --se agregó campo para ocultar categorias de membresías
 alter table categorias_membresias add estatus_visible bit null
-
