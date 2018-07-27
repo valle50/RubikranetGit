@@ -42,6 +42,7 @@ Museo
 Juegos mecánicos
 Zona de postres
 Spa
+Zona de juegos
 */
 
 
