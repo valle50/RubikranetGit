@@ -162,6 +162,12 @@
     <Compile Include="Clientes\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\MembresiasFamiliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\MembresiasFamiliar.Designer.cs">
+      <DependentUpon>MembresiasFamiliar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Funciones\Funcion.cs" />
     <Compile Include="Funciones\Mensajes.cs" />
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\MembresiasFamiliar.resx">
+      <DependentUpon>MembresiasFamiliar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
