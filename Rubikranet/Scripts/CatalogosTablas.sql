@@ -83,8 +83,10 @@ id_precio_miembro	tipo_edad	precio_extra	estatus
 /*
 Catálogo promociones
 
-id_promocion	nombre		Descripción	
-
+id_promocion	nombre		    Descripción	
+1				Cumpleaños		Compra una membresia el dia de tu cumpleaños y te hacemos un 20% de descuento(Solo aplica en membresias individuales)
+2				Dia del niño	Compra una membresia el dia del niño y te hacemos un 15% de descuento en areas infantiles (Solo aplica en membresias individuales)
+3				San Valentin	Compra una membresia en San valentin y te hacemos un 35% de descuento(Solo aplica ende pareja)
 */
 
 

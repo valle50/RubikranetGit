@@ -34,13 +34,14 @@
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // materialSingleLineTextField1
             // 
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "Membresia";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(12, 84);
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(12, 133);
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
             this.materialSingleLineTextField1.PasswordChar = '\0';
@@ -56,7 +57,7 @@
             // 
             this.materialSingleLineTextField2.Depth = 0;
             this.materialSingleLineTextField2.Hint = "Familiar 1";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(12, 131);
+            this.materialSingleLineTextField2.Location = new System.Drawing.Point(12, 180);
             this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
             this.materialSingleLineTextField2.PasswordChar = '\0';
@@ -72,7 +73,7 @@
             // 
             this.materialSingleLineTextField3.Depth = 0;
             this.materialSingleLineTextField3.Hint = "Familiar 2";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(12, 179);
+            this.materialSingleLineTextField3.Location = new System.Drawing.Point(270, 180);
             this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
             this.materialSingleLineTextField3.PasswordChar = '\0';
@@ -88,7 +89,7 @@
             // 
             this.materialSingleLineTextField4.Depth = 0;
             this.materialSingleLineTextField4.Hint = "Familiar 3";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(12, 230);
+            this.materialSingleLineTextField4.Location = new System.Drawing.Point(513, 180);
             this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
             this.materialSingleLineTextField4.PasswordChar = '\0';
@@ -104,7 +105,7 @@
             // 
             this.materialSingleLineTextField5.Depth = 0;
             this.materialSingleLineTextField5.Hint = "Familiar 4";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(12, 279);
+            this.materialSingleLineTextField5.Location = new System.Drawing.Point(752, 180);
             this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
             this.materialSingleLineTextField5.PasswordChar = '\0';
@@ -120,7 +121,7 @@
             // 
             this.materialSingleLineTextField6.Depth = 0;
             this.materialSingleLineTextField6.Hint = "Familiar 5";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(12, 335);
+            this.materialSingleLineTextField6.Location = new System.Drawing.Point(12, 378);
             this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
             this.materialSingleLineTextField6.PasswordChar = '\0';
@@ -132,11 +133,26 @@
             this.materialSingleLineTextField6.Tag = "Familiar ";
             this.materialSingleLineTextField6.UseSystemPasswordChar = false;
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(12, 81);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(384, 19);
+            this.materialLabel1.TabIndex = 6;
+            this.materialLabel1.Text = "Agregar personas a la membresia (Máximo 5 personas).";
+            // 
             // MembresiasFamiliar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 437);
+            this.ClientSize = new System.Drawing.Size(1061, 540);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.materialSingleLineTextField6);
             this.Controls.Add(this.materialSingleLineTextField5);
             this.Controls.Add(this.materialSingleLineTextField4);
@@ -144,8 +160,9 @@
             this.Controls.Add(this.materialSingleLineTextField2);
             this.Controls.Add(this.materialSingleLineTextField1);
             this.Name = "MembresiasFamiliar";
-            this.Text = "Agregar Membresia Familiar";
+            this.Text = "Agregar a Membresia";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -157,5 +174,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField6;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
