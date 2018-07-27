@@ -41,6 +41,7 @@ Centro comercial
 Museo
 Juegos mecánicos
 Zona de postres
+Spa
 */
 
 
