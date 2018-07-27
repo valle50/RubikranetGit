@@ -98,7 +98,9 @@ Catálogo turnos
 Formato de horas en 24 = 12:45:36, 17:56:00 ..etc
 
 id_turno	nombre	hora_entrada	hora_salida
-
+1           Matutino    08:00:00      16:00:00
+2           Vespertino  16:00:00      19:00:00
+3           Nocturno    19:00:00      24:00:00
 */
 
 /*
