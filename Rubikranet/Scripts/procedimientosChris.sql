@@ -26,7 +26,7 @@ begin
   if @check = '0'	
 	begin
 		insert into empleados(id_empleado, nombre, apellido_p, apellido_m, sexo, fecha_nacimiento, direccion, codigo_postal, id_estado, id_municipio, telefono, correo, rfid, nip, fecha_registro, id_estatus, id_cargo, id_privilegio, id_area)
-		values(@id_empleado, @nombre, @apellido_p, @apellido_m, @sexo, @fecha_nacimiento, @direccion, @codigo_postal, @id_estado, @id_municipio, @telefono, @correo, @rfid, @nip, getdate(), @id_estatus, @id_cargo, @id_privilegio, @id_area)
+		values(@id_empleado, @nombre, @apellido_p, @apellido_m, @sexo, @fecha_nacimiento, @direccion, @codigo_postal, @id_estado, @id_municipio, @telefono, @correo, @id_empleado, @nip, getdate(), @id_estatus, @id_cargo, @id_privilegio, @id_area)
 		insert into turnos_empleados(id_empleado, id_turno, dia_inicio, dia_fin)
 		values(@id_empleado, @id_turno, @dia_inicio, @dia_fin)
 	end
@@ -118,6 +118,42 @@ select e.num,
 	le.[Día inicio] like '%'+@parametro+'%' or
 	le.[Día fin] like '%'+@parametro+'%'
 	order by le.num desc
+	go
+	 
+
+	create view listarAreas
+	as
+	select 
+	id_area,
+	nombre 'Nombre del área',
+	mensaje_cliente 'Mensaje para el cliente',
+	normas 'Normas del área',
+	cupo_maximo 'Cupo máximo',
+	cupo_actual 'Cupo actual',
+	horario Horario,
+	case 
+		codigo_edad_accesibilidad
+		when 0 then 'Adultos'
+		when 1 then 'Familiar'
+	end as 'Accesibilidad del área',
+	IIF(estatus = 0, 'Fuera de servicio', 'En servicio') as 'Estado del área'
+	from areas
+	go
+
+	
+	create procedure buscaAreas
+	@parametro varchar(max)
+	as
+	select * from listarAreas 
+	where 
+	[Nombre del área] like '%'+@parametro+'%' or
+	[Mensaje para el cliente] like '%'+@parametro+'%' or
+	[Nombre del área] like '%'+@parametro+'%' or
+	[Cupo máximo] like '%'+@parametro+'%' or
+	[Cupo actual] like '%'+@parametro+'%' or
+	Horario like '%'+@parametro+'%' or
+	[Accesibilidad del área] like '%'+@parametro+'%' or
+	[Estado del área] like '%'+@parametro+'%'
 	go
 
 
