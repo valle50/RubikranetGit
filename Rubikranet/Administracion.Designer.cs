@@ -38,7 +38,7 @@
             this.contenidoPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenidoPanel.Location = new System.Drawing.Point(0, 0);
             this.contenidoPanel.Name = "contenidoPanel";
-            this.contenidoPanel.Size = new System.Drawing.Size(960, 634);
+            this.contenidoPanel.Size = new System.Drawing.Size(984, 749);
             this.contenidoPanel.TabIndex = 1;
             // 
             // Administracion
@@ -47,12 +47,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(960, 634);
+            this.ClientSize = new System.Drawing.Size(984, 749);
             this.Controls.Add(this.contenidoPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(976, 673);
+            this.MinimumSize = new System.Drawing.Size(1000, 720);
             this.Name = "Administracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RubiKranet - Control de membresías";

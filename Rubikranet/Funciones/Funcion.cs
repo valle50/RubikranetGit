@@ -54,6 +54,16 @@ namespace Rubikranet.Funciones
             Tabla.DefaultCellStyle.Font = new Font("Century Gothic", 9);
             //estilo
 
+            //Propiedades
+            Tabla.ReadOnly = true;
+            Tabla.RowHeadersVisible = false;
+            Tabla.AllowUserToAddRows = false;
+            Tabla.AllowUserToDeleteRows = false;
+            Tabla.AllowUserToResizeColumns = false;
+            Tabla.AllowUserToResizeRows = false;
+            Tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //
+
             /*Código para agregar botón*/
             //DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn();
             //dataGridView1.Columns.Add(btn);

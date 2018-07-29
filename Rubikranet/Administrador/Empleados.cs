@@ -26,6 +26,20 @@ namespace Rubikranet.Administrador
         }
 
         public static Empleados Instancia = new Empleados();
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            txtRFID.Text = txtId.Text;
+        }
+
+        private void checkCambioId_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkCambioId.Checked)
+            {
+                Mensajes.Caja("Information","Cambio de ID", "Pase la tarjeta por la terminal para registrar el nuevo código.");
+            }
+        }
+
         private void Limpia()
         {
             foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
@@ -33,18 +47,22 @@ namespace Rubikranet.Administrador
                 var combo = ctrl as MetroFramework.Controls.MetroComboBox;
                 combo.SelectedIndex = 0;
             }
+            comboTurnos.SelectedIndex = 0;
 
             foreach (var ctrl in panel1.Controls.OfType<DateTimePicker>())
             {
                 var dtp = ctrl as DateTimePicker;
                 dtp.Value = DateTime.Now;
             }
+            dtDiaInicio.Value = DateTime.Now;
+            dtDiaFin.Value = DateTime.Now;
 
             comboCantidadReg.SelectedIndex = 0;
 
             check = "0";
             radioSexo.Checked = false;
             radioSexo2.Checked = false;
+            checkCambioId.Visible = false;
 
             Validar.Limpiar(txts);            
 
@@ -197,6 +215,7 @@ namespace Rubikranet.Administrador
 
                     btnGuardar.BackgroundImage = null;
                     btnGuardar.BackgroundImage = Properties.Resources.edit1;
+                    checkCambioId.Visible = true;
                     Validar.Requeridos(txts);
 
                     Conexion.con.Close();
@@ -254,12 +273,12 @@ namespace Rubikranet.Administrador
                 case 1:
                     Mensajes.Caja("Information","Atención", "Cargando datos, espere por favor...");
 
-                    foreach (var ctrl in panel1.Controls.OfType<DateTimePicker>())
-                    {
-                        var dtp = ctrl as DateTimePicker;
-                        dtp.Format = DateTimePickerFormat.Custom;
-                        dtp.CustomFormat = "dd-MM-yyyy";
-                    }                    
+                    dtNacimiento.Format = DateTimePickerFormat.Custom;
+                    dtNacimiento.CustomFormat = "dd-MM-yyyy";
+                    dtDiaInicio.Format = DateTimePickerFormat.Custom;
+                    dtDiaInicio.CustomFormat = "dd-MM-yyyy";
+                    dtDiaFin.Format = DateTimePickerFormat.Custom;
+                    dtDiaFin.CustomFormat = "dd-MM-yyyy";
 
                     txts = new object[] { txtId, txtNombre, txtAP, txtAM, txtCorreo, txtDirección, txtNIP, txtRFID, txtTelefono, txtCP };
                     combos = new object[] { comboArea, comboCargo, comboEstado, comboEstatus, comboMunicipio, comboPrivilegio, comboTurnos };
@@ -328,6 +347,7 @@ namespace Rubikranet.Administrador
                         combo.SelectedIndex = 0;
                     }
 
+                    comboTurnos.SelectedIndex = 0;
                     comboCantidadReg.SelectedIndex = 0;                    
                     break;
 
@@ -385,5 +405,6 @@ namespace Rubikranet.Administrador
 
             Actualizar();
         }
+
     }
 }
