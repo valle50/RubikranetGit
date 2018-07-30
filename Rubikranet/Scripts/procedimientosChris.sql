@@ -137,9 +137,9 @@ select e.num,
 		when 1 then 'Familiar'
 	end as 'Accesibilidad del área',
 	IIF(estatus = 0, 'Fuera de servicio', 'En servicio') as 'Estado del área'
-	from areas
+	from areas where estatusEliminado <> 1
 	go
-
+	
 	
 	create procedure buscaAreas
 	@parametro varchar(max)
@@ -148,7 +148,7 @@ select e.num,
 	where 
 	[Nombre del área] like '%'+@parametro+'%' or
 	[Mensaje para el cliente] like '%'+@parametro+'%' or
-	[Nombre del área] like '%'+@parametro+'%' or
+	[Normas del área] like '%'+@parametro+'%' or
 	[Cupo máximo] like '%'+@parametro+'%' or
 	[Cupo actual] like '%'+@parametro+'%' or
 	Horario like '%'+@parametro+'%' or

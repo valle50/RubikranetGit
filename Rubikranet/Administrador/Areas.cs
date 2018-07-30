@@ -14,14 +14,76 @@ namespace Rubikranet.Administrador
     public partial class Areas : UserControl
     {
         int tiempo = 0;
+        int check = 0;
+        public static bool ventanaActiva = false;
+
         public Areas()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            timerCarga.Start();          
+            timerCarga.Start();
+        }
+        
+        public static Areas Instancia = new Areas();
+
+        private void Limpia()
+        {
+            check = 0;
+            txtNombre.Text = ""; txtNormas.Text = ""; txtHorario.Text = "";  txtMensaje.Text = "";
+            radioAccesibilidad.Checked = false; radioAccesibilidad2.Checked = false;
+            radioEstatus.Checked = false; radioEstatus2.Checked = false;
+            scrollActual.Value = 0;
+            scrollMaximo.Value = 20;
+
+            btnGuardar.BackgroundImage = null;
+            btnGuardar.BackgroundImage = Properties.Resources.diskette;
         }
 
-        public static Areas Instancia = new Areas();
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            btnGuardar.Focus();
+            string accesibilidad = "";
+            string estatus = "";
+
+            if (radioAccesibilidad.Checked)
+            {
+                accesibilidad = radioAccesibilidad.Tag.ToString();
+            }
+            else if (radioAccesibilidad2.Checked)
+            {
+                accesibilidad = radioAccesibilidad2.Tag.ToString();
+            }
+
+            if (radioEstatus.Checked)
+            {
+                estatus = radioEstatus.Tag.ToString();
+            }
+            else if (radioEstatus2.Checked)
+            {
+                estatus = radioEstatus2.Tag.ToString();
+            }
+
+            if (accesibilidad == "" || estatus == "" || txtNombre.Text == "" || txtNormas.Text == "" || txtHorario.Text == "" || txtMensaje.Text =="")
+            {
+                Mensajes.Caja("Warning", "Campos requeridos", "Todos los datos son necesarios, a excepción de los rangos numéricos.");
+            }
+            else if (MessageBox.Show("¿Continuar con la acción?", "Nuevo/Actualizar registro.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Conexion.Ejecutar(
+                    String.Format("exec areas_aa  '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}'", check, txtNombre.Text, txtMensaje.Text, txtNormas.Text, numMaximo.Value, numActual.Value, txtHorario.Text, estatus, accesibilidad));
+
+                btnRefrescar_Click(null, null);
+                Limpia();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Cancelar acción.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Limpia();
+            }
+        }
 
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
         {
@@ -38,6 +100,60 @@ namespace Rubikranet.Administrador
             Actualizar();
         }
 
+        private void TablaAreas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+
+            if(dgv.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                var boton = dgv.Columns[e.ColumnIndex] as DataGridViewImageColumn;
+
+                if (boton.Name == "btnEditar" && MessageBox.Show("¿Editar registro?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    check = Convert.ToInt16(dgv.CurrentRow.Cells[2].Value);
+
+                    Conexion.Consulta(
+                        String.Format("select * from listarAreas where id_area = '{0}'", check));
+
+                    while (Conexion.result.Read())
+                    {
+                        txtNombre.Text = Conexion.result["Nombre del área"].ToString();
+                        numMaximo.Value = Convert.ToInt16(Conexion.result["Cupo máximo"]);
+                        scrollMaximo.Value = Convert.ToInt16(Conexion.result["Cupo máximo"]);
+                        numActual.Value = Convert.ToInt16(Conexion.result["Cupo actual"]);
+                        scrollActual.Value = Convert.ToInt16(Conexion.result["Cupo actual"]);
+                        txtHorario.Text = Conexion.result["Horario"].ToString();
+                        txtMensaje.Text = Conexion.result["Mensaje para el cliente"].ToString();
+                        txtNormas.Text = Conexion.result["Normas del área"].ToString();
+
+                        var accesibilidad = Conexion.result["Accesibilidad del área"].ToString() == radioAccesibilidad.Text ?
+                            radioAccesibilidad.Checked = true :
+                            radioAccesibilidad2.Checked = true;
+
+                        var estatus = Conexion.result["Estado del área"].ToString() == radioEstatus.Text ?
+                            radioEstatus.Checked = true :
+                            radioEstatus2.Checked = true;
+                    }
+
+                    btnGuardar.BackgroundImage = null;
+                    btnGuardar.BackgroundImage = Properties.Resources.edit1;
+
+                    Conexion.con.Close();
+
+                }
+                else if (boton.Name == "btnEliminar" && MessageBox.Show("¿Eliminar registro?", "Eliminar datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    check = Convert.ToInt16(dgv.CurrentRow.Cells[2].Value);
+                    dgv.Rows.Remove(dgv.CurrentRow);
+
+                    Conexion.Ejecutar(String.Format("update areas set estatusEliminado = 1 where id_area = '{0}'", check));
+
+                    check = 0;
+                    Mensajes.Caja("Information", "Información", "Registro eliminado correctamente.");
+                }
+            }
+        }
+
         private void timerCarga_Tick(object sender, EventArgs e)
         {
             tiempo += 1;
@@ -46,6 +162,7 @@ namespace Rubikranet.Administrador
             {
                 case 1:
                     Mensajes.Caja("Information", "Atención", "Cargando datos, espere por favor...");
+                    
                     comboCantidadReg.SelectedIndex = 0;
                     break;
                 case 2:
@@ -63,6 +180,7 @@ namespace Rubikranet.Administrador
                     break;
                 default:
                     timerCarga.Stop();
+                    timerActualiza.Start();
                     break;
             }
         }
@@ -108,11 +226,48 @@ namespace Rubikranet.Administrador
         {
             Conexion.Paginar(
                     string.Format("select * from listarAreas order by id_area desc"),
-                    "DataMember1", Convert.ToInt16(comboCantidadReg.Text));
+                    "DataMember1", 20);
             TablaAreas.DataSource = Conexion.cargar();
             TablaAreas.DataMember = "DataMember1";
 
             Actualizar();
+        }
+
+        private void timerActualiza_Tick(object sender, EventArgs e)
+        {
+            if (ventanaActiva)
+            {
+                btnRefrescar_Click(null,null);
+                ventanaActiva = false;
+            }
+        }
+
+        private void scrollMaximo_ValueChanged(object sender, EventArgs e)
+        {
+            numMaximo.Value = scrollMaximo.Value;
+        }
+
+        private void scrollActual_ValueChanged(object sender, EventArgs e)
+        {
+            numActual.Value = scrollActual.Value;  
+        }
+
+        private void scrollActual_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (numActual.Value >= numMaximo.Value)
+            {
+                numActual.Value = numMaximo.Value;
+                scrollActual.Value = numMaximo.Value;
+            }
+        }
+
+        private void numActual_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (numActual.Value >= numMaximo.Value)
+            {
+                numActual.Value = numMaximo.Value;
+                scrollActual.Value = numMaximo.Value;
+            }
         }
     }
 }

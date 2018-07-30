@@ -399,5 +399,20 @@ namespace Rubikranet.Funciones
         }
         //--------------------------------------------------------------------------------
 
+
+
+        //--------------------------------------------------------------------------------
+        public static void MaxLength(object o)
+        {
+            var caja = o as MaterialSkin.Controls.MaterialSingleLineTextField;
+            caja.KeyPress += evento;                     
+        }
+        private static void evento(object sender, KeyPressEventArgs e)
+        {
+            var obj = sender as MaterialSkin.Controls.MaterialSingleLineTextField;
+            MessageBox.Show(obj.AccessibleDescription.ToString());
+        }
+        //--------------------------------------------------------------------------------
+
     }
 }

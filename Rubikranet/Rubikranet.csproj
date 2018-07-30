@@ -108,6 +108,12 @@
     <Compile Include="Administrador\EntradasSalidas.Designer.cs">
       <DependentUpon>EntradasSalidas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrador\Inicio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Administrador\Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrador\Inventarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\EntradasSalidas.resx">
       <DependentUpon>EntradasSalidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrador\Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrador\Inventarios.resx">
       <DependentUpon>Inventarios.cs</DependentUpon>
