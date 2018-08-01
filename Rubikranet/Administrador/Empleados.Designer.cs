@@ -159,7 +159,7 @@
             // 
             this.checkCambioId.AutoSize = true;
             this.checkCambioId.Depth = 0;
-            this.checkCambioId.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.checkCambioId.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.checkCambioId.Location = new System.Drawing.Point(628, 61);
             this.checkCambioId.Margin = new System.Windows.Forms.Padding(0);
             this.checkCambioId.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -209,7 +209,7 @@
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel8.Location = new System.Drawing.Point(8, 124);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
@@ -229,7 +229,7 @@
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel7.Location = new System.Drawing.Point(8, 63);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
@@ -254,7 +254,7 @@
             // 
             this.radioSexo2.AutoSize = true;
             this.radioSexo2.Depth = 0;
-            this.radioSexo2.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioSexo2.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioSexo2.Location = new System.Drawing.Point(119, 17);
             this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
             this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -272,7 +272,7 @@
             // 
             this.radioSexo.AutoSize = true;
             this.radioSexo.Depth = 0;
-            this.radioSexo.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioSexo.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioSexo.Location = new System.Drawing.Point(8, 17);
             this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
             this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -290,7 +290,7 @@
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(528, 13);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
@@ -303,7 +303,7 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(15, 13);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -498,7 +498,7 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(16, 250);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -587,7 +587,7 @@
             this.btnRefrescar.BackgroundImage = global::Rubikranet.Properties.Resources.synchronize;
             this.btnRefrescar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescar.Location = new System.Drawing.Point(595, 316);
+            this.btnRefrescar.Location = new System.Drawing.Point(598, 316);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(40, 40);
             this.btnRefrescar.TabIndex = 22;
@@ -598,7 +598,7 @@
             // 
             this.txtBuscar.Depth = 0;
             this.txtBuscar.Hint = "Buscar...";
-            this.txtBuscar.Location = new System.Drawing.Point(658, 326);
+            this.txtBuscar.Location = new System.Drawing.Point(661, 326);
             this.txtBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.PasswordChar = '\0';
@@ -619,7 +619,7 @@
             "20",
             "30",
             "50"});
-            this.comboCantidadReg.Location = new System.Drawing.Point(516, 320);
+            this.comboCantidadReg.Location = new System.Drawing.Point(519, 320);
             this.comboCantidadReg.Name = "comboCantidadReg";
             this.comboCantidadReg.Size = new System.Drawing.Size(59, 29);
             this.comboCantidadReg.Style = MetroFramework.MetroColorStyle.Black;
@@ -631,9 +631,9 @@
             this.lblTotalReg.AutoSize = true;
             this.lblTotalReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalReg.Depth = 0;
-            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblTotalReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotalReg.Location = new System.Drawing.Point(455, 326);
+            this.lblTotalReg.Location = new System.Drawing.Point(458, 326);
             this.lblTotalReg.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalReg.Name = "lblTotalReg";
             this.lblTotalReg.Size = new System.Drawing.Size(0, 17);
@@ -644,9 +644,9 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(368, 326);
+            this.materialLabel6.Location = new System.Drawing.Point(371, 326);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(79, 17);
@@ -658,9 +658,9 @@
             this.lblTotalPag.AutoSize = true;
             this.lblTotalPag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalPag.Depth = 0;
-            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblTotalPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotalPag.Location = new System.Drawing.Point(312, 326);
+            this.lblTotalPag.Location = new System.Drawing.Point(315, 326);
             this.lblTotalPag.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalPag.Name = "lblTotalPag";
             this.lblTotalPag.Size = new System.Drawing.Size(0, 17);
@@ -671,9 +671,9 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(281, 326);
+            this.materialLabel4.Location = new System.Drawing.Point(284, 326);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(24, 17);
@@ -685,9 +685,9 @@
             this.lblPagActual.AutoSize = true;
             this.lblPagActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPagActual.Depth = 0;
-            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblPagActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPagActual.Location = new System.Drawing.Point(249, 326);
+            this.lblPagActual.Location = new System.Drawing.Point(252, 326);
             this.lblPagActual.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPagActual.Name = "lblPagActual";
             this.lblPagActual.Size = new System.Drawing.Size(0, 17);
@@ -699,9 +699,9 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(189, 326);
+            this.materialLabel2.Location = new System.Drawing.Point(192, 326);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(53, 17);
@@ -714,7 +714,7 @@
             this.btnUltimaPag.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUltimaPag.BackgroundImage")));
             this.btnUltimaPag.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUltimaPag.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUltimaPag.Location = new System.Drawing.Point(129, 316);
+            this.btnUltimaPag.Location = new System.Drawing.Point(132, 316);
             this.btnUltimaPag.Name = "btnUltimaPag";
             this.btnUltimaPag.Size = new System.Drawing.Size(40, 40);
             this.btnUltimaPag.TabIndex = 25;
@@ -727,7 +727,7 @@
             this.btnSiguiente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSiguiente.BackgroundImage")));
             this.btnSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSiguiente.Location = new System.Drawing.Point(87, 316);
+            this.btnSiguiente.Location = new System.Drawing.Point(90, 316);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(40, 40);
             this.btnSiguiente.TabIndex = 24;
@@ -740,7 +740,7 @@
             this.btnAnterior.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAnterior.BackgroundImage")));
             this.btnAnterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnterior.Location = new System.Drawing.Point(41, 316);
+            this.btnAnterior.Location = new System.Drawing.Point(44, 316);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(40, 40);
             this.btnAnterior.TabIndex = 23;
@@ -754,7 +754,7 @@
             this.btnPrimerPagina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPrimerPagina.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrimerPagina.InitialImage = null;
-            this.btnPrimerPagina.Location = new System.Drawing.Point(0, 316);
+            this.btnPrimerPagina.Location = new System.Drawing.Point(3, 316);
             this.btnPrimerPagina.Name = "btnPrimerPagina";
             this.btnPrimerPagina.Size = new System.Drawing.Size(40, 40);
             this.btnPrimerPagina.TabIndex = 22;

@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Areas));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.TablaAreas = new System.Windows.Forms.DataGridView();
             this.tabAreas = new System.Windows.Forms.TabControl();
             this.tabNuevo = new System.Windows.Forms.TabPage();
@@ -55,6 +59,9 @@
             this.txtMensaje = new MetroSet_UI.Controls.MetroSetTextBox();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.timerCarga = new System.Windows.Forms.Timer(this.components);
             this.txtBuscar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.comboCantidadReg = new MetroFramework.Controls.MetroComboBox();
@@ -70,7 +77,6 @@
             this.btnAnterior = new System.Windows.Forms.PictureBox();
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
             this.timerActualiza = new System.Windows.Forms.Timer(this.components);
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TablaAreas)).BeginInit();
             this.tabAreas.SuspendLayout();
             this.tabNuevo.SuspendLayout();
@@ -78,6 +84,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
@@ -139,7 +147,7 @@
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel8.Location = new System.Drawing.Point(18, 107);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
@@ -152,7 +160,7 @@
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel7.Location = new System.Drawing.Point(18, 50);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
@@ -197,6 +205,7 @@
             this.scrollActual.TabIndex = 45;
             this.scrollActual.Value = 0;
             this.scrollActual.ValueChanged += new System.EventHandler(this.scrollActual_ValueChanged);
+            this.scrollActual.MouseHover += new System.EventHandler(this.scrollActual_MouseHover);
             this.scrollActual.MouseUp += new System.Windows.Forms.MouseEventHandler(this.scrollActual_MouseUp);
             // 
             // numMaximo
@@ -265,7 +274,7 @@
             // 
             this.radioEstatus2.AutoSize = true;
             this.radioEstatus2.Depth = 0;
-            this.radioEstatus2.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioEstatus2.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioEstatus2.Location = new System.Drawing.Point(112, 23);
             this.radioEstatus2.Margin = new System.Windows.Forms.Padding(0);
             this.radioEstatus2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -283,7 +292,7 @@
             // 
             this.radioEstatus.AutoSize = true;
             this.radioEstatus.Depth = 0;
-            this.radioEstatus.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioEstatus.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioEstatus.Location = new System.Drawing.Point(7, 23);
             this.radioEstatus.Margin = new System.Windows.Forms.Padding(0);
             this.radioEstatus.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -313,7 +322,7 @@
             // 
             this.radioAccesibilidad2.AutoSize = true;
             this.radioAccesibilidad2.Depth = 0;
-            this.radioAccesibilidad2.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioAccesibilidad2.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioAccesibilidad2.Location = new System.Drawing.Point(116, 20);
             this.radioAccesibilidad2.Margin = new System.Windows.Forms.Padding(0);
             this.radioAccesibilidad2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -331,7 +340,7 @@
             // 
             this.radioAccesibilidad.AutoSize = true;
             this.radioAccesibilidad.Depth = 0;
-            this.radioAccesibilidad.Font = new System.Drawing.Font("Segoe WP", 10F);
+            this.radioAccesibilidad.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
             this.radioAccesibilidad.Location = new System.Drawing.Point(7, 20);
             this.radioAccesibilidad.Margin = new System.Windows.Forms.Padding(0);
             this.radioAccesibilidad.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -349,7 +358,7 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(327, 14);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -362,7 +371,7 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(619, 15);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -375,7 +384,7 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(327, 133);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -499,13 +508,58 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.ImageIndex = 1;
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(926, 287);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Otro...";
+            this.tabPage2.Text = "Gráfica de áreas visitadas";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(764, 124);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 43);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 6);
+            this.chart1.Name = "chart1";
+            series1.BorderColor = System.Drawing.Color.Black;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series1.Color = System.Drawing.Color.Red;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "campo1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series2.IsValueShownAsLabel = true;
+            series2.Legend = "Legend1";
+            series2.Name = "campo2";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(679, 275);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "home.png");
+            this.imageList.Images.SetKeyName(1, "stats_pie_chart.png");
             // 
             // timerCarga
             // 
@@ -549,7 +603,7 @@
             this.lblTotalReg.AutoSize = true;
             this.lblTotalReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalReg.Depth = 0;
-            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblTotalReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalReg.Location = new System.Drawing.Point(459, 326);
             this.lblTotalReg.MouseState = MaterialSkin.MouseState.HOVER;
@@ -562,7 +616,7 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel6.Location = new System.Drawing.Point(372, 326);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
@@ -576,7 +630,7 @@
             this.lblTotalPag.AutoSize = true;
             this.lblTotalPag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalPag.Depth = 0;
-            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblTotalPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalPag.Location = new System.Drawing.Point(316, 326);
             this.lblTotalPag.MouseState = MaterialSkin.MouseState.HOVER;
@@ -589,7 +643,7 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(285, 326);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -603,7 +657,7 @@
             this.lblPagActual.AutoSize = true;
             this.lblPagActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPagActual.Depth = 0;
-            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.lblPagActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPagActual.Location = new System.Drawing.Point(253, 326);
             this.lblPagActual.MouseState = MaterialSkin.MouseState.HOVER;
@@ -617,7 +671,7 @@
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(193, 326);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
@@ -697,13 +751,6 @@
             this.timerActualiza.Interval = 500;
             this.timerActualiza.Tick += new System.EventHandler(this.timerActualiza_Tick);
             // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "home.png");
-            this.imageList.Images.SetKeyName(1, "stats_pie_chart.png");
-            // 
             // Areas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,6 +783,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
@@ -789,5 +838,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -75,14 +75,14 @@ namespace Rubikranet.Administrador
             {
                 comboMunicipio.Items.Clear();
                 Conexion.Consulta(
-                    String.Format("select * from municipios where id_estado = {0}", (comboEstado.SelectedItem as AtributosCombo).Value.ToString()));
+                    String.Format("select * from municipios where id_estado = {0}", (comboEstado.SelectedItem as AttrCB).Value.ToString()));
 
                 CargaCombos("Municipio...", comboMunicipio, "id_municipio", "nombre_municipio");
                 comboMunicipio.SelectedIndex = 0;
             }else
             {
                 comboMunicipio.Items.Clear();
-                AtributosCombo item0 = new AtributosCombo();
+                AttrCB item0 = new AttrCB();
                 item0.Value = "0";
                 item0.Text = "Municipio...";
 
@@ -125,13 +125,13 @@ namespace Rubikranet.Administrador
             }
             else if(MessageBox.Show("¿Continuar con la acción?", "Nuevo/Actualizar registro.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                string estado = (comboEstado.SelectedItem as AtributosCombo).Value.ToString();
-                string municipio = (comboMunicipio.SelectedItem as AtributosCombo).Value.ToString();
-                string estatus = (comboEstatus.SelectedItem as AtributosCombo).Value.ToString();
-                string cargo = (comboCargo.SelectedItem as AtributosCombo).Value.ToString();
-                string privilegio = (comboPrivilegio.SelectedItem as AtributosCombo).Value.ToString();
-                string area = (comboArea.SelectedItem as AtributosCombo).Value.ToString();
-                string turno = (comboTurnos.SelectedItem as AtributosCombo).Value.ToString();
+                string estado = (comboEstado.SelectedItem as AttrCB).Value.ToString();
+                string municipio = (comboMunicipio.SelectedItem as AttrCB).Value.ToString();
+                string estatus = (comboEstatus.SelectedItem as AttrCB).Value.ToString();
+                string cargo = (comboCargo.SelectedItem as AttrCB).Value.ToString();
+                string privilegio = (comboPrivilegio.SelectedItem as AttrCB).Value.ToString();
+                string area = (comboArea.SelectedItem as AttrCB).Value.ToString();
+                string turno = (comboTurnos.SelectedItem as AttrCB).Value.ToString();
 
 
                 Conexion.Ejecutar(
@@ -226,7 +226,7 @@ namespace Rubikranet.Administrador
             }
         }
         
-        public class AtributosCombo
+        public class AttrCB
         {
             public string Text { get; set; }
             public object Value { get; set; }
@@ -240,7 +240,7 @@ namespace Rubikranet.Administrador
         {
             var combo = o as MetroFramework.Controls.MetroComboBox;
 
-            AtributosCombo item0 = new AtributosCombo();
+            AttrCB item0 = new AttrCB();
             item0.Value = "0";
             item0.Text = text0;
 
@@ -248,7 +248,7 @@ namespace Rubikranet.Administrador
 
             while (Conexion.result.Read())
             {
-                AtributosCombo item = new AtributosCombo();
+                AttrCB item = new AttrCB();
 
                 item.Value = Conexion.result[value].ToString();
                 item.Text = Conexion.result[text].ToString();
@@ -324,7 +324,7 @@ namespace Rubikranet.Administrador
                     CargaCombos("Turnos...", comboTurnos, "id_turno", "nombre");
                     Conexion.con.Close();
 
-                    AtributosCombo item0 = new AtributosCombo();
+                    AttrCB item0 = new AttrCB();
                     item0.Value = "0";
                     item0.Text = "Municipio...";
 
