@@ -108,8 +108,8 @@ id_turno	nombre	hora_entrada	hora_salida
 Catálogo cargos
 
 nombre		         Actividades
-Administrador 
-Usuario
-Encargados de área        
+Administrador		Llevar el control total del establecimiento
+Usuario				Consulta solo la información del establecimiento
+Encargados de área  Consulta la información de cada una de sus áreas      
 */
 
