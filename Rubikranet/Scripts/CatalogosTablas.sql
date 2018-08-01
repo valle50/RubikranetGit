@@ -114,7 +114,7 @@ Encargados de área  Consulta la información de cada una de sus áreas
 */
 
 /*
-Catálogo estados
+Catálogo estados 
 
 id_estado		nombre_estado
 1               Aguascalientes	
