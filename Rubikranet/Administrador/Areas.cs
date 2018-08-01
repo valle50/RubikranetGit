@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Rubikranet.Funciones;
 
 namespace Rubikranet.Administrador
@@ -176,8 +177,6 @@ namespace Rubikranet.Administrador
                     SendKeys.SendWait("{ENTER}");
                     TablaAreas.Columns[2].Visible = false;
                     break;
-                case 3:
-                    break;
                 default:
                     timerCarga.Stop();
                     timerActualiza.Start();
@@ -254,6 +253,21 @@ namespace Rubikranet.Administrador
 
         private void scrollActual_MouseUp(object sender, MouseEventArgs e)
         {
+            validaCupoActual();
+        }
+
+        private void numActual_MouseClick(object sender, MouseEventArgs e)
+        {
+            validaCupoActual();
+        }
+
+        private void scrollActual_MouseHover(object sender, EventArgs e)
+        {
+            validaCupoActual();
+        }
+
+        private void validaCupoActual()
+        {
             if (numActual.Value >= numMaximo.Value)
             {
                 numActual.Value = numMaximo.Value;
@@ -261,13 +275,19 @@ namespace Rubikranet.Administrador
             }
         }
 
-        private void numActual_MouseClick(object sender, MouseEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            if (numActual.Value >= numMaximo.Value)
-            {
-                numActual.Value = numMaximo.Value;
-                scrollActual.Value = numMaximo.Value;
-            }
+            chart1.Series["campo1"].Points.AddXY("Max",33);
+            chart1.Series["campo2"].Points.AddXY("Max", 70);
+
+            chart1.Series["campo1"].Points.AddXY("Carl", 15);
+            chart1.Series["campo2"].Points.AddXY("Max", 80);
+
+            chart1.Series["campo1"].Points.AddXY("Marc", 50);
+            chart1.Series["campo2"].Points.AddXY("Max", 90);
+
+            chart1.Series["campo1"].Points.AddXY("Paco", 10);
+            chart1.Series["campo2"].Points.AddXY("Max", 100);
         }
     }
 }

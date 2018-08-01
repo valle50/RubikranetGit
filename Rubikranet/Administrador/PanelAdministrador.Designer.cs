@@ -30,11 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdministrador));
             this.BarraSuperior = new System.Windows.Forms.ToolStrip();
+            this.btnConfiguracion = new System.Windows.Forms.ToolStripButton();
+            this.btnAdministrador = new System.Windows.Forms.ToolStripDropDownButton();
+            this.miInformaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.lblSeccion = new System.Windows.Forms.ToolStripLabel();
+            this.logoEmpresa = new System.Windows.Forms.ToolStripButton();
             this.BarraLateral = new System.Windows.Forms.ToolStrip();
-            this.panelAdmin = new System.Windows.Forms.Panel();
             this.btnClientes = new System.Windows.Forms.ToolStripButton();
             this.btnVentas = new System.Windows.Forms.ToolStripButton();
             this.btnMembresia = new System.Windows.Forms.ToolStripButton();
@@ -43,11 +47,7 @@
             this.btnInventario = new System.Windows.Forms.ToolStripButton();
             this.btnEmpleado = new System.Windows.Forms.ToolStripButton();
             this.btnEntradas_salidas = new System.Windows.Forms.ToolStripButton();
-            this.btnConfiguracion = new System.Windows.Forms.ToolStripButton();
-            this.btnAdministrador = new System.Windows.Forms.ToolStripDropDownButton();
-            this.miInformaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoEmpresa = new System.Windows.Forms.ToolStripButton();
+            this.panelAdmin = new System.Windows.Forms.Panel();
             this.BarraSuperior.SuspendLayout();
             this.BarraLateral.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,39 @@
             this.BarraSuperior.Size = new System.Drawing.Size(984, 50);
             this.BarraSuperior.TabIndex = 0;
             this.BarraSuperior.Text = "toolStrip1";
+            // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Image")));
+            this.btnConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Size = new System.Drawing.Size(34, 47);
+            this.btnConfiguracion.Text = "Configuarción";
+            // 
+            // btnAdministrador
+            // 
+            this.btnAdministrador.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAdministrador.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miInformaciónToolStripMenuItem,
+            this.editarToolStripMenuItem});
+            this.btnAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAdministrador.Image")));
+            this.btnAdministrador.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAdministrador.Name = "btnAdministrador";
+            this.btnAdministrador.Size = new System.Drawing.Size(43, 47);
+            this.btnAdministrador.Text = "Administrador";
+            // 
+            // miInformaciónToolStripMenuItem
+            // 
+            this.miInformaciónToolStripMenuItem.Name = "miInformaciónToolStripMenuItem";
+            this.miInformaciónToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.miInformaciónToolStripMenuItem.Text = "Mi información";
+            // 
+            // editarToolStripMenuItem
+            // 
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.editarToolStripMenuItem.Text = "Cerrar sesión";
             // 
             // toolStripLabel1
             // 
@@ -100,6 +133,18 @@
             this.lblSeccion.Text = "Inicio";
             this.lblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // logoEmpresa
+            // 
+            this.logoEmpresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoEmpresa.BackgroundImage")));
+            this.logoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logoEmpresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.logoEmpresa.Enabled = false;
+            this.logoEmpresa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.logoEmpresa.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
+            this.logoEmpresa.Name = "logoEmpresa";
+            this.logoEmpresa.Size = new System.Drawing.Size(23, 47);
+            this.logoEmpresa.Text = "Rubikranet";
+            // 
             // BarraLateral
             // 
             this.BarraLateral.AutoSize = false;
@@ -121,16 +166,6 @@
             this.BarraLateral.Size = new System.Drawing.Size(50, 699);
             this.BarraLateral.TabIndex = 1;
             this.BarraLateral.Text = "toolStrip2";
-            // 
-            // panelAdmin
-            // 
-            this.panelAdmin.BackColor = System.Drawing.Color.White;
-            this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAdmin.Location = new System.Drawing.Point(50, 50);
-            this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(934, 699);
-            this.panelAdmin.TabIndex = 2;
             // 
             // btnClientes
             // 
@@ -221,50 +256,15 @@
             this.btnEntradas_salidas.Text = "Entradas/Salidas empleados";
             this.btnEntradas_salidas.Click += new System.EventHandler(this.btnEntradas_salidas_Click);
             // 
-            // btnConfiguracion
+            // panelAdmin
             // 
-            this.btnConfiguracion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Image")));
-            this.btnConfiguracion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnConfiguracion.Name = "btnConfiguracion";
-            this.btnConfiguracion.Size = new System.Drawing.Size(34, 47);
-            this.btnConfiguracion.Text = "Configuarción";
-            // 
-            // btnAdministrador
-            // 
-            this.btnAdministrador.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdministrador.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miInformaciónToolStripMenuItem,
-            this.editarToolStripMenuItem});
-            this.btnAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAdministrador.Image")));
-            this.btnAdministrador.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAdministrador.Name = "btnAdministrador";
-            this.btnAdministrador.Size = new System.Drawing.Size(43, 47);
-            this.btnAdministrador.Text = "Administrador";
-            // 
-            // miInformaciónToolStripMenuItem
-            // 
-            this.miInformaciónToolStripMenuItem.Name = "miInformaciónToolStripMenuItem";
-            this.miInformaciónToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.miInformaciónToolStripMenuItem.Text = "Mi información";
-            // 
-            // editarToolStripMenuItem
-            // 
-            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.editarToolStripMenuItem.Text = "Cerrar sesión";
-            // 
-            // logoEmpresa
-            // 
-            this.logoEmpresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoEmpresa.BackgroundImage")));
-            this.logoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoEmpresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.logoEmpresa.Enabled = false;
-            this.logoEmpresa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.logoEmpresa.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
-            this.logoEmpresa.Name = "logoEmpresa";
-            this.logoEmpresa.Size = new System.Drawing.Size(23, 47);
-            this.logoEmpresa.Text = "Rubikranet";
+            this.panelAdmin.BackColor = System.Drawing.Color.White;
+            this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAdmin.Location = new System.Drawing.Point(50, 50);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(934, 699);
+            this.panelAdmin.TabIndex = 2;
             // 
             // PanelAdministrador
             // 
