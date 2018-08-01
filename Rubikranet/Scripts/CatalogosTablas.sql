@@ -107,7 +107,9 @@ id_turno	nombre	hora_entrada	hora_salida
 /*
 Catálogo cargos
 
-nombre		Actividades
-
+nombre		         Actividades
+Administrador 
+Usuario
+Encargados de área        
 */
 
