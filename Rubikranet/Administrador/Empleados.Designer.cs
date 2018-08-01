@@ -79,6 +79,7 @@
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
             this.tablaEmpleados = new System.Windows.Forms.DataGridView();
             this.timerCarga = new System.Windows.Forms.Timer(this.components);
+            this.timerActualiza = new System.Windows.Forms.Timer(this.components);
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupHorario.SuspendLayout();
@@ -158,7 +159,7 @@
             // 
             this.checkCambioId.AutoSize = true;
             this.checkCambioId.Depth = 0;
-            this.checkCambioId.Font = new System.Drawing.Font("Roboto", 10F);
+            this.checkCambioId.Font = new System.Drawing.Font("Segoe WP", 10F);
             this.checkCambioId.Location = new System.Drawing.Point(628, 61);
             this.checkCambioId.Margin = new System.Windows.Forms.Padding(0);
             this.checkCambioId.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -208,12 +209,12 @@
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel8.Location = new System.Drawing.Point(8, 124);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(52, 19);
+            this.materialLabel8.Size = new System.Drawing.Size(49, 17);
             this.materialLabel8.TabIndex = 28;
             this.materialLabel8.Text = "Día fin";
             // 
@@ -228,12 +229,12 @@
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel7.Location = new System.Drawing.Point(8, 63);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(76, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(71, 17);
             this.materialLabel7.TabIndex = 27;
             this.materialLabel7.Text = "Día inicio:";
             // 
@@ -253,7 +254,7 @@
             // 
             this.radioSexo2.AutoSize = true;
             this.radioSexo2.Depth = 0;
-            this.radioSexo2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioSexo2.Font = new System.Drawing.Font("Segoe WP", 10F);
             this.radioSexo2.Location = new System.Drawing.Point(119, 17);
             this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
             this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -271,7 +272,7 @@
             // 
             this.radioSexo.AutoSize = true;
             this.radioSexo.Depth = 0;
-            this.radioSexo.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioSexo.Font = new System.Drawing.Font("Segoe WP", 10F);
             this.radioSexo.Location = new System.Drawing.Point(8, 17);
             this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
             this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -289,12 +290,12 @@
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(528, 13);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(44, 19);
+            this.materialLabel5.Size = new System.Drawing.Size(46, 17);
             this.materialLabel5.TabIndex = 23;
             this.materialLabel5.Text = "RFID:";
             // 
@@ -302,12 +303,12 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(15, 13);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(96, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(93, 17);
             this.materialLabel3.TabIndex = 22;
             this.materialLabel3.Text = "Id Empleado:";
             // 
@@ -386,7 +387,7 @@
             this.txtNIP.SelectedText = "";
             this.txtNIP.SelectionLength = 0;
             this.txtNIP.SelectionStart = 0;
-            this.txtNIP.Size = new System.Drawing.Size(84, 23);
+            this.txtNIP.Size = new System.Drawing.Size(84, 25);
             this.txtNIP.TabIndex = 15;
             this.txtNIP.Tag = "NIP...";
             this.txtNIP.UseSystemPasswordChar = false;
@@ -403,7 +404,7 @@
             this.txtRFID.SelectedText = "";
             this.txtRFID.SelectionLength = 0;
             this.txtRFID.SelectionStart = 0;
-            this.txtRFID.Size = new System.Drawing.Size(194, 23);
+            this.txtRFID.Size = new System.Drawing.Size(194, 25);
             this.txtRFID.TabIndex = 14;
             this.txtRFID.Tag = "RFID...";
             this.txtRFID.UseSystemPasswordChar = false;
@@ -419,7 +420,7 @@
             this.txtCorreo.SelectedText = "";
             this.txtCorreo.SelectionLength = 0;
             this.txtCorreo.SelectionStart = 0;
-            this.txtCorreo.Size = new System.Drawing.Size(198, 23);
+            this.txtCorreo.Size = new System.Drawing.Size(198, 25);
             this.txtCorreo.TabIndex = 13;
             this.txtCorreo.Tag = "Correo...";
             this.txtCorreo.UseSystemPasswordChar = false;
@@ -435,7 +436,7 @@
             this.txtTelefono.SelectedText = "";
             this.txtTelefono.SelectionLength = 0;
             this.txtTelefono.SelectionStart = 0;
-            this.txtTelefono.Size = new System.Drawing.Size(198, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(198, 25);
             this.txtTelefono.TabIndex = 12;
             this.txtTelefono.Tag = "Teléfono...";
             this.txtTelefono.UseSystemPasswordChar = false;
@@ -472,7 +473,7 @@
             this.txtCP.SelectedText = "";
             this.txtCP.SelectionLength = 0;
             this.txtCP.SelectionStart = 0;
-            this.txtCP.Size = new System.Drawing.Size(111, 23);
+            this.txtCP.Size = new System.Drawing.Size(111, 25);
             this.txtCP.TabIndex = 9;
             this.txtCP.Tag = "Código postal...";
             this.txtCP.UseSystemPasswordChar = false;
@@ -488,7 +489,7 @@
             this.txtDirección.SelectedText = "";
             this.txtDirección.SelectionLength = 0;
             this.txtDirección.SelectionStart = 0;
-            this.txtDirección.Size = new System.Drawing.Size(247, 23);
+            this.txtDirección.Size = new System.Drawing.Size(247, 25);
             this.txtDirección.TabIndex = 8;
             this.txtDirección.Tag = "Dirección...";
             this.txtDirección.UseSystemPasswordChar = false;
@@ -497,12 +498,12 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(16, 250);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(132, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(128, 17);
             this.materialLabel1.TabIndex = 7;
             this.materialLabel1.Text = "Fecha nacimiento:";
             // 
@@ -526,7 +527,7 @@
             this.txtAM.SelectedText = "";
             this.txtAM.SelectionLength = 0;
             this.txtAM.SelectionStart = 0;
-            this.txtAM.Size = new System.Drawing.Size(200, 23);
+            this.txtAM.Size = new System.Drawing.Size(200, 25);
             this.txtAM.TabIndex = 3;
             this.txtAM.Tag = "Apellido materno...";
             this.txtAM.UseSystemPasswordChar = false;
@@ -542,7 +543,7 @@
             this.txtAP.SelectedText = "";
             this.txtAP.SelectionLength = 0;
             this.txtAP.SelectionStart = 0;
-            this.txtAP.Size = new System.Drawing.Size(200, 23);
+            this.txtAP.Size = new System.Drawing.Size(200, 25);
             this.txtAP.TabIndex = 2;
             this.txtAP.Tag = "Apellido paterno...";
             this.txtAP.UseSystemPasswordChar = false;
@@ -558,7 +559,7 @@
             this.txtNombre.SelectedText = "";
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(201, 23);
+            this.txtNombre.Size = new System.Drawing.Size(201, 25);
             this.txtNombre.TabIndex = 1;
             this.txtNombre.Tag = "Nombre...";
             this.txtNombre.UseSystemPasswordChar = false;
@@ -574,7 +575,7 @@
             this.txtId.SelectedText = "";
             this.txtId.SelectionLength = 0;
             this.txtId.SelectionStart = 0;
-            this.txtId.Size = new System.Drawing.Size(200, 23);
+            this.txtId.Size = new System.Drawing.Size(200, 25);
             this.txtId.TabIndex = 0;
             this.txtId.Tag = "Id empleado...";
             this.txtId.UseSystemPasswordChar = false;
@@ -604,7 +605,7 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.Size = new System.Drawing.Size(242, 23);
+            this.txtBuscar.Size = new System.Drawing.Size(242, 25);
             this.txtBuscar.TabIndex = 33;
             this.txtBuscar.Tag = "Buscar...";
             this.txtBuscar.UseSystemPasswordChar = false;
@@ -630,12 +631,12 @@
             this.lblTotalReg.AutoSize = true;
             this.lblTotalReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalReg.Depth = 0;
-            this.lblTotalReg.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.lblTotalReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalReg.Location = new System.Drawing.Point(455, 326);
             this.lblTotalReg.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalReg.Name = "lblTotalReg";
-            this.lblTotalReg.Size = new System.Drawing.Size(0, 19);
+            this.lblTotalReg.Size = new System.Drawing.Size(0, 17);
             this.lblTotalReg.TabIndex = 31;
             // 
             // materialLabel6
@@ -643,12 +644,12 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel6.Location = new System.Drawing.Point(368, 326);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(81, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(79, 17);
             this.materialLabel6.TabIndex = 30;
             this.materialLabel6.Text = "Registros: ";
             // 
@@ -657,12 +658,12 @@
             this.lblTotalPag.AutoSize = true;
             this.lblTotalPag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalPag.Depth = 0;
-            this.lblTotalPag.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.lblTotalPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalPag.Location = new System.Drawing.Point(312, 326);
             this.lblTotalPag.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalPag.Name = "lblTotalPag";
-            this.lblTotalPag.Size = new System.Drawing.Size(0, 19);
+            this.lblTotalPag.Size = new System.Drawing.Size(0, 17);
             this.lblTotalPag.TabIndex = 29;
             // 
             // materialLabel4
@@ -670,12 +671,12 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(281, 326);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(25, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(24, 17);
             this.materialLabel4.TabIndex = 28;
             this.materialLabel4.Text = "de";
             // 
@@ -684,12 +685,12 @@
             this.lblPagActual.AutoSize = true;
             this.lblPagActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPagActual.Depth = 0;
-            this.lblPagActual.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.lblPagActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPagActual.Location = new System.Drawing.Point(249, 326);
             this.lblPagActual.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPagActual.Name = "lblPagActual";
-            this.lblPagActual.Size = new System.Drawing.Size(0, 19);
+            this.lblPagActual.Size = new System.Drawing.Size(0, 17);
             this.lblPagActual.TabIndex = 27;
             this.lblPagActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -698,12 +699,12 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(189, 326);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(54, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(53, 17);
             this.materialLabel2.TabIndex = 26;
             this.materialLabel2.Text = "Página";
             // 
@@ -781,6 +782,11 @@
             // 
             this.timerCarga.Interval = 500;
             this.timerCarga.Tick += new System.EventHandler(this.timerEmpleados_Tick);
+            // 
+            // timerActualiza
+            // 
+            this.timerActualiza.Interval = 500;
+            this.timerActualiza.Tick += new System.EventHandler(this.timerActualiza_Tick);
             // 
             // Empleados
             // 
@@ -863,5 +869,6 @@
         private MaterialSkin.Controls.MaterialCheckBox checkCambioId;
         private System.Windows.Forms.GroupBox groupHorario;
         private System.Windows.Forms.GroupBox groupSexo;
+        private System.Windows.Forms.Timer timerActualiza;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,8 +13,6 @@ namespace Rubikranet
 {
     public partial class Bienvenida : Form
     {
-        int timer;
-
         System.Drawing.Drawing2D.GraphicsPath Logo = new System.Drawing.Drawing2D.GraphicsPath();
         public Bienvenida()
         {
@@ -24,29 +23,25 @@ namespace Rubikranet
         {
             //Logo.AddRectangles(this., 100, 100, 100);
             //this.Region = new Region(Logo);
-            timer = -1;
             timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timer >= 0)
+            for (int i = 0; i < 10000; i++)
             {
+                metroProgressSpinner1.Value = i;
 
-                timer = timer - 1;
-                progressBar1.Value = progressBar1.Value + 20;
-
+                if (i == 9999)
+                {
+                    timer1.Stop();
+                    Acceso access = new Acceso();
+                    this.Hide();
+                    access.ShowDialog();
+                    this.Close();
+                }
             }
-            else {
-
-                timer1.Stop();
-                Acceso access = new Acceso();
-                this.Hide();
-                access.ShowDialog();
-                this.Close();
-            }
-
-
+            timer1.Stop();
         }
     }
 }

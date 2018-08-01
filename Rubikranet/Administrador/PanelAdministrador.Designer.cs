@@ -125,7 +125,6 @@
             // panelAdmin
             // 
             this.panelAdmin.BackColor = System.Drawing.Color.White;
-            this.panelAdmin.BackgroundImage = global::Rubikranet.Properties.Resources.fondo3;
             this.panelAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelAdmin.Location = new System.Drawing.Point(50, 50);
@@ -264,7 +263,7 @@
             this.logoEmpresa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.logoEmpresa.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.logoEmpresa.Name = "logoEmpresa";
-            this.logoEmpresa.Size = new System.Drawing.Size(23, 4);
+            this.logoEmpresa.Size = new System.Drawing.Size(23, 47);
             this.logoEmpresa.Text = "Rubikranet";
             // 
             // PanelAdministrador

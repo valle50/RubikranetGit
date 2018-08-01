@@ -18,6 +18,8 @@ namespace Rubikranet.Administrador
         string check = "0";
         object[] txts;
         object[] combos;
+        public static bool ventanaActiva = false;
+
         public Empleados()
         {
             InitializeComponent();
@@ -48,12 +50,8 @@ namespace Rubikranet.Administrador
                 combo.SelectedIndex = 0;
             }
             comboTurnos.SelectedIndex = 0;
-
-            foreach (var ctrl in panel1.Controls.OfType<DateTimePicker>())
-            {
-                var dtp = ctrl as DateTimePicker;
-                dtp.Value = DateTime.Now;
-            }
+            
+            dtNacimiento.Value = DateTime.Now;
             dtDiaInicio.Value = DateTime.Now;
             dtDiaFin.Value = DateTime.Now;
 
@@ -139,13 +137,7 @@ namespace Rubikranet.Administrador
                 Conexion.Ejecutar(
                     String.Format("exec empleados_aa  '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}','{13}','{14}','{15}','{16}','{17}','{18}','{19}','{20}','{21}'", check, txtId.Text, txtNombre.Text, txtAP.Text, txtAM.Text, sexo, dtNacimiento.Text, txtDirección.Text, txtCP.Text, estado, municipio, txtTelefono.Text, txtCorreo.Text, txtRFID.Text, txtNIP.Text, estatus, cargo, privilegio, area,turno, dtDiaInicio.Text, dtDiaFin.Text));
 
-                Conexion.Paginar(
-                            string.Format("select * from listarEmpleados order by num desc"),
-                            "DataMember1", Convert.ToInt16(comboCantidadReg.Text));
-                tablaEmpleados.DataSource = Conexion.cargar();
-                tablaEmpleados.DataMember = "DataMember1";
-
-                Actualizar();
+                btnRefrescar_Click(null,null);
                 Limpia();
             }
 
@@ -229,6 +221,7 @@ namespace Rubikranet.Administrador
                         String.Format("update empleados set id_estatus = 1, fecha_retiro = '{0}' where id_empleado = '{1}'", DateTime.Now.ToShortDateString(), check));
 
                     Mensajes.Caja("Information","Información","Registro eliminado correctamente.");
+                    check = "0";
                 }
             }
         }
@@ -352,7 +345,8 @@ namespace Rubikranet.Administrador
                     break;
 
                 default:
-                    timerCarga.Stop();                    
+                    timerCarga.Stop();
+                    timerActualiza.Start();     
                     break;
             }
         }
@@ -406,5 +400,13 @@ namespace Rubikranet.Administrador
             Actualizar();
         }
 
+        private void timerActualiza_Tick(object sender, EventArgs e)
+        {
+            if (ventanaActiva)
+            {
+                btnRefrescar_Click(null, null);
+                ventanaActiva = false;
+            }
+        }
     }
 }
