@@ -12,6 +12,21 @@ id_estatus	nombre_estatus
 */
 
 
+
+/*
+insert into estatus_empleado	
+values ('	Inactivo/Eliminado
+('	Suspendido temporalmente
+('	Incapacitado
+('	Activo
+('	Periódo vacacional
+
+*/
+
+
+
+
+
 /*
 Catálogo areas
 
