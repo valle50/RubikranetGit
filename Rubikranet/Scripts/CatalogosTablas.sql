@@ -15,12 +15,11 @@ id_estatus	nombre_estatus
 
 /*
 insert into estatus_empleado	
-values ('	Inactivo/Eliminado
-('	Suspendido temporalmente
-('	Incapacitado
-('	Activo
-('	Periódo vacacional
-
+values ('Inactivo/Eliminado
+('Suspendido temporalmente
+('Incapacitado
+('Activo
+('Periï¿½do vacacional
 */
 
 
@@ -73,6 +72,19 @@ id_categoria	categoria
 5				Premium
 6				Gold
 */
+
+
+/*
+	
+insert into categorÃ­as_membresias	
+values ('Familiar
+('Pareja
+('Basic
+('Plus
+('Premium
+('Gold
+*/
+
 
 
 /*
