@@ -96,7 +96,7 @@ values 	('	Piscina grande	 '),
 */
 
 /*
-Catálogo categorías_membresias
+Catálogo categorías_membresias 
 
 id_categoria	categoria
 1				Familiar	
