@@ -17,33 +17,33 @@ Catálogo areas
 
 [nombre]					codigo_edad_accesibilidad (0 = Adultos, 1 = Familiar)
 							Se usará este campo para los que tengan membresías familiares en su campo tipo_edad
-Piscina nombre1
-Piscina nombre2
-Sala de juegos
-Bar nombre1
-Bar nombre2
-Cine
-Cine VIP
-Cine 3D
-Teatro
-Gimnasio
-Restaurante Chino
-Restaurante Brasileño
-Restaurante Mexicano
-Dormitorio básico
-Dormitorio Intermedio
-Dormitorio Premium
-Campo de golf
-Regaderas
-Antro nombre1
-Antro nombre2
-Centro comercial
-Museo
-Juegos mecánicos
-Zona de postres
-Spa
-Zona de juegos
-Enfermeria 
+1 Piscina nombre1
+2 Piscina nombre2
+3 Sala de juegos
+4 Bar nombre1
+5 Bar nombre2
+6 Cine
+7 Cine VIP
+8 Cine 3D
+9 Teatro
+10 Gimnasio
+11 Restaurante Chino
+12 Restaurante Brasileño
+13 Restaurante Mexicano
+14 Dormitorio básico
+15 Dormitorio Intermedio
+16 Dormitorio Premium
+17 Campo de golf
+18 Regaderas
+19 Antro nombre1
+20 Antro nombre2
+21 Centro comercial
+22 Museo
+23 Juegos mecánicos
+24 Zona de postres
+25 Spa
+26 Zona de juegos
+27 Enfermeria 
 */
 
 
@@ -61,6 +61,14 @@ id_categoria	categoria
 
 
 /*
+Catálogo accesibilidad_areas
+
+id_categoria	id_area		estatus
+
+*/
+
+
+/*
 Catálogo Privilegios
 
 id_privilegio	privilegio
@@ -68,6 +76,7 @@ id_privilegio	privilegio
 2				Usuario
 3				Básico
 4				Ninguno
+
 */
 
 
@@ -82,6 +91,7 @@ id_precio_miembro	tipo_edad	precio_extra	estatus
 3					0			2000			0
 4					1			1500			0
 */
+
 
 /*
 Catálogo promociones
@@ -151,6 +161,47 @@ id_estado		nombre_estado
 30				Veracruz	
 31				Yucatán	
 32				Zacatecas
+*/
+
+
+/*
+Script insert tabla estados
+
+insert into estados (nombre_estado) 
+values ('Aguascalientes'), 
+('Baja California'),
+('	Baja California Sur'),
+('	Campeche'),
+('	Chiapas'),
+('	Chihuahua'),
+('	Ciudad de México'),
+('	Coahuila'),
+('	Colima'),
+('	Durango'),
+('	Guanajuato'),
+('	Guerrero'),
+('	Hidalgo'),
+('	Jalisco'),
+('	México'),
+('	Michoacán'),
+('	Morelos'),
+('	Nayarit'),
+('	Nuevo León'),
+('	Oaxaca'),
+('	Puebla'),
+('	Querétaro'),
+('	Quintana Roo'),
+('	San Luis Potosí'),
+('	Sinaloa'),
+('	Sonora'),
+('	Tabasco'),
+('	Tamaulipas'),
+('	Tlaxcala'),
+('	Veracruz'),
+('	Yucatán'),
+('	Zacatecas')
+go
+
 */
 
 
