@@ -19,3 +19,13 @@ alter table categorias_membresias add costo money
 alter table categorias_membresias add id_promocion int foreign key(id_promocion) references promociones(id_promocion)
 alter table categorias_membresias add iva tinyint
 alter table categorias_membresias add estatus bit
+
+
+
+--Update para agregar valores a campos de tabla áreas
+ update areas set estatusEliminado = 0
+ update areas set estatus = 0
+ update areas set codigo_edad_accesibilidad = 0
+ --Update para agregar valores a campos de tabla categorias_membresias
+ update categorias_membresias set costo = 1000
+ update categorias_membresias set iva = 16

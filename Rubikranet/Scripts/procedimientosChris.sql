@@ -158,6 +158,30 @@ select e.num,
 
 
 
+	create view listarCategorias
+	as
+	select 
+	cm.id_categoria,
+	cm.categoria 'Categoría',
+	cm.costo 'Costo',
+	isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción') 'Promoción',
+	case
+		isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción')	
+		when 'Sin Promoción' then '%0' else (select top(1) concat('%',p.porcentaje_descuento) from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin)
+	end as 'Porcentaje de descuento',
+	concat('%',cm.iva) 'IVA',
+	case 
+		isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción')
+		when 'Sin promoción' 
+		then cm.costo + (cm.costo * cm.iva / 100) 
+		else 
+		(cm.costo - cm.costo * cast((select top(1) p.porcentaje_descuento from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin) as money) / 100) +
+		((cm.costo - cm.costo * cast((select top(1) p.porcentaje_descuento from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin) as money) / 100) * cm.iva / 100) 
+		end 'Total',
+	case cm.estatus_visible when 0 then 'Inactivo' else 'Activo' end as 'Estatus de categoría'
+	from categorias_membresias cm
+	go
+
 --select * from (select id_objeto as laid, objeto from tobjetos) temporal where laid=100
 
 
