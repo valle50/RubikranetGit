@@ -14,15 +14,15 @@ id_estatus	nombre_estatus
 
 
 /*
-insert into estatus_empleado	
-values ('Inactivo/Eliminado
-('Suspendido temporalmente
-('Incapacitado
-('Activo
-('Peri�do vacacional
+
+insert into  estatus_empleados  (nombre_estatus)			
+values 	('	Inactivo/Eliminado	 '),
+	('	Suspendido temporalmente	 '),
+	('	Incapacitado	 '),
+	('	Activo	 '),
+	('	Periódo vacacional	 ')
+
 */
-
-
 
 
 
@@ -31,17 +31,17 @@ Catálogo areas
 
 [nombre]					codigo_edad_accesibilidad (0 = Adultos, 1 = Familiar)
 							Se usará este campo para los que tengan membresías familiares en su campo tipo_edad
-1 Piscina nombre1
-2 Piscina nombre2
+1 Piscina grande
+2 Piscina chica
 3 Sala de juegos
-4 Bar nombre1
-5 Bar nombre2
+4 Bar  La palma 
+5 Bar los dos amigos
 6 Cine
 7 Cine VIP
 8 Cine 3D
 9 Teatro
 10 Gimnasio
-11 Restaurante Chino
+11 Restaurante Chino 
 12 Restaurante Brasileño
 13 Restaurante Mexicano
 14 Dormitorio básico
@@ -49,9 +49,9 @@ Catálogo areas
 16 Dormitorio Premium
 17 Campo de golf
 18 Regaderas
-19 Antro nombre1
-20 Antro nombre2
-21 Centro comercial
+19 Antro las gardenias
+20 Antro oso negro
+21 Centro comercial 
 22 Museo
 23 Juegos mecánicos
 24 Zona de postres
@@ -60,6 +60,40 @@ Catálogo areas
 27 Enfermeria 
 */
 
+
+/*
+
+insert into  areas (nombre)			
+values 	('	Piscina grande	 '),
+	('	Piscina chica	 '),
+	('	 Sala de juegos	 '),
+	('	 Bar  La palma 	 '),
+	('	 Bar los dos amigos	 '),
+	('	 Cine	 '),
+	('	Cine VIP	 '),
+	('	 Cine 3D	 '),
+	('	Teatro	 '),
+	('	Gimnasio	 '),
+	('	 Restaurante Chino 	 '),
+	('	 Restaurante Brasileño	 '),
+	('	 Restaurante Mexicano	 '),
+	('	 Dormitorio básico	 '),
+	('	 Dormitorio Intermedio	 '),
+	('	 Dormitorio Premium	 '),
+	('	 Campo de golf	 '),
+	('	 Regaderas	 '),
+	('	 Antro las gardenias	 '),
+	('	 Antro oso negro	 '),
+	('	 Centro comercial 	 '),
+	('	 Museo	 '),
+	('	 Juegos mecánicos	 '),
+	('	 Zona de postres	 '),
+	('	 Spa	 '),
+	('	 Zona de juegos	 '),
+	('	Enfermeria	 '),
+
+
+*/
 
 /*
 Catálogo categorías_membresias
@@ -75,14 +109,15 @@ id_categoria	categoria
 
 
 /*
+insert into  categorías_membresias (categoria)			
+values 	('	Familiar	 '),
+	('	Pareja	 '),
+	('	Basic	 '),
+	('	Plus	 '),
+	('	Premium	 '),
+	('	Gold	 ')
 	
-insert into categorías_membresias	
-values ('Familiar
-('Pareja
-('Basic
-('Plus
-('Premium
-('Gold
+
 */
 
 
@@ -104,6 +139,14 @@ id_privilegio	privilegio
 3				Básico
 4				Ninguno
 
+*/
+
+/*
+insert into  privilegios (privilegio)			
+values 	('	Administrador	 '),
+	('	Usuario	 '),
+	('	Básico	 '),
+	('	Ningun	 ')
 */
 
 
