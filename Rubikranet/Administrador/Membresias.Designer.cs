@@ -47,7 +47,9 @@
             this.btnSiguiente = new System.Windows.Forms.PictureBox();
             this.btnAnterior = new System.Windows.Forms.PictureBox();
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.timerCarga = new System.Windows.Forms.Timer(this.components);
+            this.timerActualiza = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TablaMem)).BeginInit();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).BeginInit();
@@ -71,6 +73,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.ImageList = this.imageList;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -79,20 +82,21 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.ImageIndex = 0;
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(926, 288);
+            this.tabPage1.Size = new System.Drawing.Size(926, 287);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Nueva/actualiza membresía";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(926, 288);
+            this.tabPage2.Size = new System.Drawing.Size(926, 287);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Otro...";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -270,11 +274,20 @@
             this.btnPrimerPagina.TabIndex = 43;
             this.btnPrimerPagina.TabStop = false;
             // 
-            // imageList1
+            // imageList
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "home.png");
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "home.png");
+            // 
+            // timerCarga
+            // 
+            this.timerCarga.Interval = 500;
+            this.timerCarga.Tick += new System.EventHandler(this.timerCarga_Tick);
+            // 
+            // timerActualiza
+            // 
+            this.timerActualiza.Interval = 500;
             // 
             // Membresias
             // 
@@ -328,6 +341,8 @@
         private System.Windows.Forms.PictureBox btnSiguiente;
         private System.Windows.Forms.PictureBox btnAnterior;
         private System.Windows.Forms.PictureBox btnPrimerPagina;
-        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ImageList imageList;
+        private System.Windows.Forms.Timer timerCarga;
+        private System.Windows.Forms.Timer timerActualiza;
     }
 }
