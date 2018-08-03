@@ -120,7 +120,7 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.Size = new System.Drawing.Size(242, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(242, 23);
             this.txtBuscar.TabIndex = 55;
             this.txtBuscar.Tag = "Buscar...";
             this.txtBuscar.UseSystemPasswordChar = false;
@@ -144,12 +144,12 @@
             this.lblTotalReg.AutoSize = true;
             this.lblTotalReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalReg.Depth = 0;
-            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblTotalReg.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotalReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalReg.Location = new System.Drawing.Point(460, 326);
             this.lblTotalReg.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalReg.Name = "lblTotalReg";
-            this.lblTotalReg.Size = new System.Drawing.Size(0, 17);
+            this.lblTotalReg.Size = new System.Drawing.Size(0, 19);
             this.lblTotalReg.TabIndex = 53;
             // 
             // materialLabel6
@@ -157,12 +157,12 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel6.Location = new System.Drawing.Point(373, 326);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(79, 17);
+            this.materialLabel6.Size = new System.Drawing.Size(81, 19);
             this.materialLabel6.TabIndex = 52;
             this.materialLabel6.Text = "Registros: ";
             // 
@@ -171,12 +171,12 @@
             this.lblTotalPag.AutoSize = true;
             this.lblTotalPag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalPag.Depth = 0;
-            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblTotalPag.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotalPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalPag.Location = new System.Drawing.Point(317, 326);
             this.lblTotalPag.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalPag.Name = "lblTotalPag";
-            this.lblTotalPag.Size = new System.Drawing.Size(0, 17);
+            this.lblTotalPag.Size = new System.Drawing.Size(0, 19);
             this.lblTotalPag.TabIndex = 51;
             // 
             // materialLabel4
@@ -184,12 +184,12 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(286, 326);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(24, 17);
+            this.materialLabel4.Size = new System.Drawing.Size(25, 19);
             this.materialLabel4.TabIndex = 50;
             this.materialLabel4.Text = "de";
             // 
@@ -198,12 +198,12 @@
             this.lblPagActual.AutoSize = true;
             this.lblPagActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPagActual.Depth = 0;
-            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblPagActual.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPagActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPagActual.Location = new System.Drawing.Point(254, 326);
             this.lblPagActual.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPagActual.Name = "lblPagActual";
-            this.lblPagActual.Size = new System.Drawing.Size(0, 17);
+            this.lblPagActual.Size = new System.Drawing.Size(0, 19);
             this.lblPagActual.TabIndex = 49;
             this.lblPagActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -212,12 +212,12 @@
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(194, 326);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(53, 17);
+            this.materialLabel5.Size = new System.Drawing.Size(54, 19);
             this.materialLabel5.TabIndex = 48;
             this.materialLabel5.Text = "Página";
             // 

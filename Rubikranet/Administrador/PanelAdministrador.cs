@@ -55,7 +55,7 @@ namespace Rubikranet.Administrador
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            ManipulaContenido(Clientes.Panel_Clientes.Instancia, sender, lblSeccion);
         }
 
         private void btnMembresia_Click(object sender, EventArgs e)
