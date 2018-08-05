@@ -277,17 +277,40 @@ namespace Rubikranet.Administrador
 
         private void button1_Click(object sender, EventArgs e)
         {
-            chart1.Series["campo1"].Points.AddXY("Max",33);
-            chart1.Series["campo2"].Points.AddXY("Max", 70);
+            //chart1.Series["campo1"].Points.AddXY("Max",33);
+            //chart1.Series["campo2"].Points.AddXY("Max", 70);
 
-            chart1.Series["campo1"].Points.AddXY("Carl", 15);
-            chart1.Series["campo2"].Points.AddXY("Max", 80);
+            //chart1.Series["campo1"].Points.AddXY("Carl", 15);
+            //chart1.Series["campo2"].Points.AddXY("Max", 80);
 
-            chart1.Series["campo1"].Points.AddXY("Marc", 50);
-            chart1.Series["campo2"].Points.AddXY("Max", 90);
+            //chart1.Series["campo1"].Points.AddXY("Marc", 50);
+            //chart1.Series["campo2"].Points.AddXY("Max", 90);
 
-            chart1.Series["campo1"].Points.AddXY("Paco", 10);
-            chart1.Series["campo2"].Points.AddXY("Max", 100);
+            //chart1.Series["campo1"].Points.AddXY("Paco", 10);
+            //chart1.Series["campo2"].Points.AddXY("Max", 100);
+            //chart1.Series.Add("nombre");
+            chart1.Series.Add("Cupo máximo");
+            chart1.Series.Add("Cupo actual");
+
+            //chart1.Series["nombre"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series["Cupo máximo"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series["Cupo actual"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+
+            chart1.Series["Cupo máximo"].Color = Color.LightBlue;
+            chart1.Series["Cupo actual"].Color = Color.LightYellow;
+
+            chart1.Series["Cupo máximo"].IsValueShownAsLabel = true;
+            chart1.Series["Cupo actual"].IsValueShownAsLabel = true;
+
+
+            Conexion.Consulta("select top(10) nombre, cupo_maximo, cupo_actual from areas");
+            while (Conexion.result.Read())
+            {      
+                chart1.Series["Cupo máximo"].Points.AddXY(Conexion.result["nombre"].ToString(), Conexion.result["cupo_maximo"].ToString());
+                chart1.Series["Cupo actual"].Points.AddY(Conexion.result["cupo_actual"].ToString());
+            }
+
+            Conexion.con.Close();
         }
     }
 }

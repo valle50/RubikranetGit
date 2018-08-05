@@ -60,8 +60,7 @@ namespace Rubikranet.Funciones
             Tabla.AllowUserToAddRows = false;
             Tabla.AllowUserToDeleteRows = false;
             Tabla.AllowUserToResizeColumns = false;
-            Tabla.AllowUserToResizeRows = false;
-            Tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Tabla.AllowUserToResizeRows = false;            
             //
 
             /*Código para agregar botón*/
@@ -86,6 +85,7 @@ namespace Rubikranet.Funciones
                     Tabla.Rows[i].Height = 30;
                 }
             }
+            Tabla.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);//Ajusta las columnas al tamaño del grid
         }
 
     }

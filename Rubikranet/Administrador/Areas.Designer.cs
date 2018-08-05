@@ -32,11 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Areas));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.TablaAreas = new System.Windows.Forms.DataGridView();
-            this.tabAreas = new System.Windows.Forms.TabControl();
-            this.tabNuevo = new System.Windows.Forms.TabPage();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.numActual = new MetroSet_UI.Controls.MetroSetNumeric();
@@ -58,7 +54,6 @@
             this.txtHorario = new MetroSet_UI.Controls.MetroSetTextBox();
             this.txtMensaje = new MetroSet_UI.Controls.MetroSetTextBox();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -77,20 +72,25 @@
             this.btnAnterior = new System.Windows.Forms.PictureBox();
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
             this.timerActualiza = new System.Windows.Forms.Timer(this.components);
+            this.metroSetTabControl1 = new MetroSet_UI.Controls.MetroSetTabControl();
+            this.metroSetTabPage1 = new MetroSet_UI.Child.MetroSetTabPage();
+            this.metroSetTabPage2 = new MetroSet_UI.Child.MetroSetTabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.TablaAreas)).BeginInit();
-            this.tabAreas.SuspendLayout();
-            this.tabNuevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).BeginInit();
+            this.metroSetTabControl1.SuspendLayout();
+            this.metroSetTabPage1.SuspendLayout();
+            this.metroSetTabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablaAreas
@@ -103,56 +103,16 @@
             this.TablaAreas.TabIndex = 0;
             this.TablaAreas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TablaAreas_CellContentClick);
             // 
-            // tabAreas
-            // 
-            this.tabAreas.Controls.Add(this.tabNuevo);
-            this.tabAreas.Controls.Add(this.tabPage2);
-            this.tabAreas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabAreas.ImageList = this.imageList;
-            this.tabAreas.Location = new System.Drawing.Point(0, 0);
-            this.tabAreas.Name = "tabAreas";
-            this.tabAreas.SelectedIndex = 0;
-            this.tabAreas.Size = new System.Drawing.Size(934, 314);
-            this.tabAreas.TabIndex = 1;
-            // 
-            // tabNuevo
-            // 
-            this.tabNuevo.BackColor = System.Drawing.Color.White;
-            this.tabNuevo.Controls.Add(this.materialLabel8);
-            this.tabNuevo.Controls.Add(this.materialLabel7);
-            this.tabNuevo.Controls.Add(this.numActual);
-            this.tabNuevo.Controls.Add(this.scrollActual);
-            this.tabNuevo.Controls.Add(this.numMaximo);
-            this.tabNuevo.Controls.Add(this.scrollMaximo);
-            this.tabNuevo.Controls.Add(this.btnCancelar);
-            this.tabNuevo.Controls.Add(this.groupBox2);
-            this.tabNuevo.Controls.Add(this.groupBox1);
-            this.tabNuevo.Controls.Add(this.materialLabel3);
-            this.tabNuevo.Controls.Add(this.materialLabel2);
-            this.tabNuevo.Controls.Add(this.materialLabel1);
-            this.tabNuevo.Controls.Add(this.btnGuardar);
-            this.tabNuevo.Controls.Add(this.txtNormas);
-            this.tabNuevo.Controls.Add(this.txtHorario);
-            this.tabNuevo.Controls.Add(this.txtMensaje);
-            this.tabNuevo.Controls.Add(this.txtNombre);
-            this.tabNuevo.ImageIndex = 0;
-            this.tabNuevo.Location = new System.Drawing.Point(4, 23);
-            this.tabNuevo.Name = "tabNuevo";
-            this.tabNuevo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabNuevo.Size = new System.Drawing.Size(926, 287);
-            this.tabNuevo.TabIndex = 0;
-            this.tabNuevo.Text = "Nueva/Actualiza áreas";
-            // 
             // materialLabel8
             // 
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(18, 107);
+            this.materialLabel8.Location = new System.Drawing.Point(3, 101);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(90, 17);
+            this.materialLabel8.Size = new System.Drawing.Size(93, 19);
             this.materialLabel8.TabIndex = 47;
             this.materialLabel8.Text = "Cupo actual:";
             // 
@@ -160,12 +120,12 @@
             // 
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(18, 50);
+            this.materialLabel7.Location = new System.Drawing.Point(3, 44);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(103, 17);
+            this.materialLabel7.Size = new System.Drawing.Size(106, 19);
             this.materialLabel7.TabIndex = 46;
             this.materialLabel7.Text = "Cupo máximo:";
             // 
@@ -178,7 +138,7 @@
             this.numActual.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.numActual.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.numActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numActual.Location = new System.Drawing.Point(216, 102);
+            this.numActual.Location = new System.Drawing.Point(201, 96);
             this.numActual.Maximum = 999;
             this.numActual.Minimum = 0;
             this.numActual.Name = "numActual";
@@ -197,7 +157,7 @@
             // 
             this.scrollActual.BackColor = System.Drawing.Color.Transparent;
             this.scrollActual.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.scrollActual.Location = new System.Drawing.Point(21, 127);
+            this.scrollActual.Location = new System.Drawing.Point(6, 121);
             this.scrollActual.Maximum = 999;
             this.scrollActual.Name = "scrollActual";
             this.scrollActual.Size = new System.Drawing.Size(292, 23);
@@ -217,7 +177,7 @@
             this.numMaximo.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
             this.numMaximo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
             this.numMaximo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numMaximo.Location = new System.Drawing.Point(216, 45);
+            this.numMaximo.Location = new System.Drawing.Point(201, 39);
             this.numMaximo.Maximum = 999;
             this.numMaximo.Minimum = 20;
             this.numMaximo.Name = "numMaximo";
@@ -236,7 +196,7 @@
             this.scrollMaximo.BackColor = System.Drawing.Color.Transparent;
             this.scrollMaximo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.scrollMaximo.LargeChange = 1;
-            this.scrollMaximo.Location = new System.Drawing.Point(22, 70);
+            this.scrollMaximo.Location = new System.Drawing.Point(7, 64);
             this.scrollMaximo.Maximum = 999;
             this.scrollMaximo.Minimum = 20;
             this.scrollMaximo.Name = "scrollMaximo";
@@ -251,7 +211,7 @@
             this.btnCancelar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancelar.BackgroundImage")));
             this.btnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.Location = new System.Drawing.Point(785, 243);
+            this.btnCancelar.Location = new System.Drawing.Point(760, 225);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(40, 40);
             this.btnCancelar.TabIndex = 22;
@@ -263,9 +223,9 @@
             this.groupBox2.Controls.Add(this.radioEstatus2);
             this.groupBox2.Controls.Add(this.radioEstatus);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(20, 220);
+            this.groupBox2.Location = new System.Drawing.Point(5, 203);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 62);
+            this.groupBox2.Size = new System.Drawing.Size(254, 55);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estatus del área";
@@ -274,8 +234,8 @@
             // 
             this.radioEstatus2.AutoSize = true;
             this.radioEstatus2.Depth = 0;
-            this.radioEstatus2.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
-            this.radioEstatus2.Location = new System.Drawing.Point(112, 23);
+            this.radioEstatus2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioEstatus2.Location = new System.Drawing.Point(110, 20);
             this.radioEstatus2.Margin = new System.Windows.Forms.Padding(0);
             this.radioEstatus2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.radioEstatus2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -292,8 +252,8 @@
             // 
             this.radioEstatus.AutoSize = true;
             this.radioEstatus.Depth = 0;
-            this.radioEstatus.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
-            this.radioEstatus.Location = new System.Drawing.Point(7, 23);
+            this.radioEstatus.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioEstatus.Location = new System.Drawing.Point(5, 20);
             this.radioEstatus.Margin = new System.Windows.Forms.Padding(0);
             this.radioEstatus.MouseLocation = new System.Drawing.Point(-1, -1);
             this.radioEstatus.MouseState = MaterialSkin.MouseState.HOVER;
@@ -311,9 +271,9 @@
             this.groupBox1.Controls.Add(this.radioAccesibilidad2);
             this.groupBox1.Controls.Add(this.radioAccesibilidad);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 153);
+            this.groupBox1.Location = new System.Drawing.Point(5, 147);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 62);
+            this.groupBox1.Size = new System.Drawing.Size(216, 55);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Accesibilidad del área";
@@ -322,7 +282,7 @@
             // 
             this.radioAccesibilidad2.AutoSize = true;
             this.radioAccesibilidad2.Depth = 0;
-            this.radioAccesibilidad2.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
+            this.radioAccesibilidad2.Font = new System.Drawing.Font("Roboto", 10F);
             this.radioAccesibilidad2.Location = new System.Drawing.Point(116, 20);
             this.radioAccesibilidad2.Margin = new System.Windows.Forms.Padding(0);
             this.radioAccesibilidad2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -340,7 +300,7 @@
             // 
             this.radioAccesibilidad.AutoSize = true;
             this.radioAccesibilidad.Depth = 0;
-            this.radioAccesibilidad.Font = new System.Drawing.Font("Segoe WP SemiLight", 10F);
+            this.radioAccesibilidad.Font = new System.Drawing.Font("Roboto", 10F);
             this.radioAccesibilidad.Location = new System.Drawing.Point(7, 20);
             this.radioAccesibilidad.Margin = new System.Windows.Forms.Padding(0);
             this.radioAccesibilidad.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -358,12 +318,12 @@
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(327, 14);
+            this.materialLabel3.Location = new System.Drawing.Point(312, 8);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(138, 17);
+            this.materialLabel3.Size = new System.Drawing.Size(146, 19);
             this.materialLabel3.TabIndex = 14;
             this.materialLabel3.Text = "Horario descripción:";
             // 
@@ -371,12 +331,12 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(619, 15);
+            this.materialLabel2.Location = new System.Drawing.Point(604, 9);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(120, 17);
+            this.materialLabel2.Size = new System.Drawing.Size(124, 19);
             this.materialLabel2.TabIndex = 13;
             this.materialLabel2.Text = "Normas del área:";
             // 
@@ -384,12 +344,12 @@
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(327, 133);
+            this.materialLabel1.Location = new System.Drawing.Point(312, 127);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(153, 17);
+            this.materialLabel1.Size = new System.Drawing.Size(160, 19);
             this.materialLabel1.TabIndex = 12;
             this.materialLabel1.Text = "Mensaje para clientes:";
             // 
@@ -398,7 +358,7 @@
             this.btnGuardar.BackgroundImage = global::Rubikranet.Properties.Resources.diskette;
             this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.Location = new System.Drawing.Point(709, 243);
+            this.btnGuardar.Location = new System.Drawing.Point(704, 225);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(40, 40);
             this.btnGuardar.TabIndex = 10;
@@ -418,12 +378,12 @@
             this.txtNormas.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.txtNormas.Image = null;
             this.txtNormas.Lines = null;
-            this.txtNormas.Location = new System.Drawing.Point(622, 35);
+            this.txtNormas.Location = new System.Drawing.Point(607, 29);
             this.txtNormas.MaxLength = 32767;
             this.txtNormas.Multiline = true;
             this.txtNormas.Name = "txtNormas";
             this.txtNormas.ReadOnly = false;
-            this.txtNormas.Size = new System.Drawing.Size(289, 202);
+            this.txtNormas.Size = new System.Drawing.Size(289, 193);
             this.txtNormas.Style = MetroSet_UI.Design.Style.Light;
             this.txtNormas.StyleManager = null;
             this.txtNormas.TabIndex = 5;
@@ -446,7 +406,7 @@
             this.txtHorario.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.txtHorario.Image = null;
             this.txtHorario.Lines = null;
-            this.txtHorario.Location = new System.Drawing.Point(330, 35);
+            this.txtHorario.Location = new System.Drawing.Point(315, 29);
             this.txtHorario.MaxLength = 32767;
             this.txtHorario.Multiline = true;
             this.txtHorario.Name = "txtHorario";
@@ -474,12 +434,12 @@
             this.txtMensaje.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.txtMensaje.Image = null;
             this.txtMensaje.Lines = null;
-            this.txtMensaje.Location = new System.Drawing.Point(330, 153);
+            this.txtMensaje.Location = new System.Drawing.Point(315, 147);
             this.txtMensaje.MaxLength = 32767;
             this.txtMensaje.Multiline = true;
             this.txtMensaje.Name = "txtMensaje";
             this.txtMensaje.ReadOnly = false;
-            this.txtMensaje.Size = new System.Drawing.Size(277, 125);
+            this.txtMensaje.Size = new System.Drawing.Size(277, 118);
             this.txtMensaje.Style = MetroSet_UI.Design.Style.Light;
             this.txtMensaje.StyleManager = null;
             this.txtMensaje.TabIndex = 1;
@@ -493,34 +453,21 @@
             // 
             this.txtNombre.Depth = 0;
             this.txtNombre.Hint = "Nombre...";
-            this.txtNombre.Location = new System.Drawing.Point(21, 14);
+            this.txtNombre.Location = new System.Drawing.Point(6, 8);
             this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.SelectedText = "";
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(291, 25);
+            this.txtNombre.Size = new System.Drawing.Size(291, 23);
             this.txtNombre.TabIndex = 0;
             this.txtNombre.Tag = "Nombre...";
             this.txtNombre.UseSystemPasswordChar = false;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.chart1);
-            this.tabPage2.ImageIndex = 1;
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(926, 287);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Gráfica de áreas visitadas";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(764, 124);
+            this.button1.Location = new System.Drawing.Point(850, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 43);
             this.button1.TabIndex = 1;
@@ -532,25 +479,12 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 6);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Name = "chart1";
-            series1.BorderColor = System.Drawing.Color.Black;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.Color = System.Drawing.Color.Red;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "campo1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series2.IsValueShownAsLabel = true;
-            series2.Legend = "Legend1";
-            series2.Name = "campo2";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(679, 275);
+            this.chart1.Size = new System.Drawing.Size(926, 268);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -577,7 +511,7 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.Size = new System.Drawing.Size(242, 25);
+            this.txtBuscar.Size = new System.Drawing.Size(242, 23);
             this.txtBuscar.TabIndex = 42;
             this.txtBuscar.Tag = "Buscar...";
             this.txtBuscar.UseSystemPasswordChar = false;
@@ -603,12 +537,12 @@
             this.lblTotalReg.AutoSize = true;
             this.lblTotalReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalReg.Depth = 0;
-            this.lblTotalReg.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblTotalReg.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotalReg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalReg.Location = new System.Drawing.Point(459, 326);
             this.lblTotalReg.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalReg.Name = "lblTotalReg";
-            this.lblTotalReg.Size = new System.Drawing.Size(0, 17);
+            this.lblTotalReg.Size = new System.Drawing.Size(0, 19);
             this.lblTotalReg.TabIndex = 40;
             // 
             // materialLabel6
@@ -616,12 +550,12 @@
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel6.Location = new System.Drawing.Point(372, 326);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(79, 17);
+            this.materialLabel6.Size = new System.Drawing.Size(81, 19);
             this.materialLabel6.TabIndex = 39;
             this.materialLabel6.Text = "Registros: ";
             // 
@@ -630,12 +564,12 @@
             this.lblTotalPag.AutoSize = true;
             this.lblTotalPag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblTotalPag.Depth = 0;
-            this.lblTotalPag.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblTotalPag.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTotalPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblTotalPag.Location = new System.Drawing.Point(316, 326);
             this.lblTotalPag.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTotalPag.Name = "lblTotalPag";
-            this.lblTotalPag.Size = new System.Drawing.Size(0, 17);
+            this.lblTotalPag.Size = new System.Drawing.Size(0, 19);
             this.lblTotalPag.TabIndex = 38;
             // 
             // materialLabel4
@@ -643,12 +577,12 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(285, 326);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(24, 17);
+            this.materialLabel4.Size = new System.Drawing.Size(25, 19);
             this.materialLabel4.TabIndex = 37;
             this.materialLabel4.Text = "de";
             // 
@@ -657,12 +591,12 @@
             this.lblPagActual.AutoSize = true;
             this.lblPagActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lblPagActual.Depth = 0;
-            this.lblPagActual.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.lblPagActual.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPagActual.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPagActual.Location = new System.Drawing.Point(253, 326);
             this.lblPagActual.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPagActual.Name = "lblPagActual";
-            this.lblPagActual.Size = new System.Drawing.Size(0, 17);
+            this.lblPagActual.Size = new System.Drawing.Size(0, 19);
             this.lblPagActual.TabIndex = 36;
             this.lblPagActual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -671,12 +605,12 @@
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(193, 326);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(53, 17);
+            this.materialLabel5.Size = new System.Drawing.Size(54, 19);
             this.materialLabel5.TabIndex = 35;
             this.materialLabel5.Text = "Página";
             // 
@@ -751,11 +685,95 @@
             this.timerActualiza.Interval = 500;
             this.timerActualiza.Tick += new System.EventHandler(this.timerActualiza_Tick);
             // 
+            // metroSetTabControl1
+            // 
+            this.metroSetTabControl1.Controls.Add(this.metroSetTabPage1);
+            this.metroSetTabControl1.Controls.Add(this.metroSetTabPage2);
+            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroSetTabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroSetTabControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
+            this.metroSetTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.metroSetTabControl1.Name = "metroSetTabControl1";
+            this.metroSetTabControl1.SelectedIndex = 0;
+            this.metroSetTabControl1.Size = new System.Drawing.Size(934, 314);
+            this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.metroSetTabControl1.Speed = 80;
+            this.metroSetTabControl1.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetTabControl1.StyleManager = null;
+            this.metroSetTabControl1.TabIndex = 43;
+            this.metroSetTabControl1.TabStyle = MetroSet_UI.Enums.TabStyle.Style1;
+            this.metroSetTabControl1.ThemeAuthor = "Narwin";
+            this.metroSetTabControl1.ThemeName = "MetroLite";
+            this.metroSetTabControl1.UseAnimation = true;
+            // 
+            // metroSetTabPage1
+            // 
+            this.metroSetTabPage1.BaseColor = System.Drawing.Color.White;
+            this.metroSetTabPage1.Controls.Add(this.panel1);
+            this.metroSetTabPage1.ImageIndex = 0;
+            this.metroSetTabPage1.ImageKey = null;
+            this.metroSetTabPage1.Location = new System.Drawing.Point(4, 42);
+            this.metroSetTabPage1.Name = "metroSetTabPage1";
+            this.metroSetTabPage1.Size = new System.Drawing.Size(926, 268);
+            this.metroSetTabPage1.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetTabPage1.StyleManager = null;
+            this.metroSetTabPage1.TabIndex = 0;
+            this.metroSetTabPage1.Text = "Nueva/Actualiza área";
+            this.metroSetTabPage1.ThemeAuthor = "Narwin";
+            this.metroSetTabPage1.ThemeName = "MetroLite";
+            this.metroSetTabPage1.ToolTipText = null;
+            // 
+            // metroSetTabPage2
+            // 
+            this.metroSetTabPage2.BaseColor = System.Drawing.Color.White;
+            this.metroSetTabPage2.Controls.Add(this.button1);
+            this.metroSetTabPage2.Controls.Add(this.chart1);
+            this.metroSetTabPage2.ImageIndex = 0;
+            this.metroSetTabPage2.ImageKey = null;
+            this.metroSetTabPage2.Location = new System.Drawing.Point(4, 42);
+            this.metroSetTabPage2.Name = "metroSetTabPage2";
+            this.metroSetTabPage2.Size = new System.Drawing.Size(926, 268);
+            this.metroSetTabPage2.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetTabPage2.StyleManager = null;
+            this.metroSetTabPage2.TabIndex = 1;
+            this.metroSetTabPage2.Text = "Estadísticas de áreas visitadas";
+            this.metroSetTabPage2.ThemeAuthor = "Narwin";
+            this.metroSetTabPage2.ThemeName = "MetroLite";
+            this.metroSetTabPage2.ToolTipText = null;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.materialLabel8);
+            this.panel1.Controls.Add(this.txtNormas);
+            this.panel1.Controls.Add(this.materialLabel7);
+            this.panel1.Controls.Add(this.txtNombre);
+            this.panel1.Controls.Add(this.numActual);
+            this.panel1.Controls.Add(this.txtMensaje);
+            this.panel1.Controls.Add(this.scrollActual);
+            this.panel1.Controls.Add(this.txtHorario);
+            this.panel1.Controls.Add(this.numMaximo);
+            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.scrollMaximo);
+            this.panel1.Controls.Add(this.materialLabel1);
+            this.panel1.Controls.Add(this.btnCancelar);
+            this.panel1.Controls.Add(this.materialLabel2);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(926, 268);
+            this.panel1.TabIndex = 0;
+            // 
             // Areas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.metroSetTabControl1);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.comboCantidadReg);
@@ -769,27 +787,27 @@
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.btnPrimerPagina);
-            this.Controls.Add(this.tabAreas);
             this.Controls.Add(this.TablaAreas);
             this.Name = "Areas";
             this.Size = new System.Drawing.Size(934, 699);
             ((System.ComponentModel.ISupportInitialize)(this.TablaAreas)).EndInit();
-            this.tabAreas.ResumeLayout(false);
-            this.tabNuevo.ResumeLayout(false);
-            this.tabNuevo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).EndInit();
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).EndInit();
+            this.metroSetTabControl1.ResumeLayout(false);
+            this.metroSetTabPage1.ResumeLayout(false);
+            this.metroSetTabPage2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,9 +816,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView TablaAreas;
-        private System.Windows.Forms.TabControl tabAreas;
-        private System.Windows.Forms.TabPage tabNuevo;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Timer timerCarga;
         private MaterialSkin.Controls.MaterialRadioButton radioAccesibilidad2;
         private MaterialSkin.Controls.MaterialRadioButton radioAccesibilidad;
@@ -840,5 +855,9 @@
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button button1;
+        private MetroSet_UI.Controls.MetroSetTabControl metroSetTabControl1;
+        private MetroSet_UI.Child.MetroSetTabPage metroSetTabPage1;
+        private MetroSet_UI.Child.MetroSetTabPage metroSetTabPage2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

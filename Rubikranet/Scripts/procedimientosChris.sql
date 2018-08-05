@@ -163,23 +163,46 @@ select e.num,
 	select 
 	cm.id_categoria,
 	cm.categoria 'Categoría',
-	cm.costo 'Costo',
+	cast(cm.costo as numeric(36,2)) 'Costo',
 	isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción') 'Promoción',
 	case
 		isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción')	
-		when 'Sin Promoción' then '%0' else (select top(1) concat('%',p.porcentaje_descuento) from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin)
+		when 'Sin Promoción' then '0%' else (select top(1) concat(p.porcentaje_descuento,'%') from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin)
 	end as 'Porcentaje de descuento',
-	concat('%',cm.iva) 'IVA',
+	concat(cm.iva,'%') 'IVA',
 	case 
 		isnull((select top(1) p.nombre from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), 'Sin promoción')
 		when 'Sin promoción' 
-		then cm.costo + (cm.costo * cm.iva / 100) 
+		then cast(cm.costo + (cm.costo * cm.iva / 100) as numeric(36,2))
 		else 
+		cast(
 		(cm.costo - cm.costo * cast((select top(1) p.porcentaje_descuento from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin) as money) / 100) +
 		((cm.costo - cm.costo * cast((select top(1) p.porcentaje_descuento from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin) as money) / 100) * cm.iva / 100) 
-		end 'Total',
+		as numeric(36,2))
+	end 'Total',
+	isnull((select top(1) cast(p.fecha_inicio as varchar(15)) from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), '--/--/--') 'Inicio de promoción',
+	isnull((select top(1) cast(p.fecha_fin as varchar(15)) from promociones p where p.id_promocion = cm.id_promocion and GETDATE() between p.fecha_inicio and p.fecha_fin), '--/--/--') 'Fin de promoción',
 	case cm.estatus_visible when 0 then 'Inactivo' else 'Activo' end as 'Estatus de categoría'
-	from categorias_membresias cm
+	from categorias_membresias cm where cm.estatus <> 1
+	go
+
+
+
+	create procedure buscaCategorias
+	@parametro varchar(max)
+	as
+	select * from listarCategorias lc
+	where 
+	lc.Categoría like '%'+@parametro+'%' or
+	lc.Costo like '%'+@parametro+'%' or
+	lc.Promoción like '%'+@parametro+'%' or
+	lc.[Porcentaje de descuento] like '%'+@parametro+'%' or
+	lc.IVA like '%'+@parametro+'%' or
+	lc.Total like '%'+@parametro+'%' or
+	lc.[Inicio de promoción] like '%'+@parametro+'%' or
+	lc.[Fin de promoción] like '%'+@parametro+'%' or
+	lc.[Estatus de categoría] like '%'+@parametro+'%'
+	order by id_categoria desc
 	go
 
 --select * from (select id_objeto as laid, objeto from tobjetos) temporal where laid=100

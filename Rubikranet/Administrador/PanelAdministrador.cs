@@ -61,6 +61,7 @@ namespace Rubikranet.Administrador
         private void btnMembresia_Click(object sender, EventArgs e)
         {
             ManipulaContenido(Membresias.Instancia, sender, lblSeccion);
+            Membresias.ventanaActiva = true;
         }
 
         private void btnPromociones_Click(object sender, EventArgs e)

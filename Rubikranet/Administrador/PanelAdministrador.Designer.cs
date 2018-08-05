@@ -198,7 +198,7 @@
             this.btnMembresia.Margin = new System.Windows.Forms.Padding(0, 1, 0, 25);
             this.btnMembresia.Name = "btnMembresia";
             this.btnMembresia.Size = new System.Drawing.Size(48, 34);
-            this.btnMembresia.Text = "Membresias";
+            this.btnMembresia.Text = "Categoría de membresias";
             this.btnMembresia.Click += new System.EventHandler(this.btnMembresia_Click);
             // 
             // btnPromociones

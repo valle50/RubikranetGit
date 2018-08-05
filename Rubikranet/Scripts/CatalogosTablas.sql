@@ -57,7 +57,7 @@ Catálogo areas
 24 Zona de postres
 25 Spa
 26 Zona de juegos
-27 Enfermeria 
+27 Enfermería 
 */
 
 
@@ -90,7 +90,7 @@ values 	('	Piscina grande	 '),
 	('	 Zona de postres	 '),
 	('	 Spa	 '),
 	('	 Zona de juegos	 '),
-	('	Enfermeria	 '),
+	('	Enfermería	 '),
 
 
 */
@@ -169,8 +169,8 @@ Catálogo promociones
 id_promocion	nombre		    Descripción	
 1				Cumpleaños		Compra una membresia el dia de tu cumpleaños y te hacemos un 20% de descuento(Solo aplica en membresias individuales)
 2				Dia del niño	Compra una membresia el dia del niño y te hacemos un 15% de descuento en areas infantiles (Solo aplica en membresias individuales)
-3				San Valentin	Compra una membresia en San valentin y te hacemos un 35% de descuento(Solo aplica ende pareja)
-4               Dia de la familia Comprar una menbresia  el dia de la familia y tendremos un descuento de el 25% de descuento (Solo aplica para la membresias familiares)
+3				San Valentín	Compra una membresia en San valentin y te hacemos un 35% de descuento(Solo aplica ende pareja)
+4               Dia de la familia Comprar una membresia  el dia de la familia y y te hacemos un 25% de descuento (Solo aplica para la membresias familiares)
 */
 
 
@@ -180,18 +180,32 @@ Formato de horas en 24 = 12:45:36, 17:56:00 ..etc
 
 id_turno	nombre	hora_entrada	hora_salida
 1           Matutino    08:00:00      16:00:00
-2           Vespertino  16:00:00      19:00:00
-3           Nocturno    19:00:00      24:00:00
+2           Vespertino  16:00:00      24:00:00
+3           Nocturno    24:00:00      7:00:00
 */
 
 
 /*
 Catálogo cargos
 
-nombre		         Actividades
-Administrador		Llevar el control total del establecimiento
-Usuario				Consulta solo la información del establecimiento
-Encargados de área  Consulta la información de cada una de sus áreas      
+nombre						Actividades
+Gerente/administrador		Llevar el control total del establecimiento y empleados
+Vendedor				    LLevar a cabo el registro, modificación y consulta clientes. Además de ofrecer atención al mismo.
+Encargados de área			Consulta la información de cada una de sus áreas y de los clientes
+Entrenador de natación
+Personal salvavidas
+Enfermero
+Doctor
+Bartender
+Mesero
+Personal de limpieza
+Cocinero
+Entrenador de gimnasio
+Guardia de seguridad
+Instructor de golf
+Camarero
+Guardia de área
+Personal de máquinas      
 */
 
 
