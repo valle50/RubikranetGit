@@ -13,9 +13,12 @@ namespace Rubikranet.Administrador
 {
     public partial class Membresias : UserControl
     {
-        int tiempo = 0, check = 0;
+        int tiempo = 0, check = 0, id_categoria = 0;
         double precioPromocion = 0, iva = 0, precioTotal = 0;
-        string[] arr;
+        string[] id_areas;
+        List<string> nomArea = new List<string>();
+        List<string> aux_id_area = new List<string>();
+        List<string> nuevosIDAreas = new List<string>();
 
         public static bool ventanaActiva = false;
         public Membresias()
@@ -35,6 +38,9 @@ namespace Rubikranet.Administrador
             lblIVA.Text = "$0";
             lblPrecioPromo.Text = "$0";
             lblTotal.Text = "$0";
+            precioPromocion = 0; iva = 0; precioTotal = 0;
+            btnGuardar.BackgroundImage = null;
+            btnGuardar.BackgroundImage = Properties.Resources.diskette;
 
             check = 0;
             radioEstatus.Checked = false;
@@ -43,12 +49,42 @@ namespace Rubikranet.Administrador
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            btnGuardar.Focus();
 
+            char estatus = ' ';
+            if (radioEstatus.Checked)
+            {
+                estatus = Convert.ToChar(radioEstatus.Tag);
+            }
+            else if (radioEstatus2.Checked)
+            {
+                estatus = Convert.ToChar(radioEstatus2.Tag);
+            }
+
+            if (!Validar.Requeridos(new object[] { txtPrecio, txtNombre }) || estatus == ' ')
+            {
+                Mensajes.Caja("Warning", "Campos requeridos", "Ningún dato debe quedar vacío y/o con información incorrecta (campos de color).");
+            }
+            else if (MessageBox.Show("¿Continuar con la acción?", "Nuevo/Actualizar registro.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+                int id_promo = Convert.ToInt32((comboPromocion.SelectedItem as AttrCB).Value.ToString());
+
+                Conexion.Ejecutar(
+                    string.Format("exec categorias_membresias_aa  '{0}','{1}','{2}','{3}','{4}','{5}'", check, txtNombre.Text, txtPrecio.Text, id_promo, numIVA.Value, estatus));              
+
+                btnRefrescar_Click(null, null);
+                Limpia();
+                actualizaComboCategorias();
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Cancelar acción.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Limpia();
+            }
         }
 
         private void Calculos()
@@ -96,7 +132,89 @@ namespace Rubikranet.Administrador
 
         private void comboCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
+            id_categoria = Convert.ToInt32((comboCategoria.SelectedItem as AttrCB).Value.ToString());            
 
+            if (id_categoria != 0)
+            {
+                nuevosIDAreas.Clear();
+
+                foreach (int i in checkAreas.CheckedIndices)
+                {
+                    checkAreas.SetItemCheckState(i, CheckState.Unchecked);
+                }
+
+                Conexion.Consulta(
+                    string.Format("exec buscaAreasAccesibles '{0}'", id_categoria));
+
+                while (Conexion.result.Read())
+                {
+                    int Area = checkAreas.Items.IndexOf(Conexion.result["area"].ToString());
+                    checkAreas.SetItemChecked(Area, true);                   
+                }
+               
+                Conexion.con.Close();
+            }
+            else
+            {
+                foreach (int i in checkAreas.CheckedIndices)
+                {
+                    checkAreas.SetItemCheckState(i, CheckState.Unchecked);
+                }
+                btnActualizaAccesibilidad.Visible = false;
+                nuevosIDAreas.Clear();
+            }           
+
+        }
+        
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboCategoria.SelectedIndex != 0)
+            {
+                btnActualizaAccesibilidad.Visible = true;
+                nuevosIDAreas.Clear();
+
+                foreach (int i in checkAreas.CheckedIndices)
+                {
+                    nuevosIDAreas.Add(id_areas[i]);
+                }
+            }
+            else
+            {
+                foreach (int i in checkAreas.CheckedIndices)
+                {
+                    checkAreas.SetItemCheckState(i, CheckState.Unchecked);
+                }
+
+                Mensajes.Caja("Information","Aviso","Para poder asignar las accesibilidades debe seleccionar alguna categoría.");
+            }   
+            
+            //int AreaSeleccionada = checkAreas.Items.IndexOf(checkAreas.SelectedItem);
+            //checkAreas.SetItemChecked(index, true);  
+        }
+
+        private void btnActualizaAccesibilidad_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Guardar cambios?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Conexion.Consulta(string.Format("select id_categoria from accesibilidad_areas where id_categoria = '{0}'", id_categoria));
+
+                if (Conexion.result.HasRows)
+                {
+                    Conexion.con.Close();
+                    Conexion.Ejecutar(
+                    string.Format("delete from accesibilidad_areas where id_categoria = '{0}'", id_categoria));
+                }                
+
+                for (var i = 0; i < nuevosIDAreas.ToArray().Length; i++ )
+                {
+                    Conexion.Ejecutar(
+                        string.Format("insert into accesibilidad_areas(id_categoria, id_area) values('{0}', '{1}')", id_categoria, nuevosIDAreas.ToArray()[i]));
+                }
+
+                btnActualizaAccesibilidad.Visible = false;
+                comboCategoria.SelectedIndex = 0;
+                Mensajes.Caja("Information", "Aviso", "Accesibilidades actualizadas correctamente.");
+            }
         }
 
         private void TablaMem_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -155,18 +273,13 @@ namespace Rubikranet.Administrador
                     dgv.Rows.Remove(dgv.CurrentRow);
 
                     Conexion.Ejecutar(
-                        String.Format("update categorias_membresias set estatus = 1 where id_categoria = '{0}'", check));
+                        string.Format("update categorias_membresias set estatus = 1 where id_categoria = '{0}'", check));
 
                     Mensajes.Caja("Information", "Información", "Registro eliminado correctamente.");
                     check = 0;
+                    actualizaComboCategorias();
                 }
             }
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = checkedListBox1.Items.IndexOf("uno");
-            checkedListBox1.SetItemChecked(index, true);
         }
 
         private void txtBuscar_KeyUp(object sender, KeyEventArgs e)
@@ -223,9 +336,8 @@ namespace Rubikranet.Administrador
             {
                 case 1:
                     Mensajes.Caja("Information", "Atención", "Cargando datos, espere por favor...");
-                    arr = new string[] { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez", "once" };
-                    comboCantidadReg.SelectedIndex = 0;
-                    checkedListBox1.Items.AddRange(arr);
+                    
+                    comboCantidadReg.SelectedIndex = 0;                    
 
                     Validar.PlaceHolderFlotante(panel1);
                     Validar.Decimales(new object[] { txtPrecio });
@@ -246,23 +358,80 @@ namespace Rubikranet.Administrador
                     break;
 
                 case 3:
-                    Conexion.Consulta(String.Format("select * from promociones"));
-                    CargaCombos("Promoción...", comboPromocion, "id_promocion", "nombre");
-                    Conexion.con.Close();
+                    actualizaComboPromociones();
+                    //Conexion.Consulta(string.Format("select id_promocion, nombre from promociones where GETDATE() between fecha_inicio and fecha_fin and estatus <> 1"));
+                    //CargaCombos("Promoción...", comboPromocion, "id_promocion", "nombre");
+                    //Conexion.con.Close();
 
-                    Conexion.Consulta(String.Format("select * from categorias_membresias"));
-                    CargaCombos("Categoría...", comboCategoria, "id_categoria", "categoria");
-                    Conexion.con.Close();
+                    //Conexion.Consulta(string.Format("select id_categoria, categoria from categorias_membresias where estatus <> 1"));
+                    //CargaCombos("Categoría...", comboCategoria, "id_categoria", "categoria");
+                    //Conexion.con.Close();
+                    actualizaComboCategorias();
 
-                    comboCategoria.SelectedIndex = 0;
-                    comboPromocion.SelectedIndex = 0;
+                    //Conexion.Consulta(
+                    //    string.Format("select id_area, nombre from areas where estatusEliminado <> 1"));
+
+                    //while (Conexion.result.Read())
+                    //{
+                    //    idArea.Add(Conexion.result["id_area"].ToString());
+                    //    nomArea.Add(Conexion.result["nombre"].ToString());
+                    //}
+
+                    //id_area = idArea.ToArray();
+                    //checkAreas.Items.AddRange(nomArea.ToArray());
+                    //Conexion.con.Close();
+
+                    //comboCategoria.SelectedIndex = 0;
+                    //comboPromocion.SelectedIndex = 0;
+                    Actualiza_Areas();
                     break;
 
-                default:                    
+                default:
                     timerCarga.Stop();
                     timerActualiza.Start();
                     break;
             }
+        }
+        
+        private void Actualiza_Areas()
+        {
+            aux_id_area.Clear();
+            nomArea.Clear();
+            id_areas = null;
+            checkAreas.Items.Clear();
+
+            Conexion.Consulta(
+                        string.Format("select id_area, nombre from areas where estatusEliminado <> 1"));
+
+            while (Conexion.result.Read())
+            {
+                aux_id_area.Add(Conexion.result["id_area"].ToString());
+                nomArea.Add(Conexion.result["nombre"].ToString());
+            }
+
+            id_areas = aux_id_area.ToArray();
+            checkAreas.Items.AddRange(nomArea.ToArray());
+            Conexion.con.Close();
+
+            comboCategoria.SelectedIndex = 0;
+        }
+
+        private void actualizaComboCategorias()
+        {           
+            comboCategoria.Items.Clear();
+            Conexion.Consulta(string.Format("select id_categoria, categoria from categorias_membresias where estatus <> 1"));
+            CargaCombos("Categoría...", comboCategoria, "id_categoria", "categoria");
+            Conexion.con.Close();
+            comboCategoria.SelectedIndex = 0;
+        }
+
+        private void actualizaComboPromociones()
+        {
+            comboPromocion.Items.Clear();
+            Conexion.Consulta(string.Format("select id_promocion, nombre from promociones where GETDATE() between fecha_inicio and fecha_fin and estatus <> 1"));
+            CargaCombos("Promoción...", comboPromocion, "id_promocion", "nombre");
+            Conexion.con.Close();
+            comboPromocion.SelectedIndex = 0;
         }
 
         private void Actualizar()
@@ -319,7 +488,10 @@ namespace Rubikranet.Administrador
             if (ventanaActiva)
             {
                 btnRefrescar_Click(null, null);
-                ventanaActiva = false;
+                actualizaComboCategorias();
+                actualizaComboPromociones();
+                Actualiza_Areas();
+                ventanaActiva = false;                
             }
         }
 

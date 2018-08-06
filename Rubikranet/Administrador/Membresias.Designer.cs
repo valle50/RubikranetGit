@@ -50,27 +50,28 @@
             this.tabCategorias = new MetroSet_UI.Controls.MetroSetTabControl();
             this.metroSetTabPage1 = new MetroSet_UI.Child.MetroSetTabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.metroSetTabPage2 = new MetroSet_UI.Child.MetroSetTabPage();
-            this.txtPrecio = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.comboPromocion = new MetroFramework.Controls.MetroComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioEstatus = new MaterialSkin.Controls.MaterialRadioButton();
-            this.radioEstatus2 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.numIVA = new MetroSet_UI.Controls.MetroSetNumeric();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnActualizaAccesibilidad = new System.Windows.Forms.PictureBox();
+            this.lblTotal = new MaterialSkin.Controls.MaterialLabel();
+            this.lblPrecioPromo = new MaterialSkin.Controls.MaterialLabel();
+            this.lblIVA = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.comboCategoria = new MetroFramework.Controls.MetroComboBox();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.metroSetDivider1 = new MetroSet_UI.Controls.MetroSetDivider();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.PictureBox();
-            this.metroSetDivider1 = new MetroSet_UI.Controls.MetroSetDivider();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.comboCategoria = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.lblIVA = new MaterialSkin.Controls.MaterialLabel();
-            this.lblPrecioPromo = new MaterialSkin.Controls.MaterialLabel();
-            this.lblTotal = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.numIVA = new MetroSet_UI.Controls.MetroSetNumeric();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioEstatus2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioEstatus = new MaterialSkin.Controls.MaterialRadioButton();
+            this.comboPromocion = new MetroFramework.Controls.MetroComboBox();
+            this.txtPrecio = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.checkAreas = new System.Windows.Forms.CheckedListBox();
+            this.metroSetTabPage2 = new MetroSet_UI.Child.MetroSetTabPage();
             ((System.ComponentModel.ISupportInitialize)(this.TablaMem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefrescar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUltimaPag)).BeginInit();
@@ -80,9 +81,10 @@
             this.tabCategorias.SuspendLayout();
             this.metroSetTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizaAccesibilidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TablaMem
@@ -295,7 +297,7 @@
             // 
             this.tabCategorias.Controls.Add(this.metroSetTabPage1);
             this.tabCategorias.Controls.Add(this.metroSetTabPage2);
-            this.tabCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabCategorias.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabCategorias.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabCategorias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCategorias.HotTrack = true;
@@ -335,6 +337,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnActualizaAccesibilidad);
             this.panel1.Controls.Add(this.lblTotal);
             this.panel1.Controls.Add(this.lblPrecioPromo);
             this.panel1.Controls.Add(this.lblIVA);
@@ -352,169 +355,141 @@
             this.panel1.Controls.Add(this.comboPromocion);
             this.panel1.Controls.Add(this.txtPrecio);
             this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.checkedListBox1);
+            this.panel1.Controls.Add(this.checkAreas);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(926, 268);
             this.panel1.TabIndex = 3;
             // 
-            // txtNombre
+            // btnActualizaAccesibilidad
             // 
-            this.txtNombre.Depth = 0;
-            this.txtNombre.Hint = "Nombre de categoría...";
-            this.txtNombre.Location = new System.Drawing.Point(17, 16);
-            this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.PasswordChar = '\0';
-            this.txtNombre.SelectedText = "";
-            this.txtNombre.SelectionLength = 0;
-            this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(227, 23);
-            this.txtNombre.TabIndex = 0;
-            this.txtNombre.Tag = "Nombre de categoría...";
-            this.txtNombre.UseSystemPasswordChar = false;
+            this.btnActualizaAccesibilidad.BackgroundImage = global::Rubikranet.Properties.Resources.checkbox_check;
+            this.btnActualizaAccesibilidad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnActualizaAccesibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizaAccesibilidad.Location = new System.Drawing.Point(488, 183);
+            this.btnActualizaAccesibilidad.Name = "btnActualizaAccesibilidad";
+            this.btnActualizaAccesibilidad.Size = new System.Drawing.Size(40, 40);
+            this.btnActualizaAccesibilidad.TabIndex = 35;
+            this.btnActualizaAccesibilidad.TabStop = false;
+            this.btnActualizaAccesibilidad.Visible = false;
+            this.btnActualizaAccesibilidad.Click += new System.EventHandler(this.btnActualizaAccesibilidad_Click);
             // 
-            // checkedListBox1
+            // lblTotal
             // 
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.CheckOnClick = true;
-            this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.checkedListBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(650, 0);
-            this.checkedListBox1.MultiColumn = true;
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(276, 268);
-            this.checkedListBox1.TabIndex = 2;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.SystemColors.Info;
+            this.lblTotal.Depth = 0;
+            this.lblTotal.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTotal.Location = new System.Drawing.Point(284, 183);
+            this.lblTotal.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(25, 19);
+            this.lblTotal.TabIndex = 34;
+            this.lblTotal.Text = "$0";
             // 
-            // metroSetTabPage2
+            // lblPrecioPromo
             // 
-            this.metroSetTabPage2.BaseColor = System.Drawing.Color.White;
-            this.metroSetTabPage2.ImageIndex = 0;
-            this.metroSetTabPage2.ImageKey = null;
-            this.metroSetTabPage2.Location = new System.Drawing.Point(4, 42);
-            this.metroSetTabPage2.Name = "metroSetTabPage2";
-            this.metroSetTabPage2.Size = new System.Drawing.Size(926, 268);
-            this.metroSetTabPage2.Style = MetroSet_UI.Design.Style.Light;
-            this.metroSetTabPage2.StyleManager = null;
-            this.metroSetTabPage2.TabIndex = 1;
-            this.metroSetTabPage2.Text = "metroSetTabPage2";
-            this.metroSetTabPage2.ThemeAuthor = "Narwin";
-            this.metroSetTabPage2.ThemeName = "MetroLite";
-            this.metroSetTabPage2.ToolTipText = null;
+            this.lblPrecioPromo.AutoSize = true;
+            this.lblPrecioPromo.BackColor = System.Drawing.SystemColors.Info;
+            this.lblPrecioPromo.Depth = 0;
+            this.lblPrecioPromo.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblPrecioPromo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblPrecioPromo.Location = new System.Drawing.Point(284, 61);
+            this.lblPrecioPromo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPrecioPromo.Name = "lblPrecioPromo";
+            this.lblPrecioPromo.Size = new System.Drawing.Size(25, 19);
+            this.lblPrecioPromo.TabIndex = 33;
+            this.lblPrecioPromo.Text = "$0";
             // 
-            // txtPrecio
+            // lblIVA
             // 
-            this.txtPrecio.Depth = 0;
-            this.txtPrecio.Hint = "Precio...";
-            this.txtPrecio.Location = new System.Drawing.Point(17, 72);
-            this.txtPrecio.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.PasswordChar = '\0';
-            this.txtPrecio.SelectedText = "";
-            this.txtPrecio.SelectionLength = 0;
-            this.txtPrecio.SelectionStart = 0;
-            this.txtPrecio.Size = new System.Drawing.Size(169, 23);
-            this.txtPrecio.TabIndex = 3;
-            this.txtPrecio.Tag = "Precio...";
-            this.txtPrecio.UseSystemPasswordChar = false;
-            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
+            this.lblIVA.AutoSize = true;
+            this.lblIVA.BackColor = System.Drawing.SystemColors.Info;
+            this.lblIVA.Depth = 0;
+            this.lblIVA.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblIVA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblIVA.Location = new System.Drawing.Point(319, 101);
+            this.lblIVA.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblIVA.Name = "lblIVA";
+            this.lblIVA.Size = new System.Drawing.Size(25, 19);
+            this.lblIVA.TabIndex = 32;
+            this.lblIVA.Text = "$0";
             // 
-            // comboPromocion
+            // materialLabel7
             // 
-            this.comboPromocion.FormattingEnabled = true;
-            this.comboPromocion.ItemHeight = 23;
-            this.comboPromocion.Location = new System.Drawing.Point(17, 123);
-            this.comboPromocion.Name = "comboPromocion";
-            this.comboPromocion.Size = new System.Drawing.Size(227, 29);
-            this.comboPromocion.TabIndex = 4;
-            this.comboPromocion.SelectedIndexChanged += new System.EventHandler(this.comboPromocion_SelectedIndexChanged);
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(281, 16);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(86, 38);
+            this.materialLabel7.TabIndex = 31;
+            this.materialLabel7.Text = "Precio por \r\npromoción:";
             // 
-            // groupBox1
+            // materialLabel3
             // 
-            this.groupBox1.Controls.Add(this.radioEstatus2);
-            this.groupBox1.Controls.Add(this.radioEstatus);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 183);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(182, 59);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estatus de categoría";
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(281, 162);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(91, 19);
+            this.materialLabel3.TabIndex = 30;
+            this.materialLabel3.Text = "Precio total:";
             // 
-            // radioEstatus
+            // metroLabel1
             // 
-            this.radioEstatus.AutoSize = true;
-            this.radioEstatus.Depth = 0;
-            this.radioEstatus.Font = new System.Drawing.Font("Roboto", 10F);
-            this.radioEstatus.Location = new System.Drawing.Point(3, 20);
-            this.radioEstatus.Margin = new System.Windows.Forms.Padding(0);
-            this.radioEstatus.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioEstatus.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioEstatus.Name = "radioEstatus";
-            this.radioEstatus.Ripple = true;
-            this.radioEstatus.Size = new System.Drawing.Size(68, 30);
-            this.radioEstatus.TabIndex = 0;
-            this.radioEstatus.TabStop = true;
-            this.radioEstatus.Tag = "1";
-            this.radioEstatus.Text = "Activo";
-            this.radioEstatus.UseVisualStyleBackColor = true;
+            this.metroLabel1.BackColor = System.Drawing.SystemColors.Info;
+            this.metroLabel1.CustomBackground = true;
+            this.metroLabel1.Location = new System.Drawing.Point(423, 47);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(196, 59);
+            this.metroLabel1.TabIndex = 29;
+            this.metroLabel1.Text = "Seleccione la categoría para\r\nasignar la accesibilidad que\r\nésta tendrá a las áre" +
+    "as.";
             // 
-            // radioEstatus2
+            // comboCategoria
             // 
-            this.radioEstatus2.AutoSize = true;
-            this.radioEstatus2.Depth = 0;
-            this.radioEstatus2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.radioEstatus2.Location = new System.Drawing.Point(86, 20);
-            this.radioEstatus2.Margin = new System.Windows.Forms.Padding(0);
-            this.radioEstatus2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioEstatus2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioEstatus2.Name = "radioEstatus2";
-            this.radioEstatus2.Ripple = true;
-            this.radioEstatus2.Size = new System.Drawing.Size(78, 30);
-            this.radioEstatus2.TabIndex = 1;
-            this.radioEstatus2.TabStop = true;
-            this.radioEstatus2.Tag = "0";
-            this.radioEstatus2.Text = "Inactivo";
-            this.radioEstatus2.UseVisualStyleBackColor = true;
+            this.comboCategoria.FormattingEnabled = true;
+            this.comboCategoria.ItemHeight = 23;
+            this.comboCategoria.Location = new System.Drawing.Point(423, 125);
+            this.comboCategoria.Name = "comboCategoria";
+            this.comboCategoria.Size = new System.Drawing.Size(169, 29);
+            this.comboCategoria.TabIndex = 28;
+            this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
             // 
-            // numIVA
+            // materialLabel2
             // 
-            this.numIVA.BackColor = System.Drawing.Color.Transparent;
-            this.numIVA.BackgroundColor = System.Drawing.Color.Empty;
-            this.numIVA.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
-            this.numIVA.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.numIVA.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            this.numIVA.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            this.numIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numIVA.Location = new System.Drawing.Point(285, 123);
-            this.numIVA.Maximum = 100;
-            this.numIVA.Minimum = 0;
-            this.numIVA.Name = "numIVA";
-            this.numIVA.Size = new System.Drawing.Size(75, 26);
-            this.numIVA.Style = MetroSet_UI.Design.Style.Light;
-            this.numIVA.StyleManager = null;
-            this.numIVA.SymbolsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.numIVA.TabIndex = 6;
-            this.numIVA.ThemeAuthor = "Narwin";
-            this.numIVA.ThemeName = "MetroLite";
-            this.numIVA.Value = 0;
-            this.numIVA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.numIVA_MouseClick);
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(419, 16);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(200, 19);
+            this.materialLabel2.TabIndex = 27;
+            this.materialLabel2.Text = "Asignación de accesibilidad:";
             // 
-            // materialLabel1
+            // metroSetDivider1
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(281, 101);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
-            this.materialLabel1.TabIndex = 7;
-            this.materialLabel1.Text = "IVA:";
+            this.metroSetDivider1.Location = new System.Drawing.Point(407, 22);
+            this.metroSetDivider1.Name = "metroSetDivider1";
+            this.metroSetDivider1.Orientation = MetroSet_UI.Enums.DividerStyle.Vertical;
+            this.metroSetDivider1.Size = new System.Drawing.Size(4, 220);
+            this.metroSetDivider1.Style = MetroSet_UI.Design.Style.Custom;
+            this.metroSetDivider1.StyleManager = null;
+            this.metroSetDivider1.TabIndex = 26;
+            this.metroSetDivider1.Text = "metroSetDivider1";
+            this.metroSetDivider1.ThemeAuthor = "Narwin";
+            this.metroSetDivider1.ThemeName = "MetroLite";
+            this.metroSetDivider1.Thickness = 1;
             // 
             // btnCancelar
             // 
@@ -540,121 +515,163 @@
             this.btnGuardar.TabStop = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // metroSetDivider1
+            // materialLabel1
             // 
-            this.metroSetDivider1.Location = new System.Drawing.Point(407, 22);
-            this.metroSetDivider1.Name = "metroSetDivider1";
-            this.metroSetDivider1.Orientation = MetroSet_UI.Enums.DividerStyle.Vertical;
-            this.metroSetDivider1.Size = new System.Drawing.Size(4, 220);
-            this.metroSetDivider1.Style = MetroSet_UI.Design.Style.Custom;
-            this.metroSetDivider1.StyleManager = null;
-            this.metroSetDivider1.TabIndex = 26;
-            this.metroSetDivider1.Text = "metroSetDivider1";
-            this.metroSetDivider1.ThemeAuthor = "Narwin";
-            this.metroSetDivider1.ThemeName = "MetroLite";
-            this.metroSetDivider1.Thickness = 1;
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(281, 101);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(37, 19);
+            this.materialLabel1.TabIndex = 7;
+            this.materialLabel1.Text = "IVA:";
             // 
-            // materialLabel2
+            // numIVA
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(419, 16);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(200, 19);
-            this.materialLabel2.TabIndex = 27;
-            this.materialLabel2.Text = "Asignación de accesibilidad:";
+            this.numIVA.BackColor = System.Drawing.Color.Transparent;
+            this.numIVA.BackgroundColor = System.Drawing.Color.Empty;
+            this.numIVA.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.numIVA.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.numIVA.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.numIVA.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.numIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.numIVA.Location = new System.Drawing.Point(285, 123);
+            this.numIVA.Maximum = 100;
+            this.numIVA.Minimum = 0;
+            this.numIVA.Name = "numIVA";
+            this.numIVA.Size = new System.Drawing.Size(75, 26);
+            this.numIVA.Style = MetroSet_UI.Design.Style.Light;
+            this.numIVA.StyleManager = null;
+            this.numIVA.SymbolsColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.numIVA.TabIndex = 6;
+            this.numIVA.ThemeAuthor = "Narwin";
+            this.numIVA.ThemeName = "MetroLite";
+            this.numIVA.Value = 0;
+            this.numIVA.MouseClick += new System.Windows.Forms.MouseEventHandler(this.numIVA_MouseClick);
             // 
-            // comboCategoria
+            // groupBox1
             // 
-            this.comboCategoria.FormattingEnabled = true;
-            this.comboCategoria.ItemHeight = 23;
-            this.comboCategoria.Location = new System.Drawing.Point(423, 125);
-            this.comboCategoria.Name = "comboCategoria";
-            this.comboCategoria.Size = new System.Drawing.Size(169, 29);
-            this.comboCategoria.TabIndex = 28;
-            this.comboCategoria.SelectedIndexChanged += new System.EventHandler(this.comboCategoria_SelectedIndexChanged);
+            this.groupBox1.Controls.Add(this.radioEstatus2);
+            this.groupBox1.Controls.Add(this.radioEstatus);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(17, 189);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(182, 59);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Estatus de categoría";
             // 
-            // metroLabel1
+            // radioEstatus2
             // 
-            this.metroLabel1.BackColor = System.Drawing.SystemColors.Info;
-            this.metroLabel1.CustomBackground = true;
-            this.metroLabel1.Location = new System.Drawing.Point(423, 47);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(196, 59);
-            this.metroLabel1.TabIndex = 29;
-            this.metroLabel1.Text = "Seleccione la categoría para\r\nasignar la accesibilidad que\r\nésta tendrá a las áre" +
-    "as.";
+            this.radioEstatus2.AutoSize = true;
+            this.radioEstatus2.Depth = 0;
+            this.radioEstatus2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioEstatus2.Location = new System.Drawing.Point(86, 20);
+            this.radioEstatus2.Margin = new System.Windows.Forms.Padding(0);
+            this.radioEstatus2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioEstatus2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioEstatus2.Name = "radioEstatus2";
+            this.radioEstatus2.Ripple = true;
+            this.radioEstatus2.Size = new System.Drawing.Size(78, 30);
+            this.radioEstatus2.TabIndex = 1;
+            this.radioEstatus2.TabStop = true;
+            this.radioEstatus2.Tag = "0";
+            this.radioEstatus2.Text = "Inactivo";
+            this.radioEstatus2.UseVisualStyleBackColor = true;
             // 
-            // materialLabel3
+            // radioEstatus
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(281, 162);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(91, 19);
-            this.materialLabel3.TabIndex = 30;
-            this.materialLabel3.Text = "Precio total:";
+            this.radioEstatus.AutoSize = true;
+            this.radioEstatus.Depth = 0;
+            this.radioEstatus.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioEstatus.Location = new System.Drawing.Point(3, 20);
+            this.radioEstatus.Margin = new System.Windows.Forms.Padding(0);
+            this.radioEstatus.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioEstatus.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioEstatus.Name = "radioEstatus";
+            this.radioEstatus.Ripple = true;
+            this.radioEstatus.Size = new System.Drawing.Size(68, 30);
+            this.radioEstatus.TabIndex = 0;
+            this.radioEstatus.TabStop = true;
+            this.radioEstatus.Tag = "1";
+            this.radioEstatus.Text = "Activo";
+            this.radioEstatus.UseVisualStyleBackColor = true;
             // 
-            // materialLabel7
+            // comboPromocion
             // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(281, 16);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(86, 38);
-            this.materialLabel7.TabIndex = 31;
-            this.materialLabel7.Text = "Precio por \r\npromoción:";
+            this.comboPromocion.FormattingEnabled = true;
+            this.comboPromocion.ItemHeight = 23;
+            this.comboPromocion.Location = new System.Drawing.Point(17, 129);
+            this.comboPromocion.Name = "comboPromocion";
+            this.comboPromocion.Size = new System.Drawing.Size(227, 29);
+            this.comboPromocion.TabIndex = 4;
+            this.comboPromocion.SelectedIndexChanged += new System.EventHandler(this.comboPromocion_SelectedIndexChanged);
             // 
-            // lblIVA
+            // txtPrecio
             // 
-            this.lblIVA.AutoSize = true;
-            this.lblIVA.BackColor = System.Drawing.SystemColors.Info;
-            this.lblIVA.Depth = 0;
-            this.lblIVA.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblIVA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblIVA.Location = new System.Drawing.Point(319, 101);
-            this.lblIVA.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblIVA.Name = "lblIVA";
-            this.lblIVA.Size = new System.Drawing.Size(25, 19);
-            this.lblIVA.TabIndex = 32;
-            this.lblIVA.Text = "$0";
+            this.txtPrecio.Depth = 0;
+            this.txtPrecio.Hint = "Precio...";
+            this.txtPrecio.Location = new System.Drawing.Point(17, 78);
+            this.txtPrecio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.PasswordChar = '\0';
+            this.txtPrecio.SelectedText = "";
+            this.txtPrecio.SelectionLength = 0;
+            this.txtPrecio.SelectionStart = 0;
+            this.txtPrecio.Size = new System.Drawing.Size(169, 23);
+            this.txtPrecio.TabIndex = 3;
+            this.txtPrecio.Tag = "Precio...";
+            this.txtPrecio.UseSystemPasswordChar = false;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.txtPrecio_TextChanged);
             // 
-            // lblPrecioPromo
+            // txtNombre
             // 
-            this.lblPrecioPromo.AutoSize = true;
-            this.lblPrecioPromo.BackColor = System.Drawing.SystemColors.Info;
-            this.lblPrecioPromo.Depth = 0;
-            this.lblPrecioPromo.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblPrecioPromo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPrecioPromo.Location = new System.Drawing.Point(284, 61);
-            this.lblPrecioPromo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblPrecioPromo.Name = "lblPrecioPromo";
-            this.lblPrecioPromo.Size = new System.Drawing.Size(25, 19);
-            this.lblPrecioPromo.TabIndex = 33;
-            this.lblPrecioPromo.Text = "$0";
+            this.txtNombre.Depth = 0;
+            this.txtNombre.Hint = "Nombre de categoría...";
+            this.txtNombre.Location = new System.Drawing.Point(17, 22);
+            this.txtNombre.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PasswordChar = '\0';
+            this.txtNombre.SelectedText = "";
+            this.txtNombre.SelectionLength = 0;
+            this.txtNombre.SelectionStart = 0;
+            this.txtNombre.Size = new System.Drawing.Size(227, 23);
+            this.txtNombre.TabIndex = 0;
+            this.txtNombre.Tag = "Nombre de categoría...";
+            this.txtNombre.UseSystemPasswordChar = false;
             // 
-            // lblTotal
+            // checkAreas
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.SystemColors.Info;
-            this.lblTotal.Depth = 0;
-            this.lblTotal.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotal.Location = new System.Drawing.Point(284, 183);
-            this.lblTotal.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(25, 19);
-            this.lblTotal.TabIndex = 34;
-            this.lblTotal.Text = "$0";
+            this.checkAreas.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkAreas.CheckOnClick = true;
+            this.checkAreas.ColumnWidth = 200;
+            this.checkAreas.Dock = System.Windows.Forms.DockStyle.Right;
+            this.checkAreas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAreas.FormattingEnabled = true;
+            this.checkAreas.Location = new System.Drawing.Point(625, 0);
+            this.checkAreas.MultiColumn = true;
+            this.checkAreas.Name = "checkAreas";
+            this.checkAreas.Size = new System.Drawing.Size(301, 268);
+            this.checkAreas.TabIndex = 2;
+            this.checkAreas.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // metroSetTabPage2
+            // 
+            this.metroSetTabPage2.BaseColor = System.Drawing.Color.White;
+            this.metroSetTabPage2.ImageIndex = 0;
+            this.metroSetTabPage2.ImageKey = null;
+            this.metroSetTabPage2.Location = new System.Drawing.Point(4, 42);
+            this.metroSetTabPage2.Name = "metroSetTabPage2";
+            this.metroSetTabPage2.Size = new System.Drawing.Size(926, 268);
+            this.metroSetTabPage2.Style = MetroSet_UI.Design.Style.Light;
+            this.metroSetTabPage2.StyleManager = null;
+            this.metroSetTabPage2.TabIndex = 1;
+            this.metroSetTabPage2.Text = "Estadísticas de ventas por categoría";
+            this.metroSetTabPage2.ThemeAuthor = "Narwin";
+            this.metroSetTabPage2.ThemeName = "MetroLite";
+            this.metroSetTabPage2.ToolTipText = null;
             // 
             // Membresias
             // 
@@ -688,10 +705,11 @@
             this.metroSetTabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizaAccesibilidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -718,7 +736,7 @@
         private System.Windows.Forms.Timer timerActualiza;
         private MetroSet_UI.Controls.MetroSetTabControl tabCategorias;
         private MetroSet_UI.Child.MetroSetTabPage metroSetTabPage1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkAreas;
         private MetroSet_UI.Child.MetroSetTabPage metroSetTabPage2;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtNombre;
@@ -740,5 +758,6 @@
         private MaterialSkin.Controls.MaterialLabel lblIVA;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.PictureBox btnActualizaAccesibilidad;
     }
 }

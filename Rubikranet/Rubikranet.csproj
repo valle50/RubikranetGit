@@ -304,6 +304,7 @@
     <None Include="Resources\fondo3.jpg" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\logoEmpresaFicticio.png" />
+    <None Include="Resources\checkbox_check.png" />
     <Content Include="Scripts\bdProyDatos.sql" />
     <Content Include="Scripts\Cambios a BD.sql" />
     <Content Include="Scripts\CatalogosTablas.sql" />
