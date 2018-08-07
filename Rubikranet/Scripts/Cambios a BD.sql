@@ -18,13 +18,17 @@ alter table accesibilidad_areas add estatus bit null
 alter table categorias_membresias add estatus_visible bit null
 
 --se agrego para el "eliminar" el área
-alter table areas add estatusEliminado bit null
+alter table areas add estatusEliminado bit null -- 0 = no eliminado. 1 = eliminado
 
 --se agregaron los siguientes campos a categorias_membresias para reemplazar a la tabla de precios_membresias
 alter table categorias_membresias add costo money
 alter table categorias_membresias add id_promocion int foreign key(id_promocion) references promociones(id_promocion)
 alter table categorias_membresias add iva tinyint
 alter table categorias_membresias add estatus bit
+
+--Por el momento solo se quitó el "not null" de la foránea "id_precio" a la tabla "precios_membresias", la cual se eliminará
+--porque sus campos se pasaron a la tabla de categorias_membresias
+alter table categorias_membresias alter column id_precio int null
 
 
 
