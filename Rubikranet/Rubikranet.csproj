@@ -308,6 +308,7 @@
     <Content Include="Scripts\bdProyDatos.sql" />
     <Content Include="Scripts\Cambios a BD.sql" />
     <Content Include="Scripts\CatalogosTablas.sql" />
+    <Content Include="Scripts\estructura membresias proyecto.sql" />
     <Content Include="Scripts\procedimientosChris.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
