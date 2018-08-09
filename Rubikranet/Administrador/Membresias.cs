@@ -359,30 +359,7 @@ namespace Rubikranet.Administrador
 
                 case 3:
                     actualizaComboPromociones();
-                    //Conexion.Consulta(string.Format("select id_promocion, nombre from promociones where GETDATE() between fecha_inicio and fecha_fin and estatus <> 1"));
-                    //CargaCombos("Promoción...", comboPromocion, "id_promocion", "nombre");
-                    //Conexion.con.Close();
-
-                    //Conexion.Consulta(string.Format("select id_categoria, categoria from categorias_membresias where estatus <> 1"));
-                    //CargaCombos("Categoría...", comboCategoria, "id_categoria", "categoria");
-                    //Conexion.con.Close();
                     actualizaComboCategorias();
-
-                    //Conexion.Consulta(
-                    //    string.Format("select id_area, nombre from areas where estatusEliminado <> 1"));
-
-                    //while (Conexion.result.Read())
-                    //{
-                    //    idArea.Add(Conexion.result["id_area"].ToString());
-                    //    nomArea.Add(Conexion.result["nombre"].ToString());
-                    //}
-
-                    //id_area = idArea.ToArray();
-                    //checkAreas.Items.AddRange(nomArea.ToArray());
-                    //Conexion.con.Close();
-
-                    //comboCategoria.SelectedIndex = 0;
-                    //comboPromocion.SelectedIndex = 0;
                     Actualiza_Areas();
                     break;
 
