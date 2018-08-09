@@ -38,6 +38,7 @@ namespace Rubikranet.Administrador
 
             btnGuardar.BackgroundImage = null;
             btnGuardar.BackgroundImage = Properties.Resources.diskette;
+            TablaAreas.Columns[1].Visible = true;//muestra botón eliminar
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -111,6 +112,7 @@ namespace Rubikranet.Administrador
 
                 if (boton.Name == "btnEditar" && MessageBox.Show("¿Editar registro?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    TablaAreas.Columns[1].Visible = false;//oculta botón eliminar
                     check = Convert.ToInt16(dgv.CurrentRow.Cells[2].Value);
 
                     Conexion.Consulta(
@@ -289,15 +291,15 @@ namespace Rubikranet.Administrador
             //chart1.Series["campo1"].Points.AddXY("Paco", 10);
             //chart1.Series["campo2"].Points.AddXY("Max", 100);
             //chart1.Series.Add("nombre");
+
             chart1.Series.Add("Cupo máximo");
             chart1.Series.Add("Cupo actual");
 
-            //chart1.Series["nombre"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            chart1.Series["Cupo máximo"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            chart1.Series["Cupo actual"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series["Cupo máximo"].ChartType = SeriesChartType.Column;
+            chart1.Series["Cupo actual"].ChartType = SeriesChartType.Column;
 
-            chart1.Series["Cupo máximo"].Color = Color.LightBlue;
-            chart1.Series["Cupo actual"].Color = Color.LightYellow;
+            chart1.Series["Cupo máximo"].Color = Color.DeepSkyBlue;
+            chart1.Series["Cupo actual"].Color = Color.DarkRed;
 
             chart1.Series["Cupo máximo"].IsValueShownAsLabel = true;
             chart1.Series["Cupo actual"].IsValueShownAsLabel = true;

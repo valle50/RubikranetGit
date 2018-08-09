@@ -44,7 +44,8 @@ namespace Rubikranet.Administrador
 
             check = 0;
             radioEstatus.Checked = false;
-            radioEstatus2.Checked = false; 
+            radioEstatus2.Checked = false;
+            TablaMem.Columns[1].Visible = true;//muestra botón eliminar
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -228,6 +229,7 @@ namespace Rubikranet.Administrador
 
                 if (boton.Name == "btnEditar" && MessageBox.Show("¿Editar registro?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    TablaMem.Columns[1].Visible = false;//oculta botón eliminar
                     check = Convert.ToInt32(dgv.CurrentRow.Cells[2].Value);
 
                     Conexion.Consulta(

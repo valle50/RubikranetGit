@@ -66,6 +66,7 @@ namespace Rubikranet.Administrador
 
             btnGuardar.BackgroundImage = null;
             btnGuardar.BackgroundImage = Properties.Resources.diskette;
+            tablaEmpleados.Columns[1].Visible = true;//muestra botón eliminar
         }
 
         //LLena el combo de municipios de acuerdo al estado seleccionado
@@ -164,6 +165,8 @@ namespace Rubikranet.Administrador
                 {
                     //Aquí el check toma el id del empleado de la columna que se ocultó y que se encuentra en la posición 3... (Se ocultaron en la carga) 
                     //El 0 es el botón editar, 1 = btnEliminar, 2 = columna "num" y 3 = columna "id_empleado", los últimos dos se ocultaron, pero siguen ahí
+
+                    tablaEmpleados.Columns[1].Visible = false;//oculta botón eliminar
                     check = dgv.CurrentRow.Cells[3].Value.ToString(); 
 
                     Conexion.Consulta(
