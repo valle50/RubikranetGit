@@ -126,6 +126,36 @@ select e.num,
 
 
     ---------------- ÁREAS ---------------- 
+	create procedure areas_aa
+   @check int,--id del área
+   @nombre varchar(80),
+   @mensaje_cliente text,
+   @normas text,
+   @cupo_maximo int, 
+   @cupo_actual int,
+   @horario varchar(60),
+   @estatus bit,
+   @codigo_edad_accesibilidad bit 
+   as
+   begin
+	if @check = 0
+		insert into areas(nombre, mensaje_cliente, normas, cupo_maximo, cupo_actual, horario, estatus, estatusEliminado, codigo_edad_accesibilidad)
+		values(@nombre, @mensaje_cliente, @normas, @cupo_maximo, @cupo_actual, @horario, @estatus,0, @codigo_edad_accesibilidad)
+	else
+	update areas
+	set nombre = @nombre,
+	 mensaje_cliente = @mensaje_cliente,
+	 normas = @normas,
+	 cupo_maximo = @cupo_maximo,
+	 cupo_actual = @cupo_actual,
+	 horario = @horario,
+	 estatus = @estatus,
+	 codigo_edad_accesibilidad = @codigo_edad_accesibilidad
+	 where id_area = @check
+   end
+   go
+
+
 	create view listarAreas
 	as
 	select 

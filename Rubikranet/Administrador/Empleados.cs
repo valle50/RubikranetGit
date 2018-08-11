@@ -66,6 +66,7 @@ namespace Rubikranet.Administrador
 
             btnGuardar.BackgroundImage = null;
             btnGuardar.BackgroundImage = Properties.Resources.diskette;
+            tablaEmpleados.Columns[1].Visible = true;//muestra botón eliminar
         }
 
         //LLena el combo de municipios de acuerdo al estado seleccionado
@@ -164,6 +165,8 @@ namespace Rubikranet.Administrador
                 {
                     //Aquí el check toma el id del empleado de la columna que se ocultó y que se encuentra en la posición 3... (Se ocultaron en la carga) 
                     //El 0 es el botón editar, 1 = btnEliminar, 2 = columna "num" y 3 = columna "id_empleado", los últimos dos se ocultaron, pero siguen ahí
+
+                    tablaEmpleados.Columns[1].Visible = false;//oculta botón eliminar
                     check = dgv.CurrentRow.Cells[3].Value.ToString(); 
 
                     Conexion.Consulta(
@@ -257,6 +260,54 @@ namespace Rubikranet.Administrador
             }
         }
 
+        private void ActualizaCombos()
+        {
+            foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
+            {
+                var combo = ctrl as MetroFramework.Controls.MetroComboBox;
+                combo.Items.Clear();
+            }
+            comboTurnos.Items.Clear();
+
+            Conexion.Consulta(String.Format("select * from estados"));
+            CargaCombos("Estado...", comboEstado, "id_estado", "nombre_estado");
+            Conexion.con.Close();
+
+            Conexion.Consulta("select * from estatus_empleados");
+            CargaCombos("Estatus...", comboEstatus, "id_estatus", "nombre_estatus");
+            Conexion.con.Close();
+
+            Conexion.Consulta("select * from cargos");
+            CargaCombos("Cargo...", comboCargo, "id_cargo", "nombre");
+            Conexion.con.Close();
+
+            Conexion.Consulta("select * from privilegios");
+            CargaCombos("Privilegios...", comboPrivilegio, "id_privilegio", "privilegio");
+            Conexion.con.Close();
+
+            Conexion.Consulta("select id_area, nombre from areas where estatusEliminado <> 1");
+            CargaCombos("Area...", comboArea, "id_area", "nombre");
+            Conexion.con.Close();
+
+            Conexion.Consulta("select id_turno, nombre from turnos");
+            CargaCombos("Turnos...", comboTurnos, "id_turno", "nombre");
+            Conexion.con.Close();
+
+            AttrCB item0 = new AttrCB();
+            item0.Value = "0";
+            item0.Text = "Municipio...";
+
+            comboMunicipio.Items.Add(item0);
+
+            foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
+            {
+                var combo = ctrl as MetroFramework.Controls.MetroComboBox;
+                combo.SelectedIndex = 0;
+            }
+
+            comboTurnos.SelectedIndex = 0;
+        }
+
         private void timerEmpleados_Tick(object sender, EventArgs e)
         {
             tiempo += 1;
@@ -300,48 +351,9 @@ namespace Rubikranet.Administrador
                     break;
 
                 case 3:
-                    Conexion.Consulta(String.Format("select * from estados"));
-                    CargaCombos("Estado...", comboEstado, "id_estado", "nombre_estado");
-                    Conexion.con.Close();
-
-                    Conexion.Consulta("select * from estatus_empleados");
-                    CargaCombos("Estatus...", comboEstatus, "id_estatus", "nombre_estatus");
-                    Conexion.con.Close();
-
-                    Conexion.Consulta("select * from cargos");
-                    CargaCombos("Cargo...", comboCargo, "id_cargo", "nombre");
-                    Conexion.con.Close();
-
-                    Conexion.Consulta("select * from privilegios");
-                    CargaCombos("Privilegios...", comboPrivilegio, "id_privilegio", "privilegio");
-                    Conexion.con.Close();
-
-                    Conexion.Consulta("select id_area, nombre from areas");
-                    CargaCombos("Area...", comboArea, "id_area", "nombre");
-                    Conexion.con.Close();
-
-                    Conexion.Consulta("select id_turno, nombre from turnos");
-                    CargaCombos("Turnos...", comboTurnos, "id_turno", "nombre");
-                    Conexion.con.Close();
-
-                    AttrCB item0 = new AttrCB();
-                    item0.Value = "0";
-                    item0.Text = "Municipio...";
-
-                    comboMunicipio.Items.Add(item0);
-
+                    ActualizaCombos();
+                    comboCantidadReg.SelectedIndex = 0;
                     SendKeys.SendWait("{ENTER}");
-                    break;
-
-                case 4:
-                    foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
-                    {
-                        var combo = ctrl as MetroFramework.Controls.MetroComboBox;
-                        combo.SelectedIndex = 0;
-                    }
-
-                    comboTurnos.SelectedIndex = 0;
-                    comboCantidadReg.SelectedIndex = 0;                    
                     break;
 
                 default:
@@ -405,6 +417,7 @@ namespace Rubikranet.Administrador
             if (ventanaActiva)
             {
                 btnRefrescar_Click(null, null);
+                ActualizaCombos();
                 ventanaActiva = false;
             }
         }
