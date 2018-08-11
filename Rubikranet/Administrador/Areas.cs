@@ -17,6 +17,7 @@ namespace Rubikranet.Administrador
         int tiempo = 0;
         int check = 0;
         public static bool ventanaActiva = false;
+        bool actualizaGrafica = false;
 
         public Areas()
         {
@@ -241,6 +242,11 @@ namespace Rubikranet.Administrador
                 btnRefrescar_Click(null,null);
                 ventanaActiva = false;
             }
+
+            if (actualizaGrafica)
+            {
+                llenaGrafica();
+            }
         }
 
         private void scrollMaximo_ValueChanged(object sender, EventArgs e)
@@ -277,42 +283,53 @@ namespace Rubikranet.Administrador
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void llenaGrafica()
         {
-            //chart1.Series["campo1"].Points.AddXY("Max",33);
-            //chart1.Series["campo2"].Points.AddXY("Max", 70);
-
-            //chart1.Series["campo1"].Points.AddXY("Carl", 15);
-            //chart1.Series["campo2"].Points.AddXY("Max", 80);
-
-            //chart1.Series["campo1"].Points.AddXY("Marc", 50);
-            //chart1.Series["campo2"].Points.AddXY("Max", 90);
-
-            //chart1.Series["campo1"].Points.AddXY("Paco", 10);
-            //chart1.Series["campo2"].Points.AddXY("Max", 100);
-            //chart1.Series.Add("nombre");
-
-            chart1.Series.Add("Cupo máximo");
-            chart1.Series.Add("Cupo actual");
-
-            chart1.Series["Cupo máximo"].ChartType = SeriesChartType.Column;
-            chart1.Series["Cupo actual"].ChartType = SeriesChartType.Column;
-
-            chart1.Series["Cupo máximo"].Color = Color.DeepSkyBlue;
-            chart1.Series["Cupo actual"].Color = Color.DarkRed;
-
-            chart1.Series["Cupo máximo"].IsValueShownAsLabel = true;
-            chart1.Series["Cupo actual"].IsValueShownAsLabel = true;
-
-
-            Conexion.Consulta("select top(10) nombre, cupo_maximo, cupo_actual from areas");
-            while (Conexion.result.Read())
-            {      
-                chart1.Series["Cupo máximo"].Points.AddXY(Conexion.result["nombre"].ToString(), Conexion.result["cupo_maximo"].ToString());
-                chart1.Series["Cupo actual"].Points.AddY(Conexion.result["cupo_actual"].ToString());
+            string[] series = new string[] { "Visitas al año", "Visitas al mes", "Visitas a la semana", "Visitas al día", "Cupo máximo", "Cupo actual" };
+            
+            //chartAreasVisitadas.Series.Clear();
+            foreach (var serie in chartAreasVisitadas.Series)
+            {
+                serie.Points.Clear();
             }
 
+            if (chartAreasVisitadas.Series.Count == 0)
+            {
+                chartAreasVisitadas.Titles.Add("Área visitada");                
+
+                for (var i = 0; i < series.Length; i++)
+                {
+                    chartAreasVisitadas.Series.Add(series[i]);
+                    chartAreasVisitadas.Series[series[i]].ChartType = SeriesChartType.Column;
+                    chartAreasVisitadas.Series[series[i]].IsValueShownAsLabel = true;
+                    chartAreasVisitadas.Series[series[i]]["PointWidth"] = "1.5";
+                }                
+            }
+
+            Conexion.Consulta(string.Format("exec contadorVisitasAreas '{0}'", 4));
+            while (Conexion.result.Read())
+            {
+                chartAreasVisitadas.Series["Visitas al año"].Points.AddXY(Conexion.result["Nombre"].ToString(), Conexion.result["Año"].ToString());
+                chartAreasVisitadas.Series["Visitas al mes"].Points.AddY(Conexion.result["Mes"].ToString());
+                chartAreasVisitadas.Series["Visitas a la semana"].Points.AddY(Conexion.result["Semana"].ToString());
+                chartAreasVisitadas.Series["Visitas al día"].Points.AddY(Conexion.result["Día"].ToString());
+
+                chartAreasVisitadas.Series["Cupo máximo"].Points.AddY(Conexion.result["Cupo máximo"].ToString());
+                chartAreasVisitadas.Series["Cupo actual"].Points.AddY(Conexion.result["Cupo actual"].ToString());
+            }
+            
             Conexion.con.Close();
+        }
+
+        private void TabAreas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabAreas.SelectedTab == TabAreas.TabPages["paginaGrafica"])
+            {
+                actualizaGrafica = true;                
+            }else
+            {
+                actualizaGrafica = false;
+            }
         }
     }
 }

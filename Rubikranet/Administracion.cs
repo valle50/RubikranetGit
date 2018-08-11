@@ -19,15 +19,11 @@ namespace Rubikranet
 {
     public partial class Administracion : Form
     {
+        public static string nombre = "", id_privilegio = "", id_empleado = "";
         public Administracion()
         {
             InitializeComponent();
             contenidoPanel.Controls.Add(PanelAdministrador.Instancia);
-        }
-
-        private void Administracion_Load(object sender, EventArgs e)
-        {
-
         }
 
     }
