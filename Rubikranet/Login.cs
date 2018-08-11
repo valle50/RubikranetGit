@@ -19,9 +19,9 @@ namespace Rubikranet
 {
     public partial class Login : MaterialSkin.Controls.MaterialForm
     {
-        int tiempo;
+        int tiempo = 10;
         public string puerto;
-        string codigo;
+        string codigo = "";
         public Login()
         {
             InitializeComponent();
@@ -29,79 +29,76 @@ namespace Rubikranet
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //serialPort.PortName = puerto;
-            //serialPort.Open();
-            //tiempo = 10;
-            //txt_RFID.Enabled = true;
-            //txt_RFID.Focus();
-            //txt_NIP.Enabled = true;
+            serialPort.PortName = puerto;
+            serialPort.Open();
             timer.Start();
         }
 
-        void conteo()
-        {
-            //if (tiempo >= 0)
-            //{
-            //    mensaje_segundos.Text = "Tienes " + tiempo + " segundos para ingresar tus datos:";
-            //    tiempo = tiempo - 1;
-            //}
-            //else
-            //{
-            //    txt_RFID.Enabled = false;
-            //    txt_NIP.Enabled = false;
-            //    timer.Stop();
-            //    serialPort.Close();
-            //}
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnAcceder_Click(object sender, EventArgs e)
         {
             if (txt_RFID.Text != "" && txt_NIP.Text != "")
             {
-                Administracion admin = new Administracion();
-                Acceso access = new Acceso();
-                access.Hide();
-                this.Hide();
-                admin.ShowDialog();
-                access.Close();
-                this.Close();
+                Conexion.Consulta(
+                    string.Format("select * from empleados where rfid = '{0}' and nip = '{1}' and id_privilegio = 1 or rfid = '{0}' and nip = '{1}' and id_privilegio = 2", txt_RFID.Text, txt_NIP.Text.Replace("'", "`")));
+
+                if (Conexion.result.HasRows)
+                {
+                    string nombre = "", id_privilegio = "", id_empleado = "";
+
+                    while (Conexion.result.Read())
+                    {
+                        id_empleado = Conexion.result["id_empleado"].ToString();
+                        nombre = Conexion.result["nombre"].ToString();
+                        id_privilegio = Conexion.result["id_privilegio"].ToString();
+                    }
+                    
+                    Administracion admin = new Administracion();
+                    this.Hide();
+                    Administracion.nombre = nombre;
+                    Administracion.id_privilegio = id_privilegio;
+                    Administracion.id_empleado = id_empleado;
+
+                    admin.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    Mensajes.Caja("Error","Sin resultados", "RFID y/o PIN incorrecto(s)");
+                }                
             }
-            else {
-                Mensajes.Caja("Warning","Campos requeridos.","Los campos deben estar llenos.");
-            }          
+            else
+            {
+                Mensajes.Caja("Warning", "Campos requeridos.", "Los campos deben estar llenos.");
+            }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             Acceso access = new Acceso();
-            //serialPort.Close();
+            serialPort.Close();
             this.Hide();
             access.ShowDialog();
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            //conteo();
-            //txt_RFID.Text = codigo;
-
-            //if (txt_RFID.Text == ""){
-
-            //}
-            //else {
-
-            //    txt_NIP.Focus();
-            //}
+            if (codigo != "")
+            {                
+                txt_RFID.Text = codigo;
+                //this.ActiveControl = txt_NIP;
+                codigo = "";
+            }
         }
 
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //codigo = serialPort.ReadLine().Trim();
+            codigo = serialPort.ReadLine().Trim();
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Acceso access = new Acceso();
-            //serialPort.Close();
+            serialPort.Close();
             this.Hide();
             access.ShowDialog();
         }

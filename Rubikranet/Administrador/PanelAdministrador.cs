@@ -12,6 +12,8 @@ namespace Rubikranet.Administrador
 {
     public partial class PanelAdministrador : UserControl
     {
+        string nombre = "", id_privilegio = "", id_empleado = "";
+
         public PanelAdministrador()
         {
             InitializeComponent();
@@ -20,7 +22,37 @@ namespace Rubikranet.Administrador
         }
 
         public static PanelAdministrador Instancia = new PanelAdministrador();
-        
+
+        private void PanelAdministrador_Load(object sender, EventArgs e)
+        {            
+            nombre = Administracion.nombre;
+            id_empleado = Administracion.id_empleado;
+            id_privilegio = Administracion.id_privilegio;
+
+            if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(id_privilegio) && !string.IsNullOrEmpty(id_empleado))
+            {
+                lblNombreUs.Text = nombre;
+
+                int contadorBotones = -1;
+
+                foreach (var control in BarraLateral.Items.OfType<ToolStripButton>())
+                {
+                    contadorBotones += 1;
+
+                    if (contadorBotones >= 2 && id_privilegio != "1")
+                    {
+                        var boton = control as ToolStripButton;
+                        boton.Enabled = false;
+                    }                    
+                }
+
+            }
+            else
+            {
+                lblNombreUs.Text = "Sin login";
+            }
+        }
+
         private void ManipulaContenido(object a, object b, object c)
         {
             var controlUsuario = a as UserControl;
@@ -95,6 +127,5 @@ namespace Rubikranet.Administrador
         {
             ManipulaContenido(Ventas.Instancia, sender, lblSeccion);
         }
-
     }
 }

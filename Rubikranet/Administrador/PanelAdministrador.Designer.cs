@@ -34,7 +34,7 @@
             this.btnAdministrador = new System.Windows.Forms.ToolStripDropDownButton();
             this.miInformaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.lblNombreUs = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.lblSeccion = new System.Windows.Forms.ToolStripLabel();
             this.logoEmpresa = new System.Windows.Forms.ToolStripButton();
@@ -60,7 +60,7 @@
             this.BarraSuperior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnConfiguracion,
             this.btnAdministrador,
-            this.toolStripLabel1,
+            this.lblNombreUs,
             this.toolStripLabel,
             this.lblSeccion,
             this.logoEmpresa});
@@ -104,13 +104,13 @@
             this.editarToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.editarToolStripMenuItem.Text = "Cerrar sesión";
             // 
-            // toolStripLabel1
+            // lblNombreUs
             // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.ForeColor = System.Drawing.Color.White;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(86, 47);
-            this.toolStripLabel1.Text = "Nombre admin";
+            this.lblNombreUs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUs.ForeColor = System.Drawing.Color.White;
+            this.lblNombreUs.Name = "lblNombreUs";
+            this.lblNombreUs.Size = new System.Drawing.Size(86, 47);
+            this.lblNombreUs.Text = "Nombre admin";
             // 
             // toolStripLabel
             // 
@@ -142,7 +142,7 @@
             this.logoEmpresa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.logoEmpresa.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
             this.logoEmpresa.Name = "logoEmpresa";
-            this.logoEmpresa.Size = new System.Drawing.Size(23, 47);
+            this.logoEmpresa.Size = new System.Drawing.Size(23, 4);
             this.logoEmpresa.Text = "Rubikranet";
             // 
             // BarraLateral
@@ -277,6 +277,7 @@
             this.Controls.Add(this.BarraSuperior);
             this.Name = "PanelAdministrador";
             this.Size = new System.Drawing.Size(984, 749);
+            this.Load += new System.EventHandler(this.PanelAdministrador_Load);
             this.BarraSuperior.ResumeLayout(false);
             this.BarraSuperior.PerformLayout();
             this.BarraLateral.ResumeLayout(false);
@@ -300,11 +301,11 @@
         private System.Windows.Forms.ToolStripButton btnInventario;
         private System.Windows.Forms.ToolStripButton btnMembresia;
         private System.Windows.Forms.ToolStripButton btnEntradas_salidas;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton btnConfiguracion;
         private System.Windows.Forms.ToolStripLabel toolStripLabel;
         private System.Windows.Forms.ToolStripLabel lblSeccion;
         private System.Windows.Forms.ToolStripButton btnVentas;
         private System.Windows.Forms.ToolStripButton logoEmpresa;
+        public System.Windows.Forms.ToolStripLabel lblNombreUs;
     }
 }

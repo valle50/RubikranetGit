@@ -44,15 +44,16 @@ namespace Rubikranet
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (select_puertos.Text == "")
+            if (select_puertos.Text != "")
             {
                 Login login = new Login();
                 login.puerto = select_puertos.Text;
                 this.Hide();
-                login.ShowDialog();                
+                login.ShowDialog();
+                this.Close();                
             }
             else {
-                Mensajes.Caja("Information","Aviso.","Debe seleccionar un puerto para poder continuar");
+                Mensajes.Caja("Information","Aviso.","Debe seleccionar un puerto para poder continuar.");
             }   
         }
     }

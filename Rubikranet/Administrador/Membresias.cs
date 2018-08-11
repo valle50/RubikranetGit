@@ -133,7 +133,8 @@ namespace Rubikranet.Administrador
 
         private void comboCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            id_categoria = Convert.ToInt32((comboCategoria.SelectedItem as AttrCB).Value.ToString());            
+            id_categoria = Convert.ToInt32((comboCategoria.SelectedItem as AttrCB).Value.ToString());
+            btnActualizaAccesibilidad.Visible = false;
 
             if (id_categoria != 0)
             {

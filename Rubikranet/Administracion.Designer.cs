@@ -56,7 +56,6 @@
             this.Name = "Administracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RubiKranet - Control de membresías";
-            this.Load += new System.EventHandler(this.Administracion_Load);
             this.ResumeLayout(false);
 
         }
