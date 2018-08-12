@@ -37,7 +37,6 @@
             this.lblNombreUs = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.lblSeccion = new System.Windows.Forms.ToolStripLabel();
-            this.logoEmpresa = new System.Windows.Forms.ToolStripButton();
             this.BarraLateral = new System.Windows.Forms.ToolStrip();
             this.btnClientes = new System.Windows.Forms.ToolStripButton();
             this.btnVentas = new System.Windows.Forms.ToolStripButton();
@@ -62,8 +61,7 @@
             this.btnAdministrador,
             this.lblNombreUs,
             this.toolStripLabel,
-            this.lblSeccion,
-            this.logoEmpresa});
+            this.lblSeccion});
             this.BarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.BarraSuperior.Name = "BarraSuperior";
             this.BarraSuperior.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -132,18 +130,6 @@
             this.lblSeccion.Size = new System.Drawing.Size(210, 47);
             this.lblSeccion.Text = "Inicio";
             this.lblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // logoEmpresa
-            // 
-            this.logoEmpresa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("logoEmpresa.BackgroundImage")));
-            this.logoEmpresa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.logoEmpresa.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.logoEmpresa.Enabled = false;
-            this.logoEmpresa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.logoEmpresa.Margin = new System.Windows.Forms.Padding(0, 1, 15, 2);
-            this.logoEmpresa.Name = "logoEmpresa";
-            this.logoEmpresa.Size = new System.Drawing.Size(23, 4);
-            this.logoEmpresa.Text = "Rubikranet";
             // 
             // BarraLateral
             // 
@@ -305,7 +291,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel;
         private System.Windows.Forms.ToolStripLabel lblSeccion;
         private System.Windows.Forms.ToolStripButton btnVentas;
-        private System.Windows.Forms.ToolStripButton logoEmpresa;
         public System.Windows.Forms.ToolStripLabel lblNombreUs;
     }
 }

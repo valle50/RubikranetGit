@@ -302,7 +302,7 @@ namespace Rubikranet.Administrador
                     chartAreasVisitadas.Series.Add(series[i]);
                     chartAreasVisitadas.Series[series[i]].ChartType = SeriesChartType.Column;
                     chartAreasVisitadas.Series[series[i]].IsValueShownAsLabel = true;
-                    chartAreasVisitadas.Series[series[i]]["PointWidth"] = "1.5";
+                    chartAreasVisitadas.Series[series[i]]["PointWidth"] = "1.5"; 
                 }                
             }
 

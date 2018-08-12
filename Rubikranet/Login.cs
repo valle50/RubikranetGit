@@ -57,6 +57,7 @@ namespace Rubikranet
                     Administracion.nombre = nombre;
                     Administracion.id_privilegio = id_privilegio;
                     Administracion.id_empleado = id_empleado;
+                    serialPort.Close();
 
                     admin.ShowDialog();
                     this.Close();
