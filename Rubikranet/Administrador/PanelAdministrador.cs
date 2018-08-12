@@ -12,7 +12,8 @@ namespace Rubikranet.Administrador
 {
     public partial class PanelAdministrador : UserControl
     {
-        string nombre = "", id_privilegio = "", id_empleado = "";
+        //Para acceder a estas variables desde un user control se hace así: PanelAdministrador.variable
+        public static string nombre = "", id_privilegio = "", id_empleado = "";
 
         public PanelAdministrador()
         {

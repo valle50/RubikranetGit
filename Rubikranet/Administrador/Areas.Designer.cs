@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Areas));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.TablaAreas = new System.Windows.Forms.DataGridView();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
@@ -465,15 +465,14 @@
             // 
             // chartAreasVisitadas
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chartAreasVisitadas.ChartAreas.Add(chartArea5);
-            this.chartAreasVisitadas.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.chartAreasVisitadas.Legends.Add(legend5);
+            chartArea1.Name = "ChartArea1";
+            this.chartAreasVisitadas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartAreasVisitadas.Legends.Add(legend1);
             this.chartAreasVisitadas.Location = new System.Drawing.Point(0, 0);
             this.chartAreasVisitadas.Name = "chartAreasVisitadas";
             this.chartAreasVisitadas.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
-            this.chartAreasVisitadas.Size = new System.Drawing.Size(926, 268);
+            this.chartAreasVisitadas.Size = new System.Drawing.Size(602, 268);
             this.chartAreasVisitadas.TabIndex = 0;
             this.chartAreasVisitadas.Text = "chart1";
             // 
@@ -677,7 +676,7 @@
             this.TabAreas.ItemSize = new System.Drawing.Size(100, 38);
             this.TabAreas.Location = new System.Drawing.Point(0, 0);
             this.TabAreas.Name = "TabAreas";
-            this.TabAreas.SelectedIndex = 0;
+            this.TabAreas.SelectedIndex = 1;
             this.TabAreas.Size = new System.Drawing.Size(934, 314);
             this.TabAreas.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabAreas.Speed = 80;
