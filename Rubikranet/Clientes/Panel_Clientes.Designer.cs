@@ -37,10 +37,10 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtFin = new System.Windows.Forms.DateTimePicker();
             this.selectCategoria = new MetroFramework.Controls.MetroComboBox();
             this.txtMembresia = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.metroSetTabPage2 = new MetroSet_UI.Child.MetroSetTabPage();
@@ -106,7 +106,7 @@
             this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             this.metroSetTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
-            this.metroSetTabControl1.SelectedIndex = 1;
+            this.metroSetTabControl1.SelectedIndex = 0;
             this.metroSetTabControl1.Size = new System.Drawing.Size(934, 295);
             this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroSetTabControl1.Speed = 80;
@@ -142,10 +142,10 @@
             this.panel1.Controls.Add(this.materialLabel5);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.dateTimePicker2);
+            this.panel1.Controls.Add(this.dtInicio);
             this.panel1.Controls.Add(this.materialLabel3);
             this.panel1.Controls.Add(this.materialLabel1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtFin);
             this.panel1.Controls.Add(this.selectCategoria);
             this.panel1.Controls.Add(this.txtMembresia);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -174,12 +174,12 @@
             // 
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel5.Font = new System.Drawing.Font("Segoe WP Light", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel5.Location = new System.Drawing.Point(9, 65);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(72, 18);
+            this.materialLabel5.Size = new System.Drawing.Size(71, 17);
             this.materialLabel5.TabIndex = 41;
             this.materialLabel5.Text = "Categoria";
             // 
@@ -204,25 +204,26 @@
             this.btnGuardar.Size = new System.Drawing.Size(40, 40);
             this.btnGuardar.TabIndex = 39;
             this.btnGuardar.TabStop = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // dateTimePicker2
+            // dtInicio
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(322, 94);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(259, 23);
-            this.dateTimePicker2.TabIndex = 33;
+            this.dtInicio.Location = new System.Drawing.Point(322, 94);
+            this.dtInicio.Name = "dtInicio";
+            this.dtInicio.Size = new System.Drawing.Size(259, 23);
+            this.dtInicio.TabIndex = 33;
             // 
             // materialLabel3
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP Light", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(322, 71);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(91, 18);
+            this.materialLabel3.Size = new System.Drawing.Size(91, 17);
             this.materialLabel3.TabIndex = 32;
             this.materialLabel3.Text = "Vigencia Fin:";
             // 
@@ -231,21 +232,21 @@
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP Light", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(664, 16);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(105, 18);
+            this.materialLabel1.Size = new System.Drawing.Size(104, 17);
             this.materialLabel1.TabIndex = 31;
             this.materialLabel1.Text = "Vigencia Inicio:";
             // 
-            // dateTimePicker1
+            // dtFin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(664, 38);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(239, 23);
-            this.dateTimePicker1.TabIndex = 30;
+            this.dtFin.Location = new System.Drawing.Point(664, 38);
+            this.dtFin.Name = "dtFin";
+            this.dtFin.Size = new System.Drawing.Size(239, 23);
+            this.dtFin.TabIndex = 30;
             // 
             // selectCategoria
             // 
@@ -623,6 +624,7 @@
             this.comboCantidadReg.Size = new System.Drawing.Size(59, 29);
             this.comboCantidadReg.Style = MetroFramework.MetroColorStyle.Black;
             this.comboCantidadReg.TabIndex = 45;
+            this.comboCantidadReg.SelectedIndexChanged += new System.EventHandler(this.comboCantidadReg_SelectedIndexChanged);
             // 
             // lblTotalReg
             // 
@@ -827,10 +829,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox btnCancelar;
         private System.Windows.Forms.PictureBox btnGuardar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtInicio;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFin;
         private MetroFramework.Controls.MetroComboBox selectCategoria;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtMembresia;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;

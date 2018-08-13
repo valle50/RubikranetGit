@@ -20,6 +20,7 @@ namespace Rubikranet.Clientes
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
         public static string nombre = "", id_privilegio = "", id_empleado = "";
+        int check = 0;
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
         {
@@ -33,6 +34,10 @@ namespace Rubikranet.Clientes
             id_empleado = Administracion.id_empleado;
             nombre = Administracion.nombre;
             txtEmpleado.Text = nombre;
+            dtInicio.Format = DateTimePickerFormat.Custom;
+            dtInicio.CustomFormat = "dd-MM-yyyy";
+            dtFin.Format = DateTimePickerFormat.Custom;
+            dtFin.CustomFormat = "dd-MM-yyyy";
         }
         private void Actualizar()
         {
@@ -100,6 +105,19 @@ namespace Rubikranet.Clientes
         {
             Agregar_Miembros addMem = new Agregar_Miembros();
             addMem.ShowDialog();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string cat = (selectCategoria.SelectedItem as AttrCB).Value.ToString();
+
+            Conexion.Ejecutar(String.Format("EXEC MEMRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}','{6}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
+        }
+
+        private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Conexion.actualizaTope(Convert.ToInt16(comboCantidadReg.Text));
+            Actualizar();
         }
 
         private void CargaCombos(string text0, object o, string value, string text)
