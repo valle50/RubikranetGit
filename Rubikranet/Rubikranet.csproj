@@ -311,6 +311,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <Content Include="Scripts\ProcedureMemCli.sql" />
+    <Content Include="Scripts\Vista clientes.sql" />
     <None Include="Resources\fondo3.jpg" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\logoEmpresaFicticio.png" />
