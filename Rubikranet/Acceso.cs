@@ -50,7 +50,8 @@ namespace Rubikranet
                 login.puerto = select_puertos.Text;
                 this.Hide();
                 login.ShowDialog();
-                this.Close();                
+
+                this.Close();
             }
             else {
                 Mensajes.Caja("Information","Aviso.","Debe seleccionar un puerto para poder continuar.");
