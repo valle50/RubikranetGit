@@ -56,3 +56,16 @@ GO
 
 SELECT id_membresia,id_categoria FROM membresias
 WHERE id_membresia = 'a1b2c3d4'
+
+
+
+CREATE PROCEDURE CONTAR
+@_MEM VARCHAR(30)
+AS
+SELECT COUNT(*) as 'Registros' FROM membresia_familiar_miembros
+WHERE id_membresia = @_MEM
+GO
+
+
+SELECT COUNT(*) as 'Registros' FROM membresia_familiar_miembros
+WHERE id_membresia = '04D195323C4D80'

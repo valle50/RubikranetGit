@@ -106,6 +106,7 @@ namespace Rubikranet.Clientes
         private void addMembers_Click(object sender, EventArgs e)
         {
             Agregar_Miembros addMem = new Agregar_Miembros();
+            addMem.cod = txtMemb.Text;
             addMem.ShowDialog();
         }
 
@@ -127,11 +128,15 @@ namespace Rubikranet.Clientes
             Conexion.Consulta(String.Format("EXEC VERIFICAR '{0}' ", txtMemb.Text));
             if (Conexion.result.Read() == true)
             {
-                if (Convert.ToInt32(Conexion.result["id_categoria"]) == 1 || Convert.ToInt32(Conexion.result["id_categoria"]) == 2) {
+                if (Convert.ToInt32(Conexion.result["id_categoria"]) == 4 || Convert.ToInt32(Conexion.result["id_categoria"]) == 2) {
 
                     addMembers.Visible = true;
                     admem.cod = txtMemb.Text;
                 }
+            }
+            else{
+
+                addMembers.Visible = false;
             }
         }
         private void CargaCombos(string text0, object o, string value, string text)
@@ -153,6 +158,11 @@ namespace Rubikranet.Clientes
 
                 combo.Items.Add(item);
             }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
 
         public class AttrCB

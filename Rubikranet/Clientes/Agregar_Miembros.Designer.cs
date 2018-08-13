@@ -245,6 +245,7 @@
             this.txtMembre.Size = new System.Drawing.Size(235, 23);
             this.txtMembre.TabIndex = 6;
             this.txtMembre.UseSystemPasswordChar = false;
+            this.txtMembre.TextChanged += new System.EventHandler(this.txtMembre_TextChanged);
             // 
             // Agregar_Miembros
             // 

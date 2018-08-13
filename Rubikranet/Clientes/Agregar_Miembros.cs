@@ -30,9 +30,18 @@ namespace Rubikranet.Clientes
             Conexion.Consulta(String.Format("select * from precio_por_miembro"));
             CargaCombos("Precios...", selectPrecios, "id_precio_miembro", "precio_extra");
             Conexion.con.Close();
+ 
+            txtMembre.Text = cod;
+
+            Conexion.Consulta(String.Format("EXEC CONTAR '{0}'", cod));
+            if (Conexion.result.Read()) {
+
+                num_cli = Convert.ToInt32(Conexion.result["Registros"]);
+                num_cli = num_cli + 1;
+                Conexion.con.Close();
+            }
 
             lblNum.Text = "Miembro # " + num_cli;
-            txtMembre.Text = cod;
         }
         private void CargaCombos(string text0, object o, string value, string text)
         {
@@ -66,26 +75,41 @@ namespace Rubikranet.Clientes
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            char sexo = ' ';
-            if (radioSexo.Checked)
+            if (num_cli > 5)
             {
-                sexo = Convert.ToChar(radioSexo.Tag);
+                lblNum.Text = "Miembros al máximo ";
+                MessageBox.Show("Limite de Miembros Completos");
             }
-            else if (radioSexo2.Checked)
+            else
             {
-                sexo = Convert.ToChar(radioSexo2.Tag);
+                char sexo = ' ';
+                if (radioSexo.Checked)
+                {
+                    sexo = Convert.ToChar(radioSexo.Tag);
+                }
+                else if (radioSexo2.Checked)
+                {
+                    sexo = Convert.ToChar(radioSexo2.Tag);
+                }
+
+                string price = (selectPrecios.SelectedItem as AttrCB).Value.ToString();
+
+                Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}' ", check, txtMembre.Text, txtMembreFam.Text, txtNombres.Text, txtAP.Text, txtAM.Text, sexo, price, status));
+
+                num_cli = num_cli + 1;
+                lblNum.Text = "Miembro # " + num_cli;
+                limpiar();
             }
 
-            string price = (selectPrecios.SelectedItem as AttrCB).Value.ToString();
+        }
 
-            Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}' ", check,txtMembre.Text,txtMembreFam.Text,txtNombres.Text,txtAP.Text,txtAM.Text,sexo,price,status));
-
-            limpiar();
+        private void txtMembre_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
