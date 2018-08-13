@@ -421,5 +421,15 @@ namespace Rubikranet.Administrador
                 ventanaActiva = false;
             }
         }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboMunicipio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
