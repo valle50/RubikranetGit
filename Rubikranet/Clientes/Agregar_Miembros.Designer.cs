@@ -39,7 +39,7 @@
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.selectPrecios = new MetroFramework.Controls.MetroComboBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
             this.btnGuardar = new System.Windows.Forms.PictureBox();
@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.materialLabel2);
-            this.panel1.Controls.Add(this.metroComboBox1);
+            this.panel1.Controls.Add(this.selectPrecios);
             this.panel1.Controls.Add(this.metroRadioButton2);
             this.panel1.Controls.Add(this.metroRadioButton1);
             this.panel1.Controls.Add(this.materialSingleLineTextField5);
@@ -200,14 +200,14 @@
             this.metroRadioButton2.Text = "Mujer";
             this.metroRadioButton2.UseVisualStyleBackColor = true;
             // 
-            // metroComboBox1
+            // selectPrecios
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(385, 147);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(174, 29);
-            this.metroComboBox1.TabIndex = 15;
+            this.selectPrecios.FormattingEnabled = true;
+            this.selectPrecios.ItemHeight = 23;
+            this.selectPrecios.Location = new System.Drawing.Point(385, 147);
+            this.selectPrecios.Name = "selectPrecios";
+            this.selectPrecios.Size = new System.Drawing.Size(174, 29);
+            this.selectPrecios.TabIndex = 15;
             // 
             // materialLabel2
             // 
@@ -277,7 +277,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroComboBox selectPrecios;
         private System.Windows.Forms.PictureBox btnCancelar;
         private System.Windows.Forms.PictureBox btnGuardar;
     }
