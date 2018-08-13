@@ -40,8 +40,8 @@
             this.metroSetLabel2 = new MetroSet_UI.Controls.MetroSetLabel();
             this.serialPort = new System.IO.Ports.SerialPort(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_RFID = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txt_NIP = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txt_RFID = new MaterialSkin.Controls.MaterialSingleLineTextField();
             ((System.ComponentModel.ISupportInitialize)(this.btnAcceder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             this.materialLabel1.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel1.Font = new System.Drawing.Font("Segoe WP Semibold", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel1.Location = new System.Drawing.Point(27, 71);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -92,7 +92,7 @@
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel3.Font = new System.Drawing.Font("Segoe WP Semibold", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel3.Location = new System.Drawing.Point(29, 140);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -106,7 +106,7 @@
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP SemiLight", 11F);
+            this.materialLabel4.Font = new System.Drawing.Font("Segoe WP Semibold", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel4.Location = new System.Drawing.Point(32, 180);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
@@ -159,6 +159,21 @@
             this.panel1.Size = new System.Drawing.Size(275, 94);
             this.panel1.TabIndex = 11;
             // 
+            // txt_NIP
+            // 
+            this.txt_NIP.Depth = 0;
+            this.txt_NIP.Hint = "";
+            this.txt_NIP.Location = new System.Drawing.Point(7, 61);
+            this.txt_NIP.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txt_NIP.Name = "txt_NIP";
+            this.txt_NIP.PasswordChar = '\0';
+            this.txt_NIP.SelectedText = "";
+            this.txt_NIP.SelectionLength = 0;
+            this.txt_NIP.SelectionStart = 0;
+            this.txt_NIP.Size = new System.Drawing.Size(254, 25);
+            this.txt_NIP.TabIndex = 1;
+            this.txt_NIP.UseSystemPasswordChar = true;
+            // 
             // txt_RFID
             // 
             this.txt_RFID.Depth = 0;
@@ -174,21 +189,6 @@
             this.txt_RFID.Size = new System.Drawing.Size(254, 25);
             this.txt_RFID.TabIndex = 0;
             this.txt_RFID.UseSystemPasswordChar = false;
-            // 
-            // txt_NIP
-            // 
-            this.txt_NIP.Depth = 0;
-            this.txt_NIP.Hint = "";
-            this.txt_NIP.Location = new System.Drawing.Point(7, 61);
-            this.txt_NIP.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txt_NIP.Name = "txt_NIP";
-            this.txt_NIP.PasswordChar = '*';
-            this.txt_NIP.SelectedText = "";
-            this.txt_NIP.SelectionLength = 0;
-            this.txt_NIP.SelectionStart = 0;
-            this.txt_NIP.Size = new System.Drawing.Size(254, 25);
-            this.txt_NIP.TabIndex = 1;
-            this.txt_NIP.UseSystemPasswordChar = false;
             // 
             // Login
             // 
