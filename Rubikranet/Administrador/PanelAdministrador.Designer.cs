@@ -104,11 +104,14 @@
             // 
             // lblNombreUs
             // 
+            this.lblNombreUs.AutoSize = false;
             this.lblNombreUs.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombreUs.ForeColor = System.Drawing.Color.White;
             this.lblNombreUs.Name = "lblNombreUs";
-            this.lblNombreUs.Size = new System.Drawing.Size(86, 47);
+            this.lblNombreUs.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblNombreUs.Size = new System.Drawing.Size(100, 47);
             this.lblNombreUs.Text = "Nombre admin";
+            this.lblNombreUs.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripLabel
             // 
@@ -117,17 +120,17 @@
             this.toolStripLabel.ForeColor = System.Drawing.Color.Black;
             this.toolStripLabel.Name = "toolStripLabel";
             this.toolStripLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripLabel.Size = new System.Drawing.Size(550, 47);
+            this.toolStripLabel.Size = new System.Drawing.Size(540, 47);
             this.toolStripLabel.Text = "toolStripLabel2";
             // 
             // lblSeccion
             // 
             this.lblSeccion.AutoSize = false;
-            this.lblSeccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeccion.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSeccion.ForeColor = System.Drawing.Color.White;
             this.lblSeccion.Name = "lblSeccion";
             this.lblSeccion.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblSeccion.Size = new System.Drawing.Size(210, 47);
+            this.lblSeccion.Size = new System.Drawing.Size(250, 47);
             this.lblSeccion.Text = "Inicio";
             this.lblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 

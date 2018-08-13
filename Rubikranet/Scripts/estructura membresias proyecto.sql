@@ -32,12 +32,14 @@ estatusEliminado bit
 go
 
 create table inventario_areas(
-id_area int foreign key(id_area) references areas(id_area) ,
+id int identity(1,1) primary key,
+id_area int foreign key(id_area) references areas(id_area),
 nombre_item varchar(100) ,
 cantidad_inicio int ,
 cantidad_actual int ,
 detalles text,
-notas text
+notas text,
+estatus bit
 )
 go
 

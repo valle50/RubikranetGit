@@ -100,6 +100,7 @@ namespace Rubikranet.Administrador
         private void btnPromociones_Click(object sender, EventArgs e)
         {
             ManipulaContenido(Promociones.Instancia, sender, lblSeccion);
+            Promociones.ventanaActiva = true;
         }
 
         private void btnArea_Click(object sender, EventArgs e)
@@ -111,6 +112,7 @@ namespace Rubikranet.Administrador
         private void btnInventario_Click(object sender, EventArgs e)
         {
             ManipulaContenido(Inventarios.Instancia, sender, lblSeccion);
+            Inventarios.ventanaActiva = true;
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace Rubikranet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Bienvenida());
+            Application.Run(new Administracion());
         }
     }
 }
