@@ -20,7 +20,7 @@ namespace Rubikranet.Clientes
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
         public static string nombre = "", id_privilegio = "";
-        public int id_empleado = 4;
+        public int id_empleado = 4, limit_mem = 0;
         string check = "0";
         Agregar_Miembros admem = new Agregar_Miembros();
 
@@ -107,6 +107,7 @@ namespace Rubikranet.Clientes
         {
             Agregar_Miembros addMem = new Agregar_Miembros();
             addMem.cod = txtMemb.Text;
+            addMem.limit_members = limit_mem;
             addMem.ShowDialog();
         }
 
@@ -128,10 +129,21 @@ namespace Rubikranet.Clientes
             Conexion.Consulta(String.Format("EXEC VERIFICAR '{0}' ", txtMemb.Text));
             if (Conexion.result.Read() == true)
             {
-                if (Convert.ToInt32(Conexion.result["id_categoria"]) == 4 || Convert.ToInt32(Conexion.result["id_categoria"]) == 2) {
+                if (Convert.ToInt32(Conexion.result["id_categoria"]) == 4)
+                {
 
                     addMembers.Visible = true;
                     admem.cod = txtMemb.Text;
+                    limit_mem = 5;
+                }
+                else {
+
+                    if (Convert.ToInt32(Conexion.result["id_categoria"]) == 14) {
+
+                        addMembers.Visible = true;
+                        admem.cod = txtMemb.Text;
+                        limit_mem = 1;
+                    }
                 }
             }
             else{

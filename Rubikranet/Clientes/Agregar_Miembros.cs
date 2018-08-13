@@ -22,7 +22,7 @@ namespace Rubikranet.Clientes
 
         public int num_cli = 1;
         public string cod = "" , check = "0";
-        public int status = 1;
+        public int status = 1, limit_members = 0;
 
 
         private void Agregar_Miembros_Load(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace Rubikranet.Clientes
             }
 
             lblNum.Text = "Miembro # " + num_cli;
+            lblmiembros.Text = "Puedes agregar hasta " + limit_members + " miembros:";
         }
         private void CargaCombos(string text0, object o, string value, string text)
         {
@@ -80,7 +81,7 @@ namespace Rubikranet.Clientes
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (num_cli > 5)
+            if (num_cli > limit_members)
             {
                 lblNum.Text = "Miembros al máximo ";
                 MessageBox.Show("Limite de Miembros Completos");

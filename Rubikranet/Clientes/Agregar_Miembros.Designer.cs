@@ -41,7 +41,7 @@
             this.txtNombres = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtMembreFam = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblNum = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblmiembros = new MaterialSkin.Controls.MaterialLabel();
             this.txtMembre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
@@ -62,7 +62,7 @@
             this.panel1.Controls.Add(this.txtNombres);
             this.panel1.Controls.Add(this.txtMembreFam);
             this.panel1.Controls.Add(this.lblNum);
-            this.panel1.Controls.Add(this.materialLabel3);
+            this.panel1.Controls.Add(this.lblmiembros);
             this.panel1.Controls.Add(this.txtMembre);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 63);
@@ -216,19 +216,19 @@
             this.lblNum.TabIndex = 8;
             this.lblNum.Text = "Miembro #";
             // 
-            // materialLabel3
+            // lblmiembros
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.BackColor = System.Drawing.Color.White;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(12, 13);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(241, 19);
-            this.materialLabel3.TabIndex = 7;
-            this.materialLabel3.Text = "Puedes agregar hasta 5 miembros:";
+            this.lblmiembros.AutoSize = true;
+            this.lblmiembros.BackColor = System.Drawing.Color.White;
+            this.lblmiembros.Depth = 0;
+            this.lblmiembros.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblmiembros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblmiembros.Location = new System.Drawing.Point(12, 13);
+            this.lblmiembros.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblmiembros.Name = "lblmiembros";
+            this.lblmiembros.Size = new System.Drawing.Size(241, 19);
+            this.lblmiembros.TabIndex = 7;
+            this.lblmiembros.Text = "Puedes agregar hasta 5 miembros:";
             // 
             // txtMembre
             // 
@@ -271,7 +271,7 @@
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtMembreFam;
         private MaterialSkin.Controls.MaterialLabel lblNum;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialLabel lblmiembros;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtMembre;
         private MetroFramework.Controls.MetroRadioButton radioSexo2;
         private MetroFramework.Controls.MetroRadioButton radioSexo;
