@@ -40,7 +40,7 @@ namespace Rubikranet
             if (txt_RFID.Text != "" && txt_NIP.Text != "")
             {
                 Conexion.Consulta(
-                    string.Format("exec login_emp '{0}', '{1}'", txt_RFID.Text, txt_NIP.Text));
+                    string.Format("exec login_emp '{0}', '{1}'", txt_RFID.Text.Trim(), txt_NIP.Text.Trim()));
 
                 if (Conexion.result.HasRows)
                 {
@@ -61,11 +61,13 @@ namespace Rubikranet
                     serialPort.Close();
 
                     admin.ShowDialog();
-                    this.Close();
+                    this.Close();                   
+
                 }
                 else
                 {
                     Mensajes.Caja("Error","Sin resultados", "RFID y/o PIN incorrecto(s)");
+                    txt_NIP.Text = "";
                 }                
             }
             else
@@ -79,6 +81,7 @@ namespace Rubikranet
             Acceso access = new Acceso();
             serialPort.Close();
             this.Hide();
+            this.Close();
             access.ShowDialog();
         }
 
@@ -99,10 +102,9 @@ namespace Rubikranet
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Acceso access = new Acceso();
             serialPort.Close();
             this.Hide();
-            access.ShowDialog();
+            this.Close();
         }
     }
 }
