@@ -39,6 +39,8 @@ namespace Rubikranet
                     Acceso access = new Acceso();
                     this.Hide();
                     access.ShowDialog();
+                    Administracion admin = new Administracion();
+                    admin.ShowDialog();
                     this.Close();
                 }
             }            
