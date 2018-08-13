@@ -19,7 +19,6 @@ namespace Rubikranet
 {
     public partial class Login : MaterialSkin.Controls.MaterialForm
     {
-        int tiempo = 10;
         public string puerto;
         string codigo = "";
         public Login()
@@ -29,6 +28,8 @@ namespace Rubikranet
 
         private void Login_Load(object sender, EventArgs e)
         {
+            Validar.Enteros(new object[] { txt_NIP });
+            Validar.EvitaCP(new object[] { txt_NIP });
             serialPort.PortName = puerto;
             serialPort.Open();
             timer.Start();
@@ -39,7 +40,7 @@ namespace Rubikranet
             if (txt_RFID.Text != "" && txt_NIP.Text != "")
             {
                 Conexion.Consulta(
-                    string.Format("select * from empleados where rfid = '{0}' and nip = '{1}' and id_privilegio = 1 or rfid = '{0}' and nip = '{1}' and id_privilegio = 2", txt_RFID.Text, txt_NIP.Text.Replace("'", "`")));
+                    string.Format("exec login_emp '{0}', '{1}'", txt_RFID.Text, txt_NIP.Text));
 
                 if (Conexion.result.HasRows)
                 {

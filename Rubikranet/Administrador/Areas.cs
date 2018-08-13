@@ -23,6 +23,7 @@ namespace Rubikranet.Administrador
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
+            TabAreas.SelectedIndex = 0;
             timerCarga.Start();
         }
         
@@ -76,6 +77,7 @@ namespace Rubikranet.Administrador
                     String.Format("exec areas_aa  '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}'", check, txtNombre.Text, txtMensaje.Text, txtNormas.Text, numMaximo.Value, numActual.Value, txtHorario.Text, estatus, accesibilidad));
 
                 btnRefrescar_Click(null, null);
+                ActualizaComboAreas();
                 Limpia();
             }
         }
@@ -158,6 +160,36 @@ namespace Rubikranet.Administrador
             }
         }
 
+        public class AttrCB
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        private void ActualizaComboAreas()
+        {
+            combo_areas.Items.Clear();
+
+            Conexion.Consulta(
+                        string.Format("select id_area, nombre from areas where estatusEliminado <> 1"));
+
+            while (Conexion.result.Read())
+            {
+                AttrCB item = new AttrCB();
+
+                item.Value = Conexion.result["id_area"].ToString();
+                item.Text = Conexion.result["nombre"].ToString();
+
+                combo_areas.Items.Add(item);
+            }
+            combo_areas.SelectedIndex = 0;
+            Conexion.con.Close();
+        }
+
         private void timerCarga_Tick(object sender, EventArgs e)
         {
             tiempo += 1;
@@ -166,7 +198,9 @@ namespace Rubikranet.Administrador
             {
                 case 1:
                     Mensajes.Caja("Information", "Atención", "Cargando datos, espere por favor...");
-                    
+
+                    ActualizaComboAreas();
+
                     comboCantidadReg.SelectedIndex = 0;
                     break;
                 case 2:
@@ -252,6 +286,10 @@ namespace Rubikranet.Administrador
         private void scrollMaximo_ValueChanged(object sender, EventArgs e)
         {
             numMaximo.Value = scrollMaximo.Value;
+            if (scrollActual.Value > scrollMaximo.Value)
+            {
+                scrollActual.Value = scrollMaximo.Value;
+            }            
         }
 
         private void scrollActual_ValueChanged(object sender, EventArgs e)
@@ -285,28 +323,30 @@ namespace Rubikranet.Administrador
 
         private void llenaGrafica()
         {
+            string idArea = (combo_areas.SelectedItem as AttrCB).Value.ToString();
+
             string[] series = new string[] { "Visitas al año", "Visitas al mes", "Visitas a la semana", "Visitas al día", "Cupo máximo", "Cupo actual" };
-            
+
             //chartAreasVisitadas.Series.Clear();
             foreach (var serie in chartAreasVisitadas.Series)
             {
                 serie.Points.Clear();
             }
 
-            if (chartAreasVisitadas.Series.Count == 0)
+            if (chartAreasVisitadas.Series.Count == 0 || chartAreasVisitadas.Series.Count == 1)
             {
-                chartAreasVisitadas.Titles.Add("Área visitada");                
-
                 for (var i = 0; i < series.Length; i++)
                 {
                     chartAreasVisitadas.Series.Add(series[i]);
                     chartAreasVisitadas.Series[series[i]].ChartType = SeriesChartType.Column;
                     chartAreasVisitadas.Series[series[i]].IsValueShownAsLabel = true;
-                    chartAreasVisitadas.Series[series[i]]["PointWidth"] = "1.5"; 
-                }                
+                    chartAreasVisitadas.Series[series[i]]["PointWidth"] = "1.8";
+                    chartAreasVisitadas.Series[series[i]].Font = new System.Drawing.Font("Arial", 11);
+                }
             }
 
-            Conexion.Consulta(string.Format("exec contadorVisitasAreas '{0}'", 4));
+            Conexion.Consulta(string.Format("exec contadorVisitasAreas '{0}'",idArea));
+
             while (Conexion.result.Read())
             {
                 chartAreasVisitadas.Series["Visitas al año"].Points.AddXY(Conexion.result["Nombre"].ToString(), Conexion.result["Año"].ToString());
@@ -316,8 +356,12 @@ namespace Rubikranet.Administrador
 
                 chartAreasVisitadas.Series["Cupo máximo"].Points.AddY(Conexion.result["Cupo máximo"].ToString());
                 chartAreasVisitadas.Series["Cupo actual"].Points.AddY(Conexion.result["Cupo actual"].ToString());
+
+                lblAnio.Text = Conexion.result["FirstDayYear"].ToString().Remove(10,15) + " al día de hoy.";
+                lblMes.Text = Conexion.result["FirstDayMonth"].ToString().Remove(10, 15) + " al día de hoy.";
+                lblSemana.Text = Conexion.result["FirstDayWeek"].ToString().Remove(10, 15) + " al día de hoy.";
             }
-            
+
             Conexion.con.Close();
         }
 
@@ -325,8 +369,9 @@ namespace Rubikranet.Administrador
         {
             if (TabAreas.SelectedTab == TabAreas.TabPages["paginaGrafica"])
             {
-                actualizaGrafica = true;                
-            }else
+                actualizaGrafica = true;
+            }
+            else
             {
                 actualizaGrafica = false;
             }

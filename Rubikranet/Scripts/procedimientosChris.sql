@@ -189,6 +189,7 @@ select e.num,
 	Horario like '%'+@parametro+'%' or
 	[Accesibilidad del área] like '%'+@parametro+'%' or
 	[Estado del área] like '%'+@parametro+'%'
+	order by id_area desc
 	go
 	---------------- ÁREAS ---------------- 
 
@@ -290,6 +291,184 @@ select e.num,
 	from accesibilidad_areas aa where aa.id_categoria = @parametro
 	go
 	---------------- CATEGORIAS MEMBRESIAS ---------------- 
+
+
+
+		---------------- LOGIN ------------------
+	create procedure login_emp
+	@rfid varchar(max),
+	@nip int
+	as
+	select * from empleados where rfid = @rfid and nip = @nip and id_privilegio = 1 and id_estatus <> 1 or rfid = @rfid and nip = @nip and id_privilegio = 2 and id_estatus <> 1
+	go
+	---------------- LOGIN ------------------
+
+
+	---------------- PROMOCIONES ------------------
+
+	create procedure promociones_aa
+	@check int,
+	@nombre varchar(50),
+	@descripcion text,
+	@porcentaje_descuento tinyint,
+	@estatus_visible bit,
+	@fecha_inicio date,
+	@fecha_fin date
+	as
+	begin
+		if @check = 0
+		insert into promociones(nombre, descripcion, porcentaje_descuento, estatus, estatus_visible, fecha_inicio, fecha_fin)
+		values(@nombre, @descripcion, @porcentaje_descuento, 0, @estatus_visible, @fecha_inicio, @fecha_fin)
+		else
+		update promociones
+		set nombre = @nombre,
+		descripcion = @descripcion,
+		porcentaje_descuento = @porcentaje_descuento,
+		estatus_visible = @estatus_visible,
+		fecha_inicio = @fecha_inicio,
+		fecha_fin = @fecha_fin
+		where id_promocion = @check
+	end
+	go
+
+	create view listarPromociones
+	as
+	select 
+	p.id_promocion, 
+	p.nombre 'Nombre de promoción',
+	p.descripcion 'Descripción de la promoción',
+	concat(p.porcentaje_descuento,'%') 'Porcentaje de descuento',
+	case
+	p.estatus_visible
+	when 0 then 'Inactivo'
+	when 1 then 'Activo' 
+	end 'Estatus de la promoción',
+	p.fecha_inicio 'Fecha de inicio',
+	p.fecha_fin 'Fecha de fin'
+	from promociones p where p.estatus <> 1
+	go
+
+
+	create procedure buscaPromociones
+	@parametro varchar(max)
+	as
+	select * from listarPromociones lp where
+	lp.[Nombre de promoción] like '%'+@parametro+'%' or
+	lp.[Descripción de la promoción] like '%'+@parametro+'%' or
+	lp.[Estatus de la promoción] like '%'+@parametro+'%' or
+	lp.[Porcentaje de descuento] like '%'+@parametro+'%' or
+	lp.[Fecha de inicio] like '%'+@parametro+'%' or
+	lp.[Fecha de fin] like '%'+@parametro+'%'
+	order by lp.id_promocion desc
+	go
+	---------------- PROMOCIONES ------------------
+
+
+
+	---------------- INVENTARIOS ------------------
+
+	create procedure inventarios_aa
+	@check int,
+	@id_area int,
+	@nombre_item varchar(100),
+	@cantidad_inicio int,
+	@cantidad_actual int,
+	@detalles text,
+	@notas text
+	as
+	begin
+		if @check = 0
+			insert into inventario_areas(id_area, nombre_item, cantidad_inicio, cantidad_actual, detalles, notas, estatus)
+			values(@id_area, @nombre_item, @cantidad_inicio, @cantidad_actual, @detalles, @notas, 0)
+		else
+			update inventario_areas 
+			set id_area = @id_area,
+			nombre_item = @nombre_item, 
+			cantidad_inicio = @cantidad_inicio, 
+			cantidad_actual = @cantidad_actual, 
+			detalles = @detalles, 
+			notas = @notas
+			where id = @check 
+	end
+	go
+
+	create view listarInventario
+	as
+	select 
+	i.id,
+	(select top(1) nombre from areas where i.id_area = id_area and estatusEliminado <> 1) 'Área a la que pertenece',
+	i.nombre_item 'Nombre del artículo',
+	i.cantidad_inicio 'Cantidad de inicio',
+	i.cantidad_actual 'Cantidad actual',
+	i.detalles 'Detalles del artículo',
+	i.notas 'Notas adicionales'
+	from inventario_areas i where i.estatus <> 1
+	go
+
+
+	create procedure buscaInventario
+	@parametro varchar(max)
+	as
+	select * from listarInventario li where
+	li.[Área a la que pertenece] like '%'+@parametro+'%' or
+	li.[Nombre del artículo] like '%'+@parametro+'%' or
+	li.[Cantidad de inicio] like '%'+@parametro+'%' or
+	li.[Cantidad actual] like '%'+@parametro+'%' or
+	li.[Detalles del artículo] like '%'+@parametro+'%' or
+	li.[Notas adicionales] like '%'+@parametro+'%'
+	order by li.id desc 
+	go
+	---------------- INVENTARIOS ------------------
+
+
+
+	---------------- CONSULTA GRAFICA ---------------- 
+		CREATE PROCEDURE contadorVisitasAreas
+	@id_area int
+	as
+	BEGIN
+		DECLARE @Fecha              DATE
+		DECLARE @FirstDayOfWeek     DATE
+		DECLARE @FirstDayOfMonth    DATE
+		DECLARE @FirstDayOfYear     DATE
+
+		SELECT  @Fecha = CAST(GETDATE() AS DATE)
+		SET DATEFIRST  1
+
+		SET @FirstDayOfWeek  = DATEADD(DAY, (DATEPART(dw, @Fecha)-1)*-1, @Fecha)
+		SET @FirstDayOfMonth = CONVERT(DATE,LEFT(CONVERT(VARCHAR,@Fecha,112),6)+'01')
+		SET @FirstDayOfYear  = CONVERT(DATE,LEFT(CONVERT(VARCHAR,@Fecha,112),4)+'0101')
+
+		DECLARE @nombreArea varchar(max)
+		DECLARE @totalAnio int
+		DECLARE @totalMes int
+		DECLARE @totalSemana int 
+		DECLARE @totalDia int
+		DECLARE @cupoMaximo int
+		DECLARE @cupoActual int
+
+		set @nombreArea = (select nombre from areas where id_area = @id_area)
+		set @totalAnio = (select count(*) from areas_visitadas where fecha between @FirstDayOfYear and getdate() and id_area = @id_area)
+		set @totalMes =  (select count(*) from areas_visitadas where fecha between @FirstDayOfMonth and getdate() and id_area = @id_area)
+		set @totalSemana = (select count(*) from areas_visitadas where fecha between @FirstDayOfWeek and getdate() and id_area = @id_area)
+		set @totalDia = (select count(*) from areas_visitadas where fecha = CAST(GETDATE() AS DATE) and id_area = @id_area)
+		set @cupoMaximo = (select cupo_maximo from areas where id_area = @id_area)
+		set @cupoActual = (select cupo_actual from areas where id_area = @id_area)
+
+		select @nombreArea as 'Nombre',
+		@totalAnio as 'Año',
+		@totalMes as 'Mes',
+		@totalSemana as 'Semana',
+		@totalDia as 'Día',
+		@cupoMaximo as 'Cupo máximo',
+		@cupoActual as 'Cupo actual',
+		@FirstDayOfYear as 'FirstDayYear',
+		CAST(@FirstDayOfMonth AS DATE) as 'FirstDayMonth',
+		CAST(@FirstDayOfWeek AS DATE) as 'FirstDayWeek'
+	END
+	go
+
+	---------------- CONSULTA GRAFICA ---------------- 
 
 
 
