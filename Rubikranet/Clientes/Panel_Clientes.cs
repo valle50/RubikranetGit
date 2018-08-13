@@ -19,16 +19,20 @@ namespace Rubikranet.Clientes
         }
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
+        public static string nombre = "", id_privilegio = "", id_empleado = "";
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
         {
+            
             Conexion.Paginar(string.Format("select * from CLIENTES_MEMBRESIAS order by num desc"),"DataMember1", 20);
             Funcion.CargaTablaDatos_Estilos_Botones(tablaClientes);
             Actualizar();
             tablaClientes.Columns[2].Visible = false;
             tablaClientes.Columns[3].Visible = false;
-
             cargarCat();
+            id_empleado = Administracion.id_empleado;
+            nombre = Administracion.nombre;
+            txtEmpleado.Text = nombre;
         }
         private void Actualizar()
         {
@@ -91,7 +95,13 @@ namespace Rubikranet.Clientes
             Conexion.con.Close();
 
         }
-  
+
+        private void addMembers_Click(object sender, EventArgs e)
+        {
+            Agregar_Miembros addMem = new Agregar_Miembros();
+            addMem.ShowDialog();
+        }
+
         private void CargaCombos(string text0, object o, string value, string text)
         {
             var combo = o as MetroFramework.Controls.MetroComboBox;
@@ -122,5 +132,6 @@ namespace Rubikranet.Clientes
                 return Text;
             }
         }
+
     }
 }

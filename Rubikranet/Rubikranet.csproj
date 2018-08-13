@@ -174,6 +174,12 @@
     <Compile Include="Acceso.Designer.cs">
       <DependentUpon>Acceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clientes\Agregar_Miembros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\Agregar_Miembros.Designer.cs">
+      <DependentUpon>Agregar_Miembros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Panel_Clientes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Acceso.resx">
       <DependentUpon>Acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\Agregar_Miembros.resx">
+      <DependentUpon>Agregar_Miembros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes\Panel_Clientes.resx">
       <DependentUpon>Panel_Clientes.cs</DependentUpon>
