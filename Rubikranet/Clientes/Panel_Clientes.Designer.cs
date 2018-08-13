@@ -63,7 +63,7 @@
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtMemb = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.tablaClientes = new System.Windows.Forms.DataGridView();
             this.btnRefrescar = new System.Windows.Forms.PictureBox();
             this.txtBuscar = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -101,12 +101,12 @@
             // 
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage1);
             this.metroSetTabControl1.Controls.Add(this.metroSetTabPage2);
-            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metroSetTabControl1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             this.metroSetTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
-            this.metroSetTabControl1.SelectedIndex = 0;
+            this.metroSetTabControl1.SelectedIndex = 1;
             this.metroSetTabControl1.Size = new System.Drawing.Size(934, 295);
             this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroSetTabControl1.Speed = 80;
@@ -274,7 +274,6 @@
             this.txtMembresia.TabIndex = 27;
             this.txtMembresia.Tag = "Código de Membresia";
             this.txtMembresia.UseSystemPasswordChar = false;
-            this.txtMembresia.TextChanged += new System.EventHandler(this.txtMembresia_TextChanged);
             // 
             // metroSetTabPage2
             // 
@@ -314,7 +313,7 @@
             this.panel2.Controls.Add(this.materialSingleLineTextField5);
             this.panel2.Controls.Add(this.materialSingleLineTextField4);
             this.panel2.Controls.Add(this.materialSingleLineTextField3);
-            this.panel2.Controls.Add(this.materialSingleLineTextField2);
+            this.panel2.Controls.Add(this.txtMemb);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -364,12 +363,12 @@
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel8.Location = new System.Drawing.Point(624, 83);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(161, 18);
+            this.materialLabel8.Size = new System.Drawing.Size(165, 19);
             this.materialLabel8.TabIndex = 44;
             this.materialLabel8.Text = "Fecha de Modificación:";
             // 
@@ -378,12 +377,12 @@
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.BackColor = System.Drawing.Color.Transparent;
             this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel9.Location = new System.Drawing.Point(624, 17);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(133, 18);
+            this.materialLabel9.Size = new System.Drawing.Size(133, 19);
             this.materialLabel9.TabIndex = 43;
             this.materialLabel9.Text = "Fecha de Registro:";
             // 
@@ -558,21 +557,22 @@
             this.materialSingleLineTextField3.TabIndex = 30;
             this.materialSingleLineTextField3.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField2
+            // txtMemb
             // 
-            this.materialSingleLineTextField2.BackColor = System.Drawing.Color.White;
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "Membresia";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(13, 21);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '*';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(200, 23);
-            this.materialSingleLineTextField2.TabIndex = 29;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txtMemb.BackColor = System.Drawing.Color.White;
+            this.txtMemb.Depth = 0;
+            this.txtMemb.Hint = "Membresia";
+            this.txtMemb.Location = new System.Drawing.Point(13, 21);
+            this.txtMemb.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtMemb.Name = "txtMemb";
+            this.txtMemb.PasswordChar = '*';
+            this.txtMemb.SelectedText = "";
+            this.txtMemb.SelectionLength = 0;
+            this.txtMemb.SelectionStart = 0;
+            this.txtMemb.Size = new System.Drawing.Size(200, 23);
+            this.txtMemb.TabIndex = 29;
+            this.txtMemb.UseSystemPasswordChar = false;
+            this.txtMemb.TextChanged += new System.EventHandler(this.txtMemb_TextChanged);
             // 
             // tablaClientes
             // 
@@ -856,7 +856,7 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtMemb;
         private MaterialSkin.Controls.MaterialFlatButton addMembers;
         private System.Windows.Forms.Timer timer1;
         private System.IO.Ports.SerialPort serialPort1;

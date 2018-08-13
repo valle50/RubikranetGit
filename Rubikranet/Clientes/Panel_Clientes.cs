@@ -19,8 +19,10 @@ namespace Rubikranet.Clientes
         }
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
-        public static string nombre = "", id_privilegio = "", id_empleado = "4";
+        public static string nombre = "", id_privilegio = "";
+        public int id_empleado = 4;
         int check = 0;
+        Agregar_Miembros admem = new Agregar_Miembros();
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
         {
@@ -31,7 +33,7 @@ namespace Rubikranet.Clientes
             tablaClientes.Columns[2].Visible = false;
             tablaClientes.Columns[3].Visible = false;
             cargarCat();
-            id_empleado = Administracion.id_empleado;
+            //id_empleado = Administracion.id_empleado;
             nombre = Administracion.nombre;
             txtEmpleado.Text = nombre;
             dtInicio.Format = DateTimePickerFormat.Custom;
@@ -111,7 +113,7 @@ namespace Rubikranet.Clientes
         {
             string cat = (selectCategoria.SelectedItem as AttrCB).Value.ToString();
 
-            Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
+            Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}','{6}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text,1));
         }
 
         private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,11 +122,18 @@ namespace Rubikranet.Clientes
             Actualizar();
         }
 
-        private void txtMembresia_TextChanged(object sender, EventArgs e)
+        private void txtMemb_TextChanged(object sender, EventArgs e)
         {
-            Conexion.Consulta(String.Format(""));
-        }
+            Conexion.Consulta(String.Format("EXEC VERIFICAR '{0}' ", txtMemb.Text));
+            if (Conexion.result.Read() == true)
+            {
+                if (Convert.ToInt32(Conexion.result["id_categoria"]) == 1 || Convert.ToInt32(Conexion.result["id_categoria"]) == 2) {
 
+                    addMembers.Visible = true;
+                    admem.cod = txtMemb.Text;
+                }
+            }
+        }
         private void CargaCombos(string text0, object o, string value, string text)
         {
             var combo = o as MetroFramework.Controls.MetroComboBox;

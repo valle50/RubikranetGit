@@ -21,6 +21,9 @@ namespace Rubikranet.Clientes
         }
 
         public int num_cli = 1;
+        public string cod = "";
+        public int status = 1;
+
 
         private void Agregar_Miembros_Load(object sender, EventArgs e)
         {
@@ -29,6 +32,7 @@ namespace Rubikranet.Clientes
             Conexion.con.Close();
 
             lblNum.Text = "Miembro # " + num_cli;
+            txtMembre.Text = cod;
         }
         private void CargaCombos(string text0, object o, string value, string text)
         {
@@ -67,7 +71,19 @@ namespace Rubikranet.Clientes
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            char sexo = ' ';
+            if (radioSexo.Checked)
+            {
+                sexo = Convert.ToChar(radioSexo.Tag);
+            }
+            else if (radioSexo2.Checked)
+            {
+                sexo = Convert.ToChar(radioSexo2.Tag);
+            }
 
+            string price = (selectPrecios.SelectedItem as AttrCB).Value.ToString();
+
+            Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}' ", txtMembre.Text,txtMembreFam.Text,txtNombres.Text,txtAP.Text,txtAM.Text,sexo,price,status));
         }
     }
 }
