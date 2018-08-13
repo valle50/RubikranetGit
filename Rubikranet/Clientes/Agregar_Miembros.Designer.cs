@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar_Miembros));
             this.panel1 = new System.Windows.Forms.Panel();
             this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblNum = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -61,7 +61,7 @@
             this.panel1.Controls.Add(this.materialSingleLineTextField4);
             this.panel1.Controls.Add(this.materialSingleLineTextField3);
             this.panel1.Controls.Add(this.materialSingleLineTextField2);
-            this.panel1.Controls.Add(this.materialLabel1);
+            this.panel1.Controls.Add(this.lblNum);
             this.panel1.Controls.Add(this.materialLabel3);
             this.panel1.Controls.Add(this.materialSingleLineTextField1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -86,19 +86,19 @@
             this.materialSingleLineTextField2.TabIndex = 9;
             this.materialSingleLineTextField2.UseSystemPasswordChar = false;
             // 
-            // materialLabel1
+            // lblNum
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.BackColor = System.Drawing.Color.White;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(463, 13);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(82, 19);
-            this.materialLabel1.TabIndex = 8;
-            this.materialLabel1.Text = "Miembro #";
+            this.lblNum.AutoSize = true;
+            this.lblNum.BackColor = System.Drawing.Color.White;
+            this.lblNum.Depth = 0;
+            this.lblNum.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblNum.Location = new System.Drawing.Point(463, 13);
+            this.lblNum.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(82, 19);
+            this.lblNum.TabIndex = 8;
+            this.lblNum.Text = "Miembro #";
             // 
             // materialLabel3
             // 
@@ -244,6 +244,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(40, 40);
             this.btnGuardar.TabIndex = 41;
             this.btnGuardar.TabStop = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // Agregar_Miembros
             // 
@@ -268,7 +269,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lblNum;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;

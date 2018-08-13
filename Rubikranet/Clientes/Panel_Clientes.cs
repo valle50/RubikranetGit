@@ -19,7 +19,7 @@ namespace Rubikranet.Clientes
         }
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
-        public static string nombre = "", id_privilegio = "", id_empleado = "";
+        public static string nombre = "", id_privilegio = "", id_empleado = "4";
         int check = 0;
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
@@ -111,13 +111,18 @@ namespace Rubikranet.Clientes
         {
             string cat = (selectCategoria.SelectedItem as AttrCB).Value.ToString();
 
-            Conexion.Ejecutar(String.Format("EXEC MEMRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}','{6}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
+            Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
         }
 
         private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
         {
             Conexion.actualizaTope(Convert.ToInt16(comboCantidadReg.Text));
             Actualizar();
+        }
+
+        private void txtMembresia_TextChanged(object sender, EventArgs e)
+        {
+            Conexion.Consulta(String.Format(""));
         }
 
         private void CargaCombos(string text0, object o, string value, string text)

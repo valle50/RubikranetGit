@@ -20,11 +20,15 @@ namespace Rubikranet.Clientes
             InitializeComponent();
         }
 
+        public int num_cli = 1;
+
         private void Agregar_Miembros_Load(object sender, EventArgs e)
         {
             Conexion.Consulta(String.Format("select * from precio_por_miembro"));
             CargaCombos("Precios...", selectPrecios, "id_precio_miembro", "precio_extra");
             Conexion.con.Close();
+
+            lblNum.Text = "Miembro # " + num_cli;
         }
         private void CargaCombos(string text0, object o, string value, string text)
         {
@@ -59,6 +63,11 @@ namespace Rubikranet.Clientes
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
