@@ -21,7 +21,7 @@ namespace Rubikranet.Clientes
         }
 
         public int num_cli = 1;
-        public string cod = "";
+        public string cod = "" , check = "0";
         public int status = 1;
 
 
@@ -83,7 +83,22 @@ namespace Rubikranet.Clientes
 
             string price = (selectPrecios.SelectedItem as AttrCB).Value.ToString();
 
-            Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}' ", txtMembre.Text,txtMembreFam.Text,txtNombres.Text,txtAP.Text,txtAM.Text,sexo,price,status));
+            Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}' ", check,txtMembre.Text,txtMembreFam.Text,txtNombres.Text,txtAP.Text,txtAM.Text,sexo,price,status));
+
+            limpiar();
+
+        }
+
+        void limpiar() {
+
+            txtMembreFam.Text = "";
+            txtNombres.Text = "";
+            txtAP.Text = "";
+            txtAM.Text = "";
+            selectPrecios.SelectedIndex = 0;
+            check = "0";
+            radioSexo.Checked = false;
+            radioSexo2.Checked = false;
         }
     }
 }

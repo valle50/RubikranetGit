@@ -21,7 +21,7 @@ namespace Rubikranet.Clientes
         public static Panel_Clientes Instancia = new Panel_Clientes();
         public static string nombre = "", id_privilegio = "";
         public int id_empleado = 4;
-        int check = 0;
+        string check = "0";
         Agregar_Miembros admem = new Agregar_Miembros();
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
