@@ -19,21 +19,30 @@ namespace Rubikranet.Clientes
         }
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
-        public static string nombre = "", id_privilegio = "", id_empleado = "4";
+        public static string nombre = "", id_privilegio = "", id_empleado = "";
+
+        
         public int limit_mem = 0;
         string check = "0", RFID = "";
-        Agregar_Miembros admem = new Agregar_Miembros();
+
+        string codigo = "", codigo2 = "";
+        Administracion admem = new Administracion();
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
         {
-            
+            string port = admem.puerto;
+            serialPort1.PortName = port;
+            serialPort1.Open();
+            timer1.Start();
+            timer2.Start();
+
             Conexion.Paginar(string.Format("select * from CLIENTES_MEMBRESIAS order by num desc"),"DataMember1", 20);
             Funcion.CargaTablaDatos_Estilos_Botones(tablaClientes);
             Actualizar();
             tablaClientes.Columns[2].Visible = false;
             tablaClientes.Columns[3].Visible = false;
             cargarCat();
-            //id_empleado = Administracion.id_empleado;
+            id_empleado = Administracion.id_empleado;
             nombre = Administracion.nombre;
             txtEmpleado.Text = nombre;
             dtInicio.Format = DateTimePickerFormat.Custom;
@@ -275,6 +284,32 @@ namespace Rubikranet.Clientes
             tablaClientes.DataMember = "DataMember1";
 
             Actualizar();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (codigo != "")
+            {
+                txtMembresia.Text = codigo;
+                //this.ActiveControl = txt_NIP;
+                codigo = "";
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            codigo = serialPort1.ReadLine().Trim();
+            codigo2 = serialPort1.ReadLine().Trim();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (codigo != "")
+            {
+                txtMemb.Text = codigo;
+                //this.ActiveControl = txt_NIP;
+                codigo = "";
+            }
         }
 
         private void tablaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -19,6 +19,8 @@ namespace Rubikranet
 {
     public partial class Administracion : Form
     {
+        public string puerto = "";
+        
         public static string nombre = "", id_privilegio = "", id_empleado = "";
 
         public Administracion()

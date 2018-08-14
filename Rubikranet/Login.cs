@@ -52,8 +52,9 @@ namespace Rubikranet
                         nombre = Conexion.result["nombre"].ToString();
                         id_privilegio = Conexion.result["id_privilegio"].ToString();
                     }
-                    
+
                     Administracion admin = new Administracion();
+                    admin.puerto = puerto;
                     this.Hide();
                     Administracion.nombre = nombre;
                     Administracion.id_privilegio = id_privilegio;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agregar_Miembros));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.PictureBox();
@@ -45,6 +46,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioprice2 = new MetroFramework.Controls.MetroRadioButton();
             this.radioprice = new MetroFramework.Controls.MetroRadioButton();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
@@ -259,7 +262,7 @@
             this.radioprice2.Size = new System.Drawing.Size(58, 15);
             this.radioprice2.TabIndex = 16;
             this.radioprice2.TabStop = true;
-            this.radioprice2.Tag = "1";
+            this.radioprice2.Tag = "2";
             this.radioprice2.Text = "Menor";
             this.radioprice2.UseVisualStyleBackColor = true;
             // 
@@ -271,9 +274,18 @@
             this.radioprice.Size = new System.Drawing.Size(59, 15);
             this.radioprice.TabIndex = 15;
             this.radioprice.TabStop = true;
-            this.radioprice.Tag = "0";
+            this.radioprice.Tag = "1";
             this.radioprice.Text = "Adulto";
             this.radioprice.UseVisualStyleBackColor = true;
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Agregar_Miembros
             // 
@@ -316,5 +328,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroRadioButton radioprice2;
         private MetroFramework.Controls.MetroRadioButton radioprice;
+        private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

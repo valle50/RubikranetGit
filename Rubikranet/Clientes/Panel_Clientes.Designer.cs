@@ -45,6 +45,13 @@
             this.txtMembresia = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.metroSetTabPage2 = new MetroSet_UI.Child.MetroSetTabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
+            this.dtNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioSexo2 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioSexo = new MaterialSkin.Controls.MaterialRadioButton();
             this.addMembers = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnCancel = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.PictureBox();
@@ -74,13 +81,7 @@
             this.btnPrimerPagina = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.radioSexo2 = new MaterialSkin.Controls.MaterialRadioButton();
-            this.radioSexo = new MaterialSkin.Controls.MaterialRadioButton();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.metroSetTabControl1.SuspendLayout();
             this.metroSetTabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnGuardar)).BeginInit();
             this.metroSetTabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).BeginInit();
@@ -96,7 +98,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroSetTabControl1
@@ -108,7 +109,7 @@
             this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
             this.metroSetTabControl1.Location = new System.Drawing.Point(0, 0);
             this.metroSetTabControl1.Name = "metroSetTabControl1";
-            this.metroSetTabControl1.SelectedIndex = 1;
+            this.metroSetTabControl1.SelectedIndex = 0;
             this.metroSetTabControl1.Size = new System.Drawing.Size(934, 295);
             this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.metroSetTabControl1.Speed = 80;
@@ -321,6 +322,99 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(926, 249);
             this.panel2.TabIndex = 0;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(638, 81);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(71, 18);
+            this.materialLabel9.TabIndex = 52;
+            this.materialLabel9.Text = "Municipio";
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(638, 17);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(55, 18);
+            this.materialLabel8.TabIndex = 51;
+            this.materialLabel8.Text = "Estado";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(277, 18);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(148, 18);
+            this.materialLabel7.TabIndex = 50;
+            this.materialLabel7.Text = "Fecha de Nacimiento";
+            // 
+            // dtNacimiento
+            // 
+            this.dtNacimiento.Location = new System.Drawing.Point(277, 37);
+            this.dtNacimiento.Name = "dtNacimiento";
+            this.dtNacimiento.Size = new System.Drawing.Size(256, 23);
+            this.dtNacimiento.TabIndex = 49;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioSexo2);
+            this.groupBox1.Controls.Add(this.radioSexo);
+            this.groupBox1.Location = new System.Drawing.Point(6, 172);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(207, 57);
+            this.groupBox1.TabIndex = 48;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Género";
+            // 
+            // radioSexo2
+            // 
+            this.radioSexo2.AutoSize = true;
+            this.radioSexo2.Depth = 0;
+            this.radioSexo2.Font = new System.Drawing.Font("Segoe WP Light", 10F);
+            this.radioSexo2.Location = new System.Drawing.Point(114, 19);
+            this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
+            this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioSexo2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioSexo2.Name = "radioSexo2";
+            this.radioSexo2.Ripple = true;
+            this.radioSexo2.Size = new System.Drawing.Size(90, 30);
+            this.radioSexo2.TabIndex = 7;
+            this.radioSexo2.TabStop = true;
+            this.radioSexo2.Tag = "f";
+            this.radioSexo2.Text = "Femenino";
+            this.radioSexo2.UseVisualStyleBackColor = true;
+            // 
+            // radioSexo
+            // 
+            this.radioSexo.AutoSize = true;
+            this.radioSexo.Depth = 0;
+            this.radioSexo.Font = new System.Drawing.Font("Segoe WP Light", 10F);
+            this.radioSexo.Location = new System.Drawing.Point(7, 19);
+            this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
+            this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioSexo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioSexo.Name = "radioSexo";
+            this.radioSexo.Ripple = true;
+            this.radioSexo.Size = new System.Drawing.Size(93, 30);
+            this.radioSexo.TabIndex = 6;
+            this.radioSexo.TabStop = true;
+            this.radioSexo.Tag = "m";
+            this.radioSexo.Text = "Masculino";
+            this.radioSexo.UseVisualStyleBackColor = true;
             // 
             // addMembers
             // 
@@ -706,98 +800,19 @@
             this.btnPrimerPagina.TabStop = false;
             this.btnPrimerPagina.Click += new System.EventHandler(this.btnPrimerPagina_Click);
             // 
-            // groupBox1
+            // timer1
             // 
-            this.groupBox1.Controls.Add(this.radioSexo2);
-            this.groupBox1.Controls.Add(this.radioSexo);
-            this.groupBox1.Location = new System.Drawing.Point(6, 172);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(207, 57);
-            this.groupBox1.TabIndex = 48;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Género";
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dtNacimiento
+            // serialPort1
             // 
-            this.dtNacimiento.Location = new System.Drawing.Point(277, 37);
-            this.dtNacimiento.Name = "dtNacimiento";
-            this.dtNacimiento.Size = new System.Drawing.Size(256, 23);
-            this.dtNacimiento.TabIndex = 49;
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // materialLabel7
+            // timer2
             // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Segoe WP Light", 11F);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(277, 18);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(146, 17);
-            this.materialLabel7.TabIndex = 50;
-            this.materialLabel7.Text = "Fecha de Nacimiento";
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Segoe WP Light", 11F);
-            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(638, 17);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(54, 17);
-            this.materialLabel8.TabIndex = 51;
-            this.materialLabel8.Text = "Estado";
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Segoe WP Light", 11F);
-            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(638, 81);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(68, 17);
-            this.materialLabel9.TabIndex = 52;
-            this.materialLabel9.Text = "Municipio";
-            // 
-            // radioSexo2
-            // 
-            this.radioSexo2.AutoSize = true;
-            this.radioSexo2.Depth = 0;
-            this.radioSexo2.Font = new System.Drawing.Font("Segoe WP Light", 10F);
-            this.radioSexo2.Location = new System.Drawing.Point(114, 19);
-            this.radioSexo2.Margin = new System.Windows.Forms.Padding(0);
-            this.radioSexo2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioSexo2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioSexo2.Name = "radioSexo2";
-            this.radioSexo2.Ripple = true;
-            this.radioSexo2.Size = new System.Drawing.Size(90, 30);
-            this.radioSexo2.TabIndex = 7;
-            this.radioSexo2.TabStop = true;
-            this.radioSexo2.Tag = "f";
-            this.radioSexo2.Text = "Femenino";
-            this.radioSexo2.UseVisualStyleBackColor = true;
-            // 
-            // radioSexo
-            // 
-            this.radioSexo.AutoSize = true;
-            this.radioSexo.Depth = 0;
-            this.radioSexo.Font = new System.Drawing.Font("Segoe WP Light", 10F);
-            this.radioSexo.Location = new System.Drawing.Point(7, 19);
-            this.radioSexo.Margin = new System.Windows.Forms.Padding(0);
-            this.radioSexo.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.radioSexo.MouseState = MaterialSkin.MouseState.HOVER;
-            this.radioSexo.Name = "radioSexo";
-            this.radioSexo.Ripple = true;
-            this.radioSexo.Size = new System.Drawing.Size(93, 30);
-            this.radioSexo.TabIndex = 6;
-            this.radioSexo.TabStop = true;
-            this.radioSexo.Tag = "m";
-            this.radioSexo.Text = "Masculino";
-            this.radioSexo.UseVisualStyleBackColor = true;
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Panel_Clientes
             // 
@@ -832,6 +847,8 @@
             this.metroSetTabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaClientes)).EndInit();
@@ -840,8 +857,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAnterior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPrimerPagina)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -900,5 +915,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialRadioButton radioSexo2;
         private MaterialSkin.Controls.MaterialRadioButton radioSexo;
+        private System.Windows.Forms.Timer timer2;
     }
 }

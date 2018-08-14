@@ -23,11 +23,16 @@ namespace Rubikranet.Clientes
         public int num_cli = 1;
         public string cod = "" , check = "0";
         public int status = 1, limit_members = 0;
-
+        string codigo = "";
+        Administracion adm = new Administracion();
 
         private void Agregar_Miembros_Load(object sender, EventArgs e)
         {
-      
+            string port = adm.puerto;
+            serialPort1.PortName = port;
+            serialPort1.Open();
+            timer1.Start();
+
             txtMembre.Text = cod;
 
             Conexion.Consulta(String.Format("EXEC CONTAR '{0}'", cod));
@@ -113,6 +118,21 @@ namespace Rubikranet.Clientes
                 limpiar();
             }
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (codigo != "")
+            {
+                txtMembre.Text = codigo;
+                //this.ActiveControl = txt_NIP;
+                codigo = "";
+            }
+        }
+
+        private void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            codigo = serialPort1.ReadLine().Trim();
         }
 
         private void txtMembre_TextChanged(object sender, EventArgs e)
