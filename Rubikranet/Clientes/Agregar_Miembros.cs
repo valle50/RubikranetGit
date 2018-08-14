@@ -83,6 +83,7 @@ namespace Rubikranet.Clientes
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
             if (num_cli > limit_members)
             {
                 lblNum.Text = "Miembros al máximo ";
