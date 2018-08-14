@@ -1,4 +1,4 @@
-alter VIEW CLIENTES_MEMBRESIAS
+CREATE VIEW CLIENTES_MEMBRESIAS
 AS
 SELECT mem.num, mem.id_membresia as 'Membresia',cli.nombre as 'Nombre',CONCAT(cli.apellido_p,' ',cli.apellido_m)as 'Apellidos',
 cli.telefono as 'Teléfono',cli.fecha_registro as 'Fecha de Registro' ,cat.categoria as 'Categoria',emp.nombre as 'Empleado',
@@ -16,3 +16,7 @@ end as 'Estatus de membresía'
 ,membresias.vigencia_inicio,membresias.vigencia_fin
 FROM membresias,clientes,categorias_membresias,empleados WHERE membresias.estatus = '1' AND membresias.id_membresia = clientes.id_membresia AND categorias_membresias.id_categoria = membresias.id_categoria
 AND clientes.estatus = '1' AND empleados.id_empleado = membresias.id_empleado*/
+
+SELECT * from clientes where nombre = 'Maria de Jesus'
+
+SELECT * from membresias where id_membresia = 'fjgr220827'

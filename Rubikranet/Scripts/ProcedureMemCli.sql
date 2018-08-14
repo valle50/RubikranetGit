@@ -97,4 +97,28 @@ ELSE
 
 
 
-SELECT * FROM clientes WHERE id_membresia = 'a1b2c3d4'
+SELECT COUNT(*) FROM clientes WHERE id_membresia = 'a1b2c3d4'
+
+
+
+CREATE PROCEDURE SEE_MEMBER
+@_RFID VARCHAR (50)
+AS
+SELECT membresias.id_membresia as 'Membresia',membresias.id_categoria as 'Categoria',empleados.nombre as 'Empleado',membresias.vigencia_inicio as 'Inicio',membresias.vigencia_fin as 'Fin'
+FROM membresias,empleados WHERE membresias.id_membresia = @_RFID AND membresias.id_empleado = empleados.id_empleado
+GO
+
+create procedure buscaCM
+  @parametro varchar(max)
+  as
+  select * from CLIENTES_MEMBRESIAS cm
+	where 
+	cm.Membresia like '%'+@parametro+'%' or
+	cm.Nombre like '%'+@parametro+'%' or
+	cm.Apellidos like '%'+@parametro+'%' or
+	cm.Teléfono like '%'+@parametro+'%' or
+	cm.Empleado like '%'+@parametro+'%' or
+	cm.Categoria like '%'+@parametro+'%'
+	order by cm.num desc
+	go
+
