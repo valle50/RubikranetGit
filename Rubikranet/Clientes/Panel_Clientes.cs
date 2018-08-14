@@ -135,6 +135,11 @@ namespace Rubikranet.Clientes
 
         private void txtMemb_TextChanged(object sender, EventArgs e)
         {
+            if (txtMemb.Text == "") {
+
+                addMembers.Visible = false;
+            }
+
             Conexion.Consulta(String.Format("EXEC VERIFICAR '{0}' ", txtMemb.Text));
             if (Conexion.result.Read() == true)
             {
@@ -182,7 +187,14 @@ namespace Rubikranet.Clientes
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Cancelar acción.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                limpiar();
+                clean();
+                btnGuardar.BackgroundImage = null;
+                btnGuardar.BackgroundImage = Properties.Resources.diskette;
+                tablaClientes.Columns[1].Visible = true;//muestra botón eliminar
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -201,11 +213,20 @@ namespace Rubikranet.Clientes
             string municipio = (selectMunicipio.SelectedItem as AttrCB).Value.ToString();
             Conexion.Ejecutar(String.Format("EXEC MEM_CLI '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'", check, txtMemb.Text, txtNombres.Text, txtApeP.Text, txtApeM.Text, sexo, dtNacimiento.Text, txtDir.Text, txtCP.Text, estado, municipio, txtTel.Text, txtMail.Text));
             clean();
+
+            check = "0";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("¿Desea cancelar la operación?", "Cancelar acción.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                limpiar();
+                clean();
+                btnGuardar.BackgroundImage = null;
+                btnGuardar.BackgroundImage = Properties.Resources.diskette;
+                tablaClientes.Columns[1].Visible = true;//muestra botón eliminar
+            }
         }
 
         public class AttrCB
@@ -241,9 +262,20 @@ namespace Rubikranet.Clientes
             }
         }
 
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            string busca = txtBuscar.Text.Replace(" ", "%");
 
+            Conexion.Paginar(
+                String.Format("exec CLIENTES_MEMBRESIAS '{0}'", busca),
+                "DataMember1",
+                Convert.ToInt32(comboCantidadReg.Text));
 
+            tablaClientes.DataSource = Conexion.cargar();
+            tablaClientes.DataMember = "DataMember1";
 
+            Actualizar();
+        }
 
         private void tablaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -287,11 +319,11 @@ namespace Rubikranet.Clientes
 
 
                     Conexion.Ejecutar(
-                        String.Format("update clientes set fecha_retiro = '{0}' , estatus = 1  where id_membresia = '{1}'", DateTime.Now.ToShortDateString(), RFID));
+                        String.Format("update clientes set estatus = 1  where id_membresia = '{0}'", RFID));
 
-                    Conexion.Ejecutar(
+                    /*Conexion.Ejecutar(
                         String.Format("update membresias set estatus = 1 where id_membresia = '{0}'", RFID));
-
+                        */
 
                     Mensajes.Caja("Information", "Información", "Registro eliminado correctamente.");
                     check = "0";
@@ -340,5 +372,6 @@ namespace Rubikranet.Clientes
             txtMail.Text = "";
         }
 
+       
     }
 }

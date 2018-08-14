@@ -27,10 +27,7 @@ namespace Rubikranet.Clientes
 
         private void Agregar_Miembros_Load(object sender, EventArgs e)
         {
-            Conexion.Consulta(String.Format("select * from precio_por_miembro"));
-            CargaCombos("Precios...", selectPrecios, "id_precio_miembro", "precio_extra");
-            Conexion.con.Close();
- 
+      
             txtMembre.Text = cod;
 
             Conexion.Consulta(String.Format("EXEC CONTAR '{0}'", cod));
@@ -98,7 +95,16 @@ namespace Rubikranet.Clientes
                     sexo = Convert.ToChar(radioSexo2.Tag);
                 }
 
-                string price = (selectPrecios.SelectedItem as AttrCB).Value.ToString();
+                string price = "";
+                if (radioprice.Checked)
+                {
+                    price = radioprice.Tag.ToString();
+                }
+                else if (radioprice2.Checked)
+                {
+                    price = radioprice2.Tag.ToString(); ;
+                }
+
 
                 Conexion.Ejecutar(String.Format("EXEC addMEMBERS '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}' ", check, txtMembre.Text, txtMembreFam.Text, txtNombres.Text, txtAP.Text, txtAM.Text, sexo, price, status));
 
@@ -120,10 +126,11 @@ namespace Rubikranet.Clientes
             txtNombres.Text = "";
             txtAP.Text = "";
             txtAM.Text = "";
-            selectPrecios.SelectedIndex = 0;
             check = "0";
             radioSexo.Checked = false;
             radioSexo2.Checked = false;
+            radioprice.Checked = false;
+            radioprice2.Checked = false;
         }
     }
 }
