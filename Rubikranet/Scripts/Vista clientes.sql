@@ -1,10 +1,10 @@
-CREATE VIEW CLIENTES_MEMBRESIAS
+alter VIEW CLIENTES_MEMBRESIAS
 AS
 SELECT mem.num, mem.id_membresia as 'Membresia',cli.nombre as 'Nombre',CONCAT(cli.apellido_p,' ',cli.apellido_m)as 'Apellidos',
 cli.telefono as 'Teléfono',cli.fecha_registro as 'Fecha de Registro' ,cat.categoria as 'Categoria',emp.nombre as 'Empleado',
 mem.vigencia_inicio as 'Inicio de Membresia',mem.vigencia_fin as 'Vigencia'
 FROM membresias mem,clientes cli,categorias_membresias cat,empleados emp WHERE mem.id_membresia = cli.id_membresia AND cat.id_categoria = mem.id_categoria
-AND cli.estatus = '1' AND emp.id_empleado = mem.id_empleado
+AND cli.estatus = '0' AND emp.id_empleado = mem.id_empleado
 go
 
 /*SELECT membresias.id_membresia,clientes.nombre,CONCAT(clientes.apellido_p,' ',clientes.apellido_m)as apellidos,clientes.telefono,clientes.fecha_registro,categorias_membresias.categoria,empleados.nombre as empleado,

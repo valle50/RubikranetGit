@@ -21,7 +21,7 @@ namespace Rubikranet.Clientes
         public static Panel_Clientes Instancia = new Panel_Clientes();
         public static string nombre = "", id_privilegio = "", id_empleado = "4";
         public int limit_mem = 0;
-        string check = "0";
+        string check = "0", RFID = "";
         Agregar_Miembros admem = new Agregar_Miembros();
 
         private void Panel_Clientes_Load(object sender, EventArgs e)
@@ -42,6 +42,11 @@ namespace Rubikranet.Clientes
             dtFin.CustomFormat = "yyyy-MM-dd";
             dtNacimiento.Format = DateTimePickerFormat.Custom;
             dtNacimiento.CustomFormat = "yyyy-MM-dd";
+
+            Conexion.Consulta(String.Format("select * from estados"));
+            CargaCombos("Estado...", selectEstado, "id_estado", "nombre_estado");
+            Conexion.con.Close();
+
         }
         private void Actualizar()
         {
@@ -119,6 +124,7 @@ namespace Rubikranet.Clientes
             Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}'",check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
             txtMemb.Text = txtMembresia.Text;
             limpiar();
+            check = "0";
         }
 
         private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,12 +180,30 @@ namespace Rubikranet.Clientes
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            char sexo = ' ';
+            if (radioSexo.Checked)
+            {
+                sexo = Convert.ToChar(radioSexo.Tag);
+            }
+            else if (radioSexo2.Checked)
+            {
+                sexo = Convert.ToChar(radioSexo2.Tag);
+            }
+
+            string estado = (selectEstado.SelectedItem as AttrCB).Value.ToString();
+            string municipio = (selectMunicipio.SelectedItem as AttrCB).Value.ToString();
+            Conexion.Ejecutar(String.Format("EXEC MEM_CLI '{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}'", check, txtMemb.Text, txtNombres.Text, txtApeP.Text, txtApeM.Text, sexo, dtNacimiento.Text, txtDir.Text, txtCP.Text, estado, municipio, txtTel.Text, txtMail.Text));
+            clean();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }
@@ -193,6 +217,91 @@ namespace Rubikranet.Clientes
                 return Text;
             }
         }
+
+        private void selectEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (selectEstado.SelectedIndex != 0)
+            {
+                selectMunicipio.Items.Clear();
+                Conexion.Consulta(
+                    String.Format("select * from municipios where id_estado = {0}", (selectEstado.SelectedItem as AttrCB).Value.ToString()));
+
+                CargaCombos("Municipio...", selectMunicipio, "id_municipio", "nombre_municipio");
+                selectMunicipio.SelectedIndex = 0;
+            }
+            else
+            {
+                selectMunicipio.Items.Clear();
+                AttrCB item0 = new AttrCB();
+                item0.Value = "0";
+                item0.Text = "Municipio...";
+
+                selectMunicipio.Items.Add(item0);
+                selectMunicipio.SelectedIndex = 0;
+            }
+        }
+
+
+
+
+
+        private void tablaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var dgv = sender as DataGridView;
+            
+            if (dgv.Columns[e.ColumnIndex] is DataGridViewImageColumn)
+            {
+                var boton = dgv.Columns[e.ColumnIndex] as DataGridViewImageColumn;
+
+                if (boton.Name == "btnEditar" && MessageBox.Show("¿Editar registro?", "Edición de datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //Aquí el check toma el id del empleado de la columna que se ocultó y que se encuentra en la posición 3... (Se ocultaron en la carga) 
+                    //El 0 es el botón editar, 1 = btnEliminar, 2 = columna "num" y 3 = columna "id_empleado", los últimos dos se ocultaron, pero siguen ahí
+
+                    tablaClientes.Columns[1].Visible = false;//oculta botón eliminar
+                    RFID = dgv.CurrentRow.Cells[3].Value.ToString();
+
+                    Conexion.Consulta(
+                        string.Format("EXEC SEE_MEMBER '{0}'", RFID));
+
+                    while (Conexion.result.Read())
+                    {
+                        txtMembresia.Text = Conexion.result["Membresia"].ToString();
+                        selectCategoria.SelectedIndex = selectCategoria.FindStringExact(Conexion.result["Categoria"].ToString());
+                        txtEmpleado.Text = Conexion.result["Empleado"].ToString();
+                        dtInicio.Text = Conexion.result["Inicio"].ToString();
+                        dtFin.Text = Conexion.result["Fin"].ToString();
+
+                    }
+
+                    check = "1";
+                    btnGuardar.BackgroundImage = null;
+                    btnGuardar.BackgroundImage = Properties.Resources.edit1;
+                    Conexion.con.Close();
+
+                }
+                else if (boton.Name == "btnEliminar" && MessageBox.Show("¿Eliminar registro?", "Eliminar datos.", MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
+                {
+                    RFID = dgv.CurrentRow.Cells[3].Value.ToString();
+                    dgv.Rows.Remove(dgv.CurrentRow);
+
+
+                    Conexion.Ejecutar(
+                        String.Format("update clientes set fecha_retiro = '{0}' , estatus = 1  where id_membresia = '{1}'", DateTime.Now.ToShortDateString(), RFID));
+
+                    Conexion.Ejecutar(
+                        String.Format("update membresias set estatus = 1 where id_membresia = '{0}'", RFID));
+
+
+                    Mensajes.Caja("Information", "Información", "Registro eliminado correctamente.");
+                    check = "0";
+                }
+            }
+        }
+
+
+
+
 
         void limpiar() {
 
@@ -211,6 +320,24 @@ namespace Rubikranet.Clientes
             txtMembresia.Text = "";
             txtEmpleado.Text = "";
 
+        }
+
+        void clean(){
+
+            check = "0";
+            txtMemb.Text = "";
+            txtNombres.Text = "";
+            txtApeP.Text = "";
+            txtApeM.Text = "";
+            radioSexo.Checked = false;
+            radioSexo2.Checked = false;
+            dtNacimiento.Value = DateTime.Now;
+            txtDir.Text = "";
+            txtCP.Text = "";
+            selectEstado.SelectedIndex = 0;
+            selectMunicipio.SelectedIndex = 0;
+            txtTel.Text = "";
+            txtMail.Text = "";
         }
 
     }

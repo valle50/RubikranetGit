@@ -68,3 +68,33 @@ GO
 
 SELECT COUNT(*) as 'Registros' FROM membresia_familiar_miembros
 WHERE id_membresia = '108'
+
+ALTER TABLE clientes ALTER COLUMN telefono varchar(15) NULL
+
+CREATE PROCEDURE MEM_CLI
+@_CHECK INT,
+@_RFID VARCHAR(30),
+@_NOMBRES VARCHAR(50),
+@_APE_P VARCHAR(50),
+@_APE_M VARCHAR(50),
+@_SEXO CHAR(1),
+@_FECHA_NAC DATE,
+@_DIR TEXT,
+@_CODIGO_POS INT,
+@_ID_ESTADO INT,
+@_ID_MUNICIPIO INT,
+@_TELEFONO VARCHAR(15),
+@_MAIL VARCHAR(80)
+AS
+IF @_CHECK = '0'
+	INSERT INTO clientes (id_membresia,nombre,apellido_p,apellido_m,sexo,fecha_nacimiento,direccion,codigo_postal,id_estado,id_municipio,telefono,correo,fecha_registro,fecha_retiro,estatus)
+	VALUES (@_RFID,@_NOMBRES,@_APE_P,@_APE_M,@_SEXO,@_FECHA_NAC,@_DIR,@_CODIGO_POS,@_ID_ESTADO,@_ID_MUNICIPIO,@_TELEFONO,@_MAIL,GETDATE(),Null,0)
+ELSE
+	UPDATE clientes SET id_membresia = @_RFID, nombre = @_NOMBRES, apellido_p = @_APE_P, apellido_m = @_APE_M, sexo = @_SEXO,
+	fecha_nacimiento = @_FECHA_NAC, direccion = @_DIR, codigo_postal = @_CODIGO_POS, id_estado = @_ID_ESTADO,
+	id_municipio = @_ID_MUNICIPIO, telefono = @_TELEFONO, correo = @_MAIL
+	WHERE id_membresia = @_RFID
+
+
+
+SELECT * FROM clientes WHERE id_membresia = 'a1b2c3d4'
