@@ -64,3 +64,7 @@ estatus bit
 go
  --update para agregar valores a campo estatus de inventario_areas
  update inventario_areas set estatus = 0
+
+ -- quitar not null a columnas
+ alter table areas_visitadas alter column hora_entrada time(7) null
+ alter table areas_visitadas alter column hora_salida time(7) null
