@@ -4,6 +4,7 @@
 
 --Se cambió el tipo de dato bigint por varchar(15) para los teléfonos
 ALTER TABLE empleados ALTER COLUMN telefono varchar(15) NULL
+ALTER TABLE clientes ALTER COLUMN telefono varchar(15) NULL
 
 --Se agregaron campo para verificar la accesibilidad a los miebros familiares de acuerdo a su edad
 alter table areas add codigo_edad_accesibilidad bit null

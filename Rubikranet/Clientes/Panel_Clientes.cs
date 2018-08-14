@@ -40,6 +40,8 @@ namespace Rubikranet.Clientes
             dtInicio.CustomFormat = "yyyy-MM-dd";
             dtFin.Format = DateTimePickerFormat.Custom;
             dtFin.CustomFormat = "yyyy-MM-dd";
+            dtNacimiento.Format = DateTimePickerFormat.Custom;
+            dtNacimiento.CustomFormat = "yyyy-MM-dd";
         }
         private void Actualizar()
         {
@@ -173,6 +175,11 @@ namespace Rubikranet.Clientes
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
 
         }
