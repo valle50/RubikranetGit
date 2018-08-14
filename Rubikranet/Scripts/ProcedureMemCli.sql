@@ -1,18 +1,17 @@
-CREATE PROCEDURE MEMBRESIA_CU
+ALTER PROCEDURE MEMBRESIA_CU
 @_CHECK INT,
 @_IDMEM VARCHAR(30),
 @_IDCAT INT,
 @_EMP INT,
 @_VIGINICIO DATE,
-@_VIGFIN DATE,
-@_ESTAT BIT
+@_VIGFIN DATE
 AS
 IF @_CHECK = '0'
-	INSERT INTO membresias(id_membresia,id_categoria,id_empleado,vigencia_inicio,vigencia_fin,estatus,fecha_registro,fecha_modificacion)
-	VALUES (@_IDMEM,@_IDCAT,@_EMP,@_VIGINICIO,@_VIGFIN,@_ESTAT,GETDATE(),GETDATE())
+	INSERT INTO membresias(id_membresia,id_categoria,id_empleado,vigencia_inicio,vigencia_fin,fecha_registro,fecha_modificacion,estatus)
+	VALUES (@_IDMEM,@_IDCAT,@_EMP,@_VIGINICIO,@_VIGFIN,GETDATE(),GETDATE(),0)
 else
 UPDATE membresias SET id_membresia = @_IDMEM, id_categoria = @_IDCAT, id_empleado = @_EMP, vigencia_inicio = @_VIGINICIO, 
-vigencia_fin = @_VIGFIN, estatus = @_ESTAT, fecha_registro = GETDATE(), fecha_modificacion = GETDATE()
+vigencia_fin = @_VIGFIN, fecha_modificacion = GETDATE()
 WHERE id_membresia = @_IDMEM
 GO
 
@@ -68,4 +67,4 @@ GO
 
 
 SELECT COUNT(*) as 'Registros' FROM membresia_familiar_miembros
-WHERE id_membresia = '04D195323C4D80'
+WHERE id_membresia = '108'

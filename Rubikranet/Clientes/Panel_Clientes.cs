@@ -19,8 +19,8 @@ namespace Rubikranet.Clientes
         }
 
         public static Panel_Clientes Instancia = new Panel_Clientes();
-        public static string nombre = "", id_privilegio = "";
-        public int id_empleado = 4, limit_mem = 0;
+        public static string nombre = "", id_privilegio = "", id_empleado = "4";
+        public int limit_mem = 0;
         string check = "0";
         Agregar_Miembros admem = new Agregar_Miembros();
 
@@ -37,9 +37,9 @@ namespace Rubikranet.Clientes
             nombre = Administracion.nombre;
             txtEmpleado.Text = nombre;
             dtInicio.Format = DateTimePickerFormat.Custom;
-            dtInicio.CustomFormat = "dd-MM-yyyy";
+            dtInicio.CustomFormat = "yyyy-MM-dd";
             dtFin.Format = DateTimePickerFormat.Custom;
-            dtFin.CustomFormat = "dd-MM-yyyy";
+            dtFin.CustomFormat = "yyyy-MM-dd";
         }
         private void Actualizar()
         {
@@ -114,8 +114,9 @@ namespace Rubikranet.Clientes
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string cat = (selectCategoria.SelectedItem as AttrCB).Value.ToString();
-
-            Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}','{6}' ", check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text,1));
+            Conexion.Ejecutar(String.Format("EXEC MEMBRESIA_CU '{0}','{1}','{2}','{3}','{4}','{5}'",check,txtMembresia.Text,cat,id_empleado,dtInicio.Text,dtFin.Text));
+            txtMemb.Text = txtMembresia.Text;
+            limpiar();
         }
 
         private void comboCantidadReg_SelectedIndexChanged(object sender, EventArgs e)
@@ -131,7 +132,6 @@ namespace Rubikranet.Clientes
             {
                 if (Convert.ToInt32(Conexion.result["id_categoria"]) == 4)
                 {
-
                     addMembers.Visible = true;
                     admem.cod = txtMemb.Text;
                     limit_mem = 5;
@@ -185,6 +185,25 @@ namespace Rubikranet.Clientes
             {
                 return Text;
             }
+        }
+
+        void limpiar() {
+
+            foreach (var ctrl in panel1.Controls.OfType<MetroFramework.Controls.MetroComboBox>())
+            {
+                var combo = ctrl as MetroFramework.Controls.MetroComboBox;
+                combo.SelectedIndex = 0;
+            }
+            selectCategoria.SelectedIndex = 0;
+
+            dtInicio.Value = DateTime.Now;
+            dtFin.Value = DateTime.Now;
+          
+            comboCantidadReg.SelectedIndex = 0;
+
+            txtMembresia.Text = "";
+            txtEmpleado.Text = "";
+
         }
 
     }
